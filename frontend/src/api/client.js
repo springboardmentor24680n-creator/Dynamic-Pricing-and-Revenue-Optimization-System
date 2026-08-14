@@ -149,6 +149,10 @@ export const pricingAPI = {
 // ======== AI API ========
 export const aiAPI = {
   getStatus: () => apiClient.get('/api/v1/ai/status'),
+  modelInfo: () => apiClient.get('/api/v1/ai/model-info'),
+  train: () => apiClient.post('/api/v1/ai/train'),
+  retrain: () => apiClient.post('/api/v1/ai/retrain'),
+  predict: (productId, params) => apiClient.get(`/api/v1/ai/predict/${productId}`, { params }),
   optimize: (productId, params) => apiClient.get(`/api/v1/ai/optimize/${productId}`, { params }),
   saveRecommendation: (productId) => apiClient.post(`/api/v1/ai/optimize/${productId}/save`, {}),
   batchOptimize: (params) => apiClient.get('/api/v1/ai/batch-optimize', { params }),
@@ -157,6 +161,13 @@ export const aiAPI = {
     apiClient.get(`/api/v1/ai/forecast/${productId}`, { params: { horizon, force } }),
   forecastPortfolio: (horizon = 30) =>
     apiClient.get('/api/v1/ai/forecast', { params: { horizon } }),
+  report: (productId, horizon = 30) =>
+    apiClient.get(`/api/v1/ai/report/${productId}`, { params: { horizon } }),
+  exportReport: (productId, format, horizon = 30) =>
+    apiClient.get(`/api/v1/ai/report/${productId}/export`, {
+      params: { format, horizon },
+      responseType: 'blob',
+    }),
 };
 
 // ======== Datasets API ========

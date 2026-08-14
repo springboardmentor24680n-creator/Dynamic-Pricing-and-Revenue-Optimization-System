@@ -182,6 +182,76 @@
   fill: #1e293b; /* surface-800 */
 }
 
+/* ============ Print: AI Analysis Report ============ */
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+
+  body {
+    background: #ffffff !important;
+  }
+
+  /* Hide everything except the report panel */
+  body * {
+    visibility: hidden;
+  }
+
+  #ai-analysis-report,
+  #ai-analysis-report * {
+    visibility: visible;
+  }
+
+  #ai-analysis-report {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Force light, print-friendly colors inside the report */
+  #ai-analysis-report .card,
+  #ai-analysis-report .card-body {
+    box-shadow: none !important;
+    border-color: #e2e8f0 !important;
+    background: #ffffff !important;
+  }
+
+  #ai-analysis-report .text-surface-900,
+  #ai-analysis-report .dark\:text-white {
+    color: #0f172a !important;
+  }
+
+  #ai-analysis-report .text-surface-700,
+  #ai-analysis-report .text-surface-600,
+  #ai-analysis-report .dark\:text-surface-300,
+  #ai-analysis-report .dark\:text-surface-400 {
+    color: #334155 !important;
+  }
+
+  #ai-analysis-report .dark\:bg-surface-700\/30,
+  #ai-analysis-report .dark\:bg-surface-700\/40,
+  #ai-analysis-report .bg-surface-50,
+  #ai-analysis-report .dark\:bg-surface-800 {
+    background: #f8fafc !important;
+  }
+
+  #ai-analysis-report .dark\:border-surface-700 {
+    border-color: #e2e8f0 !important;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .print\:shadow-none {
+    box-shadow: none !important;
+  }
+}
+
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 6px;

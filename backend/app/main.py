@@ -44,6 +44,7 @@ async def lifespan(app: FastAPI):
     import app.models.dataset  # noqa: F401 - register models
     import app.models.recommendation  # noqa: F401
     import app.models.access_request  # noqa: F401
+    import app.models.model_run  # noqa: F401 - persisted AI training runs
     Base.metadata.create_all(bind=engine)
     
     # Seed sample products if database is empty

@@ -22,6 +22,15 @@ class Sale(Base):
     sale_channel = Column(String(50))
     region = Column(String(100))
     customer_segment = Column(String(50))
+    
+    # Synthetic-history factors (set when sales history is auto-generated so the
+    # demand forecasting / training pipeline can explain WHY a day sold what it did)
+    season_factor = Column(Float, nullable=True)
+    demand_factor = Column(Float, nullable=True)
+    trend_factor = Column(Float, nullable=True)
+    weekend_effect = Column(Float, nullable=True)
+    festival_effect = Column(Float, nullable=True)
+    
     created_at = Column(DateTime, server_default=func.now())
     
     # Relationships

@@ -4,16 +4,20 @@ import { useToast } from '../context/ToastContext';
 import {
   LineChart as LineChartIcon, TrendingUp, TrendingDown, Minus, Loader2,
   RefreshCw, CalendarRange, BarChart3, AlertCircle, Sparkles, ArrowRight,
-  Activity,
+  Activity, Sun, Snowflake, Flower2, Leaf, PartyPopper,
 } from 'lucide-react';
 import {
   ResponsiveContainer, ComposedChart, Area, Line, XAxis, YAxis, CartesianGrid,
-  Tooltip, ReferenceLine, Legend,
+  Tooltip, ReferenceLine, Legend, BarChart, Bar, Cell,
 } from 'recharts';
 
 const CHART_COLORS = { actual: '#2563eb', forecast: '#8b5cf6', band: '#8b5cf6' };
 
-const HORIZONS = [7, 14, 30, 60, 90];
+// Milestone 2 horizons: short (7/14/30d), medium (3M/6M), long (12M)
+const HORIZONS = [
+  { d: 7, l: '7D' }, { d: 14, l: '14D' }, { d: 30, l: '30D' },
+  { d: 90, l: '3M' }, { d: 180, l: '6M' }, { d: 365, l: '12M' },
+];
 
 function formatMoney(v) {
   return `$${Number(v || 0).toLocaleString(undefined, { maximumFractionDigits: 0 })}`;
@@ -145,6 +149,17 @@ export default function ForecastingPanel({ onUseInOptimization }) {
     }
   };
 
+  // Prophet decomposition window: components cover history + forecast; slice a
+  // ~90-day window centred on today so the weekly wave stays readable.
+  const components = forecast?.components || [];
+  const compWindow = useMemo(() => {
+    if (!components.length) return [];
+    const hLen = forecast?.history?.length || 0;
+    const start = Math.max(0, hLen - 45);
+    const end = Math.min(components.length, hLen + 45);
+    return components.slice(start, end);
+  }, [components, forecast?.history?.length]);
+
   // Merge history + forecast into a single chart series (keep last 45 history days)
   const chartData = useMemo(() => {
     const merged = [];
@@ -169,6 +184,9 @@ export default function ForecastingPanel({ onUseInOptimization }) {
     if (!pts.length) return 0;
     return pts.reduce((acc, p) => acc + (p.yhat_upper - p.yhat_lower) / Math.max(p.yhat, 1), 0) / pts.length * 100;
   }, [forecast]);
+
+  const fmtUnits = (v) =>
+    v == null ? '—' : Number(v).toLocaleString(undefined, { maximumFractionDigits: 0 });
 
   const kpis = [
     {
@@ -200,6 +218,8 @@ export default function ForecastingPanel({ onUseInOptimization }) {
   const selectedProduct = products.find((p) => p.id === selectedId);
   const insufficient = forecast?.insufficient_data;
   const isFallback = forecast?.fallback;
+  const da = forecast?.demand_analysis || {};
+  const seasonality = forecast?.seasonality || {};
 
   return (
     <div className="space-y-6">
@@ -223,17 +243,17 @@ export default function ForecastingPanel({ onUseInOptimization }) {
             <div>
               <label className="label">Forecast Horizon</label>
               <div className="flex items-center gap-1 p-1 rounded-lg bg-surface-100 dark:bg-surface-700/60">
-                {HORIZONS.map((h) => (
+                {HORIZONS.map(({ d, l }) => (
                   <button
-                    key={h}
-                    onClick={() => setHorizon(h)}
+                    key={d}
+                    onClick={() => setHorizon(d)}
                     className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
-                      horizon === h
+                      horizon === d
                         ? 'bg-white dark:bg-surface-600 text-primary-600 dark:text-primary-300 shadow-sm'
                         : 'text-surface-500 hover:text-surface-700 dark:hover:text-surface-200'
                     }`}
                   >
-                    {h}d
+                    {l}
                   </button>
                 ))}
               </div>
@@ -255,6 +275,12 @@ export default function ForecastingPanel({ onUseInOptimization }) {
               {forecast?.fallback_reason === 'prophet_unavailable'
                 ? 'Prophet STAN backend is unavailable in this environment — showing a fast trend estimate with confidence bounds instead.'
                 : 'Limited sales history — showing a fast trend estimate instead of a full Prophet fit.'}
+            </p>
+          )}
+          {forecast?.horizon_note && (
+            <p className="mt-3 text-xs text-amber-600 dark:text-amber-400 flex items-start gap-1.5">
+              <AlertCircle className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" />
+              {forecast.horizon_note}
             </p>
           )}
         </div>
@@ -314,6 +340,263 @@ export default function ForecastingPanel({ onUseInOptimization }) {
             </div>
           </div>
 
+          {/* Compact Demand Analysis (Milestone 2) */}
+          {da?.available && (
+            <div className="card overflow-hidden border-l-4 border-l-blue-500">
+              <div className="card-header">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-semibold text-surface-900 dark:text-white flex items-center gap-2">
+                    <Activity className="w-4 h-4 text-blue-500" /> Demand Analysis
+                  </h3>
+                  <span className="text-xs text-surface-400">historical vs forecast demand · {horizon}d</span>
+                </div>
+              </div>
+              <div className="card-body">
+                <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
+                  <div className="p-3 rounded-xl bg-surface-50 dark:bg-surface-700/40 border border-surface-200 dark:border-surface-700">
+                    <p className="text-[10px] font-medium uppercase tracking-wide text-surface-400">Historical Demand</p>
+                    <p className="text-lg font-bold text-surface-900 dark:text-white mt-1">{fmtUnits(da.historical_units)}</p>
+                    <p className="text-[10px] text-surface-400 mt-0.5">{da.historical_days} days · {fmtUnits(da.avg_daily_units)}/day</p>
+                  </div>
+                  <div className="p-3 rounded-xl bg-surface-50 dark:bg-surface-700/40 border border-surface-200 dark:border-surface-700">
+                    <p className="text-[10px] font-medium uppercase tracking-wide text-surface-400">Forecast Demand</p>
+                    <p className="text-lg font-bold text-blue-600 dark:text-blue-400 mt-1">{fmtUnits(da.forecast_units)}</p>
+                    <p className="text-[10px] text-surface-400 mt-0.5">next {horizon} days</p>
+                  </div>
+                  <div className="p-3 rounded-xl bg-surface-50 dark:bg-surface-700/40 border border-surface-200 dark:border-surface-700">
+                    <p className="text-[10px] font-medium uppercase tracking-wide text-surface-400">Demand Change</p>
+                    <div className="mt-1">
+                      <TrendBadge trend={da.trend} growth={da.demand_change_pct} />
+                    </div>
+                    <p className="text-[10px] text-surface-400 mt-1">vs trailing {Math.min(horizon, da.historical_days)} days</p>
+                  </div>
+                  <div className="p-3 rounded-xl bg-surface-50 dark:bg-surface-700/40 border border-surface-200 dark:border-surface-700">
+                    <p className="text-[10px] font-medium uppercase tracking-wide text-surface-400">Forecast Confidence</p>
+                    <p className="text-lg font-bold text-surface-900 dark:text-white mt-1">
+                      {metrics.forecast_confidence != null ? `${metrics.forecast_confidence.toFixed(0)}%` : '—'}
+                    </p>
+                    <p className="text-[10px] text-surface-400 mt-0.5">from 80% CI band</p>
+                  </div>
+                  <div className="p-3 rounded-xl bg-surface-50 dark:bg-surface-700/40 border border-surface-200 dark:border-surface-700">
+                    <p className="text-[10px] font-medium uppercase tracking-wide text-surface-400">Avg Unit Price</p>
+                    <p className="text-lg font-bold text-surface-900 dark:text-white mt-1">{formatMoney(da.avg_unit_price)}</p>
+                    <p className="text-[10px] text-surface-400 mt-0.5">realized in history</p>
+                  </div>
+                </div>
+                {da.insight && (
+                  <p className="mt-4 text-sm text-surface-600 dark:text-surface-300 bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/50 rounded-xl p-3">
+                    {da.insight}
+                  </p>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Seasonal Trend Analysis (Milestone 2) */}
+          {seasonality?.supported && (
+            <div className="card">
+              <div className="card-header">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-semibold text-surface-900 dark:text-white flex items-center gap-2">
+                    <BarChart3 className="w-4 h-4 text-violet-500" /> Seasonal Trend Analysis
+                  </h3>
+                  <span className="text-xs text-surface-400">weekly & monthly patterns from real sales history</span>
+                </div>
+              </div>
+              <div className="card-body">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <div>
+                    <p className="text-[11px] font-medium text-surface-500 mb-2">Day of Week — demand index vs weekly average</p>
+                    <ResponsiveContainer width="100%" height={190}>
+                      <BarChart data={seasonality.day_of_week || []} margin={{ top: 5, right: 5, left: -18, bottom: 0 }}>
+                        <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" opacity={0.5} />
+                        <XAxis dataKey="day" tick={{ fontSize: 11 }} />
+                        <YAxis tick={{ fontSize: 11 }} domain={[0, 'auto']} />
+                        <Tooltip cursor={{ fill: '#f1f5f9' }} contentStyle={{ borderRadius: 12, fontSize: 12 }} />
+                        <ReferenceLine y={1} stroke="#94a3b8" strokeDasharray="4 4" />
+                        <Bar dataKey="index" radius={[4, 4, 0, 0]}>
+                          {(seasonality.day_of_week || []).map((d) => (
+                            <Cell key={d.day} fill={d.index >= 1.15 ? '#7c3aed' : d.index <= 0.85 ? '#f59e0b' : '#c4b5fd'} />
+                          ))}
+                        </Bar>
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-medium text-surface-500 mb-2">Month — demand index vs overall average</p>
+                    {seasonality.monthly?.length ? (
+                      <ResponsiveContainer width="100%" height={190}>
+                        <BarChart data={seasonality.monthly} margin={{ top: 5, right: 5, left: -18, bottom: 0 }}>
+                          <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" opacity={0.5} />
+                          <XAxis dataKey="month" tick={{ fontSize: 11 }} />
+                          <YAxis tick={{ fontSize: 11 }} domain={[0, 'auto']} />
+                          <Tooltip cursor={{ fill: '#f1f5f9' }} contentStyle={{ borderRadius: 12, fontSize: 12 }} />
+                          <ReferenceLine y={1} stroke="#94a3b8" strokeDasharray="4 4" />
+                          <Bar dataKey="index" radius={[4, 4, 0, 0]}>
+                            {seasonality.monthly.map((m) => (
+                              <Cell key={m.month} fill={m.index >= 1.15 ? '#7c3aed' : m.index <= 0.85 ? '#f59e0b' : '#c4b5fd'} />
+                            ))}
+                          </Bar>
+                        </BarChart>
+                      </ResponsiveContainer>
+                    ) : (
+                      <div className="h-[190px] flex items-center justify-center rounded-xl bg-surface-50 dark:bg-surface-700/40 border border-dashed border-surface-200 dark:border-surface-700">
+                        <p className="text-sm text-surface-400 px-6 text-center">
+                          Not enough history to identify a reliable monthly pattern (need ~1.5 months of sales).
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                {seasonality.insight_text && (
+                  <p className="mt-4 text-sm text-surface-600 dark:text-surface-300 bg-violet-50 dark:bg-violet-900/20 border border-violet-100 dark:border-violet-800/50 rounded-xl p-3">
+                    {seasonality.insight_text}
+                  </p>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Business Seasonality — real seasonal & festival demand insights */}
+          {forecast?.business_seasonality?.supported && (
+            <div className="card">
+              <div className="card-header">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-semibold text-surface-900 dark:text-white flex items-center gap-2">
+                    <Sun className="w-4 h-4 text-amber-500" /> Business Seasonality Analysis
+                  </h3>
+                  <span className="text-xs text-surface-400">real seasonal & festival demand from sales history</span>
+                </div>
+              </div>
+              <div className="card-body">
+                {/* Season cards: Winter / Spring / Summer / Autumn */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                  {(forecast.business_seasonality.seasons || []).map((s) => {
+                    const SeasonIcon = s.season === 'Winter' ? Snowflake
+                      : s.season === 'Spring' ? Flower2
+                      : s.season === 'Summer' ? Sun : Leaf;
+                    return (
+                      <div key={s.season} className={`p-3.5 rounded-xl border ${
+                        !s.supported
+                          ? 'border-amber-200 dark:border-amber-800 bg-amber-50/60 dark:bg-amber-900/10'
+                          : s.direction === 'higher'
+                            ? 'border-emerald-200 dark:border-emerald-800/60 bg-emerald-50/60 dark:bg-emerald-900/10'
+                            : s.direction === 'lower'
+                              ? 'border-sky-200 dark:border-sky-800/60 bg-sky-50/60 dark:bg-sky-900/10'
+                              : 'border-surface-200 dark:border-surface-700 bg-surface-50/60 dark:bg-surface-800/40'
+                      }`}>
+                        <div className="flex items-center justify-between mb-1.5">
+                          <div className="flex items-center gap-2">
+                            <SeasonIcon className="w-4 h-4 text-amber-500" />
+                            <span className="text-sm font-semibold text-surface-900 dark:text-white">{s.season}</span>
+                          </div>
+                          {!s.supported ? (
+                            <span className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400">
+                              Insufficient
+                            </span>
+                          ) : s.direction === 'higher' ? (
+                            <span className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400">
+                              {s.change_pct >= 0 ? '+' : ''}{s.change_pct}%
+                            </span>
+                          ) : s.direction === 'lower' ? (
+                            <span className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-sky-100 dark:bg-sky-900/40 text-sky-700 dark:text-sky-400">
+                              {s.change_pct >= 0 ? '+' : ''}{s.change_pct}%
+                            </span>
+                          ) : (
+                            <span className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-surface-100 dark:bg-surface-700/60 text-surface-500 dark:text-surface-400">
+                              {s.change_pct >= 0 ? '+' : ''}{s.change_pct}%
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-[11px] text-surface-500 dark:text-surface-400 mb-2">
+                          {s.months} · {s.days_covered} days covered
+                          {s.supported && (
+                            <span className="block text-surface-400">
+                              {s.avg_daily_units} vs {s.year_avg_daily_units} units/day
+                            </span>
+                          )}
+                        </p>
+                        <p className="text-xs text-surface-600 dark:text-surface-300 leading-snug">
+                          {s.insight}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Festival / holiday impact */}
+                <div className={`mt-3 p-3.5 rounded-xl border ${
+                  forecast.business_seasonality.festival?.supported
+                    ? 'border-violet-200 dark:border-violet-800/60 bg-violet-50/60 dark:bg-violet-900/10'
+                    : 'border-amber-200 dark:border-amber-800 bg-amber-50/60 dark:bg-amber-900/10'
+                }`}>
+                  <div className="flex items-center gap-2 mb-1">
+                    <PartyPopper className="w-4 h-4 text-violet-500" />
+                    <span className="text-sm font-semibold text-surface-900 dark:text-white">Festival / Holiday Periods</span>
+                  </div>
+                  {forecast.business_seasonality.festival?.supported ? (
+                    <>
+                      <p className="text-xs text-surface-600 dark:text-surface-300">
+                        {forecast.business_seasonality.festival.insight}
+                      </p>
+                      <p className="mt-1 text-[11px] text-surface-400">
+                        {forecast.business_seasonality.festival.avg_festival_units} units/day on festival days vs{' '}
+                        {forecast.business_seasonality.festival.avg_normal_units} units/day normally
+                        {forecast.business_seasonality.festival.baseline_note && ` (${forecast.business_seasonality.festival.baseline_note})`}
+                      </p>
+                    </>
+                  ) : (
+                    <p className="text-xs text-amber-600 dark:text-amber-400">
+                      {forecast.business_seasonality.festival?.insight}
+                    </p>
+                  )}
+                </div>
+
+                {/* Concise insight list */}
+                {forecast.business_seasonality.insights?.length > 0 && (
+                  <div className="mt-3 space-y-1.5">
+                    {forecast.business_seasonality.insights.map((ins, i) => (
+                      <p key={i} className="flex items-start gap-2 text-xs text-surface-600 dark:text-surface-300">
+                        <Sparkles className="w-3.5 h-3.5 text-amber-500 mt-0.5 flex-shrink-0" />
+                        {ins}
+                      </p>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Model Inputs — data coverage (Milestone 2) */}
+          {forecast?.data_coverage && (
+            <div className="card">
+              <div className="card-header">
+                <h3 className="text-sm font-semibold text-surface-900 dark:text-white flex items-center gap-2">
+                  <BarChart3 className="w-4 h-4 text-primary-500" /> Model Inputs — Data Coverage
+                </h3>
+              </div>
+              <div className="card-body">
+                <p className="text-[11px] font-medium text-surface-500 mb-2">Available in current dataset</p>
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {forecast.data_coverage.available.map((f) => (
+                    <span key={f} className="px-2 py-1 rounded-md bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 text-[10px] font-medium">
+                      {f}
+                    </span>
+                  ))}
+                </div>
+                <p className="text-[11px] font-medium text-amber-600 dark:text-amber-400 mb-2">Not available in current dataset</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {forecast.data_coverage.unavailable.map((f) => (
+                    <span key={f} className="px-2 py-1 rounded-md bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 text-[10px] font-medium">
+                      {f}
+                    </span>
+                  ))}
+                </div>
+                <p className="mt-3 text-[11px] text-surface-400">{forecast.data_coverage.note}</p>
+              </div>
+            </div>
+          )}
+
           {/* Confidence band chart */}
           <div className="card">
             <div className="card-header">
@@ -360,6 +643,70 @@ export default function ForecastingPanel({ onUseInOptimization }) {
                     <Line type="monotone" dataKey="actual" name="Actual" stroke={CHART_COLORS.actual} strokeWidth={2} dot={false} />
                   </ComposedChart>
                 </ResponsiveContainer>
+              )}
+            </div>
+          </div>
+
+          {/* Prophet Decomposition — real fitted components */}
+          <div className="card">
+            <div className="card-header">
+              <div className="flex items-center justify-between">
+                <h3 className="text-sm font-semibold text-surface-900 dark:text-white flex items-center gap-2">
+                  <BarChart3 className="w-4 h-4 text-blue-500" /> Prophet Decomposition
+                </h3>
+                <span className="text-xs text-surface-400">fitted trend + weekly seasonality</span>
+              </div>
+            </div>
+            <div className="card-body">
+              {components.length === 0 ? (
+                <div className="flex items-start gap-3 p-4 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800">
+                  <AlertCircle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                  <p className="text-sm text-amber-700 dark:text-amber-300">
+                    Decomposition is available when the Prophet model fits. This forecast used the fast trend
+                    estimate (fallback), so the fitted trend and weekly-seasonality components are not available
+                    for this run.
+                  </p>
+                </div>
+              ) : (
+                <>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                      <p className="text-[11px] font-medium text-surface-500 mb-2">Trend Component — long-run revenue level ($)</p>
+                      <ResponsiveContainer width="100%" height={200}>
+                        <ComposedChart data={compWindow} margin={{ top: 5, right: 5, left: 0, bottom: 0 }}>
+                          <defs>
+                            <linearGradient id="trendGrad" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="5%" stopColor="#2563eb" stopOpacity={0.25} />
+                              <stop offset="95%" stopColor="#2563eb" stopOpacity={0.02} />
+                            </linearGradient>
+                          </defs>
+                          <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" opacity={0.5} />
+                          <XAxis dataKey="date" tick={{ fontSize: 10 }} tickFormatter={(v) => v?.slice(5)} minTickGap={28} />
+                          <YAxis tick={{ fontSize: 10 }} tickFormatter={(v) => `$${Number(v).toLocaleString()}`} />
+                          <Tooltip contentStyle={{ borderRadius: 12, fontSize: 12 }} formatter={(v) => `$${Number(v).toLocaleString()}`} />
+                          <Area type="monotone" dataKey="trend" stroke="#2563eb" strokeWidth={2} fill="url(#trendGrad)" name="Trend" />
+                        </ComposedChart>
+                      </ResponsiveContainer>
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-medium text-surface-500 mb-2">Weekly Seasonality — repeating 7-day effect ($)</p>
+                      <ResponsiveContainer width="100%" height={200}>
+                        <ComposedChart data={compWindow} margin={{ top: 5, right: 5, left: 0, bottom: 0 }}>
+                          <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" opacity={0.5} />
+                          <XAxis dataKey="date" tick={{ fontSize: 10 }} tickFormatter={(v) => v?.slice(5)} minTickGap={28} />
+                          <YAxis tick={{ fontSize: 10 }} tickFormatter={(v) => `$${Number(v).toLocaleString()}`} />
+                          <Tooltip contentStyle={{ borderRadius: 12, fontSize: 12 }} formatter={(v) => `$${Number(v).toLocaleString()}`} />
+                          <ReferenceLine y={0} stroke="#94a3b8" strokeDasharray="4 4" />
+                          <Line type="monotone" dataKey="weekly" stroke="#8b5cf6" strokeWidth={2} dot={false} name="Weekly" />
+                        </ComposedChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </div>
+                  <p className="mt-3 text-[11px] text-surface-400">
+                    Components read directly from the fitted Prophet model — the trend is the long-run revenue
+                    level and weekly is the repeating 7-day effect around it (real fitted values, never synthetic).
+                  </p>
+                </>
               )}
             </div>
           </div>

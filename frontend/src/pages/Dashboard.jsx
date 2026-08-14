@@ -272,18 +272,21 @@ export default function Dashboard() {
   const growth = computeGrowth(trend);
   const aiReady = aiStatus?.status === 'ready';
 
-  // Model performance from the real training metrics (cv_errors = MAE per model).
+  // Model performance from the persisted training run (model_info from backend).
+  // Each candidate model carries real MAE / RMSE / R² measured at training time.
   const modelRows = useMemo(() => {
-    const errs = aiStatus?.cv_errors || {};
-    const names = Object.keys(errs);
+    const metrics = aiStatus?.model_info?.metrics || {};
+    const names = Object.keys(metrics);
     if (!names.length) return [];
-    const best = Math.min(...names.map((n) => errs[n] || Infinity));
+    const best = Math.max(...names.map((n) => metrics[n]?.r2 ?? -Infinity));
     return names.map((name) => ({
       name,
-      mae: errs[name],
-      // Relative performance: lower MAE = better. Scale against best model.
-      score: best > 0 ? Math.round((best / Math.max(errs[name], 0.0001)) * 100) : 0,
-      isBest: aiStatus?.best_model === name,
+      mae: metrics[name]?.mae ?? 0,
+      rmse: metrics[name]?.rmse ?? 0,
+      r2: metrics[name]?.r2 ?? 0,
+      // Relative performance: higher R² = better. Scale against best model.
+      score: best > 0 ? Math.round((Math.max(metrics[name]?.r2 ?? 0, 0) / best) * 100) : 0,
+      isBest: aiStatus?.best_model === name || metrics[name]?.r2 === best,
     }));
   }, [aiStatus]);
 
@@ -797,7 +800,9 @@ export default function Dashboard() {
                     <Sparkles className="w-3.5 h-3.5" /> Best Model
                   </div>
                   <p className="text-xl font-bold">{aiStatus.best_model}</p>
-                  <p className="text-[11px] text-primary-100/80 mt-0.5">Selected by cross-validation (lowest MAE)</p>
+                  <p className="text-[11px] text-primary-100/80 mt-0.5">
+                    Trained on {aiStatus.model_info?.dataset_name || 'your catalog'} · R² {aiStatus.accuracy ?? 0}
+                  </p>
                 </div>
                 <div className="space-y-3">
                   {modelRows.map((m) => (
@@ -807,7 +812,9 @@ export default function Dashboard() {
                           {m.isBest && <Crown className="w-3 h-3 text-amber-500" />}
                           {m.name}
                         </span>
-                        <span className="text-xs font-mono text-surface-500">MAE {fmtMoney(m.mae)}</span>
+                        <span className="text-xs font-mono text-surface-500">
+                          R² {m.r2.toFixed(3)} · MAE {fmtMoney(m.mae)}
+                        </span>
                       </div>
                       <div className="w-full bg-surface-200 dark:bg-surface-700 rounded-full h-1.5">
                         <div
@@ -824,10 +831,12 @@ export default function Dashboard() {
                     <p className="text-[10px] text-surface-400">Training Records</p>
                   </div>
                   <div className="p-3 rounded-lg bg-surface-50 dark:bg-surface-700/40 border border-surface-200 dark:border-surface-700">
-                    <p className="text-lg font-bold text-surface-900 dark:text-white">
-                      {aiStatus.forecasting?.engine ? 'Prophet' : '—'}
+                    <p className="text-lg font-bold text-surface-900 dark:text-white truncate">
+                      {aiStatus.model_info?.created_at
+                        ? new Date(aiStatus.model_info.created_at).toLocaleDateString()
+                        : '—'}
                     </p>
-                    <p className="text-[10px] text-surface-400">Forecast Engine</p>
+                    <p className="text-[10px] text-surface-400">Last Trained</p>
                   </div>
                 </div>
               </>

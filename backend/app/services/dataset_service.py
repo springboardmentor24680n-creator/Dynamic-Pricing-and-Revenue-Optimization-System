@@ -333,6 +333,7 @@ class DatasetProcessingService:
         df, _, _, _ = self._clean_dataframe(df)
 
         inserted, skipped, errors = 0, 0, 0
+        self._newly_imported = []
         for _, row in df.iterrows():
             try:
                 sku = str(row.get("sku", "") or "").strip()
@@ -371,6 +372,7 @@ class DatasetProcessingService:
                 )
                 self.db.add(product)
                 self.db.flush()
+                self._newly_imported.append(product)
 
                 self.db.add(PricingHistory(
                     product_id=product.id,
@@ -383,6 +385,10 @@ class DatasetProcessingService:
             except Exception:
                 errors += 1
                 continue
+
+        # Capture the newly-imported product ids so the follow-up pipeline can
+        # generate sales history + kick off AI training for exactly these rows.
+        new_product_ids = [p.id for p in self._newly_imported]
 
         self.db.add(ImportLog(
             dataset_id=dataset_id,
@@ -400,11 +406,33 @@ class DatasetProcessingService:
         ))
         self.db.commit()
 
+        # Auto-pipeline: generate realistic sales history for the new products
+        # (if the dataset didn't provide it) and train the AI models on the
+        # refreshed catalog - both in the background so the import returns fast.
+        auto_pipeline = {}
+        if inserted > 0:
+            try:
+                from app.services.sales_history_service import SalesHistoryService
+                sales_svc = SalesHistoryService(self.db)
+                auto_pipeline["sales_history"] = sales_svc.ensure_history_for_products(new_product_ids)
+            except Exception as exc:  # noqa: BLE001 - never fail the import
+                auto_pipeline["sales_history"] = {"error": str(exc)}
+            try:
+                from app.services.training_service import ModelTrainingService
+                training_svc = ModelTrainingService(self.db)
+                auto_pipeline["training_run_id"] = training_svc.start_background_training(
+                    user_id, dataset_id=dataset_id, dataset_name=dataset.name
+                )
+            except Exception as exc:  # noqa: BLE001
+                auto_pipeline["training_run_id"] = None
+                auto_pipeline["training_error"] = str(exc)
+
         return {
             "inserted": inserted,
             "skipped": skipped,
             "errors": errors,
             "message": f"Imported {inserted} products (skipped {skipped} duplicates, {errors} errors)",
+            "auto_pipeline": auto_pipeline,
         }
 
     def save_uploaded_file(self, content: bytes, filename: str) -> str:

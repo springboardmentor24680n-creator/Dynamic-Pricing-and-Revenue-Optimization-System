@@ -276,13 +276,14 @@ def _migrate_postgres():
         from app.models.activity_log import ActivityLog
         from app.models.forecast import ForecastRun
         from app.models.access_request import AccessRequest
+        from app.models.model_run import ModelRun
 
         reconcile = [
             ("products", Product), ("sales", Sale),
             ("recommendations", Recommendation), ("datasets", Dataset),
             ("import_logs", ImportLog), ("pricing_history", PricingHistory),
             ("activity_logs", ActivityLog), ("forecast_runs", ForecastRun),
-            ("access_requests", AccessRequest),
+            ("access_requests", AccessRequest), ("model_runs", ModelRun),
         ]
         for table_name, model in reconcile:
             cur.execute("SELECT to_regclass(%s)", (f"public.{table_name}",))

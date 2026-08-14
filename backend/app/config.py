@@ -34,6 +34,9 @@ class Settings(BaseSettings):
     # Data
     DATA_DIR: str = "data_uploaded"
     
+    # Trained model artifacts (joblib files) live here
+    MODEL_DIR: str = "ml_models"
+    
     # Auth
     RESET_TOKEN_EXPIRE_MINUTES: int = 60
     

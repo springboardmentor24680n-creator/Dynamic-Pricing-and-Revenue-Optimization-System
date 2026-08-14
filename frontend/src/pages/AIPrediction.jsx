@@ -1,19 +1,23 @@
 import { useState, useEffect, useCallback } from 'react';
-import { aiAPI, productsAPI, pricingAPI } from '../api/client';
+import { aiAPI, productsAPI, pricingAPI, downloadBlob } from '../api/client';
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../context/ToastContext';
 import ConfirmDialog from '../components/ConfirmDialog';
 import ForecastingPanel from '../components/ForecastingPanel';
+import AiAnalysisReport from '../components/AiAnalysisReport';
 import {
   BrainCircuit, Loader2, Sparkles, CheckCircle2, AlertCircle,
   RefreshCw, TrendingUp, TrendingDown, ArrowRight, Search,
   Layers, Database, XCircle, Gauge, LineChart as LineChartIcon, Minus,
+  Cpu, FileSpreadsheet, CalendarClock, ListChecks, Timer, FileText,
 } from 'lucide-react';
 
 export default function AIPrediction() {
   const { user } = useAuth();
   const toast = useToast();
   const [status, setStatus] = useState(null);
+  const [modelInfo, setModelInfo] = useState(null);
+  const [training, setTraining] = useState(false);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -25,6 +29,10 @@ export default function AIPrediction() {
   const [saveTarget, setSaveTarget] = useState(null);
   const [saving, setSaving] = useState(false);
   const [recommendations, setRecommendations] = useState([]);
+  // AI Prediction Analysis Report: auto-generates after a prediction completes.
+  const [reportProduct, setReportProduct] = useState(null); // product the report is for
+  const [report, setReport] = useState(null);               // report payload
+  const [reportLoading, setReportLoading] = useState(false);
   // Deep-link support: /ai?tab=forecasting opens the Demand Forecasting tab
   // (used by the dashboard's "Generate Forecast" quick action).
   const [tab, setTab] = useState(
@@ -37,6 +45,14 @@ export default function AIPrediction() {
     try {
       const res = await aiAPI.getStatus();
       setStatus(res.data);
+      setTraining(!!res.data?.training_in_progress);
+    } catch { /* ignore */ }
+  }, []);
+
+  const fetchModelInfo = useCallback(async () => {
+    try {
+      const res = await aiAPI.modelInfo();
+      setModelInfo(res.data);
     } catch { /* ignore */ }
   }, []);
 
@@ -71,9 +87,20 @@ export default function AIPrediction() {
 
   useEffect(() => {
     fetchStatus();
+    fetchModelInfo();
     fetchCategories();
     fetchRecommendations();
-  }, [fetchStatus, fetchCategories, fetchRecommendations]);
+  }, [fetchStatus, fetchModelInfo, fetchCategories, fetchRecommendations]);
+
+  // Poll while training is running so the Model Info card updates when done.
+  useEffect(() => {
+    if (!training) return undefined;
+    const id = setInterval(() => {
+      fetchStatus();
+      fetchModelInfo();
+    }, 4000);
+    return () => clearInterval(id);
+  }, [training, fetchStatus, fetchModelInfo]);
 
   useEffect(() => {
     const timer = setTimeout(() => fetchProducts(), 300);
@@ -83,12 +110,40 @@ export default function AIPrediction() {
   const runAnalysis = async (product, options = {}) => {
     setAnalyzing(product.id);
     try {
-      const res = await aiAPI.optimize(product.id, options.includeForecast ? { include_forecast: true } : {});
+      // Predict always uses the persisted model - never retrains per request.
+      const res = await aiAPI.predict(product.id, options.includeForecast ? { include_forecast: true } : {});
       setResults((prev) => ({ ...prev, [product.id]: res.data }));
+      // Auto-generate the AI Analysis Report after every completed prediction.
+      loadReport(product);
     } catch (err) {
       toast.error('Analysis failed', err.response?.data?.detail);
     } finally {
       setAnalyzing(null);
+    }
+  };
+
+  const loadReport = async (product, options = {}) => {
+    setReportProduct(product);
+    setReportLoading(true);
+    setReport(null);
+    try {
+      const res = await aiAPI.report(product.id, options.horizon);
+      setReport(res.data);
+    } catch (err) {
+      toast.error('Report generation failed', err.response?.data?.detail);
+    } finally {
+      setReportLoading(false);
+    }
+  };
+
+  const handleRetrain = async () => {
+    setTraining(true);
+    try {
+      const res = await aiAPI.retrain();
+      toast.success('Training started', res.data.message);
+    } catch (err) {
+      setTraining(false);
+      toast.error('Training could not start', err.response?.data?.detail);
     }
   };
 
@@ -263,6 +318,105 @@ export default function AIPrediction() {
         </div>
       </div>
 
+      {/* Model Information Card */}
+      <div className="card overflow-hidden border-l-4 border-l-primary-500">
+        <div className="card-header flex items-center justify-between flex-wrap gap-3">
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-lg bg-primary-100 dark:bg-primary-900/30">
+              <Cpu className="w-5 h-5 text-primary-600 dark:text-primary-400" />
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-surface-900 dark:text-white">AI Model Information</h3>
+              <p className="text-xs text-surface-500">Trained on your uploaded dataset — prediction uses the persisted model</p>
+            </div>
+          </div>
+          {isAdminOrPricing && (
+            <button onClick={handleRetrain} disabled={training} className="btn-primary btn-sm">
+              {training ? <Loader2 className="w-4 h-4 animate-spin" /> : <RefreshCw className="w-4 h-4" />}
+              {training ? 'Training…' : 'Retrain Model'}
+            </button>
+          )}
+        </div>
+        <div className="card-body">
+          {training && (
+            <div className="mb-4 flex items-center gap-3 p-3 rounded-xl bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800">
+              <Loader2 className="w-5 h-5 animate-spin text-primary-500" />
+              <p className="text-sm text-primary-700 dark:text-primary-300">
+                AI models are training in the background on your latest catalog and sales history — this page refreshes automatically.
+              </p>
+            </div>
+          )}
+          {!modelInfo || !modelInfo.has_model ? (
+            <div className="p-4 rounded-xl bg-surface-50 dark:bg-surface-700/40 border border-surface-200 dark:border-surface-700 flex items-start gap-3">
+              <AlertCircle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="text-sm font-medium text-surface-900 dark:text-white">No trained model yet</p>
+                <p className="text-xs text-surface-500 dark:text-surface-400 mt-0.5">
+                  {modelInfo?.message || 'Upload a dataset, import it into the catalog, and AI training runs automatically — or click Retrain Model.'}
+                </p>
+              </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+              {[
+                { label: 'Best Model', value: modelInfo.best_model || '—', sub: `R² ${modelInfo.accuracy ?? '—'}` },
+                { label: 'Accuracy (R²)', value: modelInfo.accuracy != null ? `${(modelInfo.accuracy * 100).toFixed(1)}%` : '—', sub: `MAE $${(modelInfo.mae ?? 0).toFixed(2)} · RMSE $${(modelInfo.rmse ?? 0).toFixed(2)}` },
+                { label: 'Training Dataset', value: modelInfo.dataset_name || 'Catalog', sub: `#${modelInfo.dataset_id || '—'}` },
+                { label: 'Training Records', value: modelInfo.samples ?? 0, sub: `${(modelInfo.features_used?.length ?? 0)} features` },
+                { label: 'Training Date', value: modelInfo.created_at ? new Date(modelInfo.created_at).toLocaleDateString() : '—', sub: modelInfo.created_at ? new Date(modelInfo.created_at).toLocaleTimeString() : '—' },
+              ].map((item) => (
+                <div key={item.label} className="p-3 rounded-xl bg-surface-50 dark:bg-surface-700/40 border border-surface-200 dark:border-surface-700">
+                  <p className="text-[10px] font-medium uppercase tracking-wide text-surface-400">{item.label}</p>
+                  <p className="text-base font-bold text-surface-900 dark:text-white mt-1 truncate" title={item.value}>{item.value}</p>
+                  <p className="text-[10px] text-surface-400 mt-0.5 truncate">{item.sub}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {modelInfo?.has_model && (
+            <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-3">
+              <div className="p-3 rounded-xl bg-surface-50 dark:bg-surface-700/40 border border-surface-200 dark:border-surface-700">
+                <p className="flex items-center gap-1.5 text-[11px] font-medium text-surface-500 mb-2">
+                  <ListChecks className="w-3.5 h-3.5" /> Features Used ({modelInfo.features_used?.length ?? 0})
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {(modelInfo.features_used || []).slice(0, 18).map((f) => (
+                    <span key={f} className="px-2 py-0.5 rounded-md bg-surface-100 dark:bg-surface-700 text-[10px] font-mono text-surface-600 dark:text-surface-300">{f}</span>
+                  ))}
+                </div>
+              </div>
+              <div className="p-3 rounded-xl bg-surface-50 dark:bg-surface-700/40 border border-surface-200 dark:border-surface-700 space-y-2">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-surface-500 flex items-center gap-1.5">
+                    <CalendarClock className="w-3.5 h-3.5" /> Last Retrained
+                  </span>
+                  <span className="font-medium text-surface-900 dark:text-white">
+                    {modelInfo.created_at ? new Date(modelInfo.created_at).toLocaleString() : '—'}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-surface-500 flex items-center gap-1.5">
+                    <Timer className="w-3.5 h-3.5" /> Training Time
+                  </span>
+                  <span className="font-medium text-surface-900 dark:text-white">
+                    {modelInfo.training_time_seconds != null ? `${modelInfo.training_time_seconds.toFixed(1)}s` : '—'}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-surface-500 flex items-center gap-1.5">
+                    <FileSpreadsheet className="w-3.5 h-3.5" /> Status
+                  </span>
+                  <span className={`badge ${modelInfo.status === 'ready' ? 'badge-success' : modelInfo.status === 'training' ? 'badge-info' : 'badge-danger'}`}>
+                    {modelInfo.status}
+                  </span>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
       {/* Filters + Batch */}
       <div className="card">
         <div className="card-body">
@@ -418,13 +572,22 @@ export default function AIPrediction() {
                       <td className="table-cell text-right">
                         {isAdminOrPricing ? (
                           analysis?.suggested_price ? (
-                            analysis.saved ? (
-                              <span className="badge-success">Sent to approval</span>
-                            ) : (
-                              <button onClick={() => setSaveTarget(product)} className="btn-primary btn-sm">
-                                <Sparkles className="w-3.5 h-3.5" /> Save
+                            <div className="flex items-center justify-end gap-2">
+                              <button
+                                onClick={() => loadReport(product)}
+                                className="btn-outline btn-sm"
+                                title="Generate AI Analysis Report"
+                              >
+                                <FileText className="w-3.5 h-3.5" /> Report
                               </button>
-                            )
+                              {analysis.saved ? (
+                                <span className="badge-success">Sent to approval</span>
+                              ) : (
+                                <button onClick={() => setSaveTarget(product)} className="btn-primary btn-sm">
+                                  <Sparkles className="w-3.5 h-3.5" /> Save
+                                </button>
+                              )}
+                            </div>
                           ) : (
                             <button onClick={() => runAnalysis(product)} disabled={isAnalyzing} className="btn-secondary btn-sm">
                               {isAnalyzing ? <Loader2 className="w-4 h-4 animate-spin" /> : <BrainCircuit className="w-4 h-4" />}
@@ -432,7 +595,16 @@ export default function AIPrediction() {
                             </button>
                           )
                         ) : analysis?.suggested_price ? (
-                          <span className="badge-info">View only</span>
+                          <div className="flex items-center justify-end gap-2">
+                            <button
+                              onClick={() => loadReport(product)}
+                              className="btn-outline btn-sm"
+                              title="Generate AI Analysis Report"
+                            >
+                              <FileText className="w-3.5 h-3.5" /> Report
+                            </button>
+                            <span className="badge-info">View only</span>
+                          </div>
                         ) : (
                           <span className="text-xs text-surface-400">Admin only</span>
                         )}
@@ -459,6 +631,15 @@ export default function AIPrediction() {
         onConfirm={saveRecommendation}
         onCancel={() => setSaveTarget(null)}
       />
+
+      {/* AI Prediction Analysis Report */}
+      {(reportProduct || reportLoading) && (
+        <AiAnalysisReport
+          product={reportProduct}
+          report={report}
+          loading={reportLoading}
+        />
+      )}
       </>
       )}
     </div>
