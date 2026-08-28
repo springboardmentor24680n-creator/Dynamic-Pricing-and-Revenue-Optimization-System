@@ -27,7 +27,7 @@ def list_products(
     category: Optional[str] = None,
     search: Optional[str] = None,
     status_filter: Optional[str] = Query(None, alias="status"),
-    sort_by: Optional[str] = Query(None, pattern="^(name|price|stock|revenue|created_at)$"),
+    sort_by: Optional[str] = Query(None, pattern="^(name|brand|price|stock|revenue|created_at)$"),
     sort_order: str = Query("desc", pattern="^(asc|desc)$"),
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
@@ -158,11 +158,11 @@ def export_products_csv(
 
     buf = io.StringIO()
     writer = csv.writer(buf)
-    writer.writerow(["name", "sku", "category", "base_price", "current_price", "cost_price",
+    writer.writerow(["name", "sku", "category", "brand", "base_price", "current_price", "cost_price",
                      "stock_quantity", "revenue", "status", "image_url", "description"])
     for p in products:
         writer.writerow([
-            p.name, p.sku, p.category or "", p.base_price, p.current_price,
+            p.name, p.sku, p.category or "", p.brand or "", p.base_price, p.current_price,
             p.cost_price or 0, p.stock_quantity or 0, p.revenue or 0,
             p.status, p.image_url or "", p.description or "",
         ])

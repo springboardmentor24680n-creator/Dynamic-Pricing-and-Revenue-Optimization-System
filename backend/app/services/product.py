@@ -2,6 +2,7 @@
 PricePilot AI - Product Service
 """
 
+from sqlalchemy import or_
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 from typing import Optional, List
@@ -10,6 +11,7 @@ from app.models.product import Product
 from app.models.pricing_history import PricingHistory
 from app.models.activity_log import ActivityLog
 from app.schemas.product import ProductCreate, ProductUpdate
+from app.services.competitor_service import parse_brand
 
 
 class ProductService:
@@ -31,6 +33,7 @@ class ProductService:
             name=data.name,
             sku=data.sku,
             category=data.category,
+            brand=data.brand or parse_brand(data.name),
             base_price=data.base_price,
             current_price=data.current_price,
             cost_price=data.cost_price,
@@ -84,15 +87,28 @@ class ProductService:
         if status_filter:
             query = query.filter(Product.status == status_filter)
         if search:
-            search_pattern = f"%{search}%"
-            query = query.filter(
-                (Product.name.ilike(search_pattern)) |
-                (Product.sku.ilike(search_pattern))
-            )
+            # Tokenized dynamic search: split on whitespace and require every
+            # token to match somewhere in name / SKU / description / category.
+            # This makes "dell laptop", "samsung phone" and "nike shoes"
+            # behave like a real e-commerce search instead of a single blob
+            # match. Tokens are case-insensitive (ILIKE).
+            tokens = [t.strip() for t in search.split() if t.strip()]
+            for token in tokens:
+                token_pattern = f"%{token}%"
+                query = query.filter(
+                    or_(
+                        Product.name.ilike(token_pattern),
+                        Product.sku.ilike(token_pattern),
+                        Product.description.ilike(token_pattern),
+                        Product.category.ilike(token_pattern),
+                        Product.brand.ilike(token_pattern),
+                    )
+                )
         
         # Sorting
         sort_map = {
             "name": Product.name,
+            "brand": Product.brand,
             "price": Product.current_price,
             "stock": Product.stock_quantity,
             "revenue": Product.revenue,
@@ -127,6 +143,9 @@ class ProductService:
         
         for field, value in update_data.items():
             setattr(product, field, value)
+        # Auto-populate brand from name when name changes or brand is not set
+        if "name" in update_data or not product.brand:
+            product.brand = update_data.get("brand") or parse_brand(product.name or "")
         
         self.db.add(ActivityLog(
             action=f"Product '{product.name}' updated",

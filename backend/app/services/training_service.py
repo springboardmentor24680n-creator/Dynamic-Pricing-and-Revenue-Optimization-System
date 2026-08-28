@@ -39,13 +39,26 @@ MIN_SAMPLES = 10
 LOOKBACK_DAYS = 180
 
 
+# Module-level cache for sales aggregates (scans ~216K rows).
+_aggregates_cache: dict = None
+_aggregates_cache_ts: float = 0
+
+
 def _sales_aggregates(db: Session) -> dict:
     """Per-product sales aggregates over the lookback window.
 
     Returns {product_id: {total_units, avg_daily_units, sales_days, revenue,
     demand_slope, weekend_uplift}} using the same factors the sales-history
     generator records (so synthetic and real history are treated identically).
+
+    The result is cached for 5 minutes to avoid scanning 200K+ rows on every
+    prediction or report call.
     """
+    import time as _time
+    global _aggregates_cache, _aggregates_cache_ts
+    now = _time.time()
+    if _aggregates_cache is not None and (now - _aggregates_cache_ts) < 300:
+        return _aggregates_cache
     since = datetime.utcnow() - pd.Timedelta(days=LOOKBACK_DAYS).to_pytimedelta()
     rows = (
         db.query(
@@ -103,6 +116,8 @@ def _sales_aggregates(db: Session) -> dict:
             "demand_slope": ((agg["recent_units"] - agg["prior_units"]) /
                              max(agg["prior_units"], 1)),
         }
+    _aggregates_cache = aggregates
+    _aggregates_cache_ts = _time.time()
     return aggregates
 
 
@@ -160,6 +175,10 @@ class ModelTrainingService:
             return df
 
         # One-hot encode categorical features (category + brand)
+        # Limit brand encoding to top 20 most common brands to avoid
+        # feature explosion (hundreds of sparse one-hot columns).
+        top_brands = df["brand"].value_counts().head(20).index.tolist()
+        df["brand"] = df["brand"].apply(lambda b: b if b in top_brands else "Other")
         df = pd.get_dummies(df, columns=["category"], prefix="cat")
         df = pd.get_dummies(df, columns=["brand"], prefix="brand")
 

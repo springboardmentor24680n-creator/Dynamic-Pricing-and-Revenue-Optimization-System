@@ -60,7 +60,7 @@ class PricingMLService:
             "product_id": product.id,
             "name": product.name,
             "category": product.category or "Uncategorized",
-            "brand": (product.name.split(" ")[0] if product.name else "Unknown"),
+            "brand": self._limit_brand(product.name.split(" ")[0] if product.name else "Unknown"),
             "current_price": product.current_price,
             "base_price": base,
             "cost_price": cost,
@@ -77,12 +77,44 @@ class PricingMLService:
             "festival_share": agg.get("festival_share", 0),
         }
 
+    # Module-level cache so _limit_brand only scans all products once per
+    # process lifetime (not per prediction call).
+    _brand_cache: dict = None
+    _brand_cache_ts: float = 0
+
+    def _limit_brand(self, brand: str) -> str:
+        """Limit brand to top 20 most common, group rest as 'Other'.
+        Matches the training logic in training_service.py."""
+        import time as _time
+        now = _time.time()
+        # Refresh cache every 300 seconds (5 min) or on first call.
+        if PricingMLService._brand_cache is None or (now - PricingMLService._brand_cache_ts) > 300:
+            products = self.db.query(Product).all()
+            brand_counts = {}
+            for p in products:
+                b = (p.name.split(" ")[0] if p.name else "Unknown")
+                brand_counts[b] = brand_counts.get(b, 0) + 1
+            PricingMLService._brand_cache = sorted(
+                brand_counts, key=brand_counts.get, reverse=True
+            )[:20]
+            PricingMLService._brand_cache_ts = now
+        return brand if brand in PricingMLService._brand_cache else "Other"
+
     def _encode_row(self, row: dict, feature_cols: list) -> pd.DataFrame:
         """Turn a raw product dict into a one-row DataFrame aligned to the
         trained feature columns (recreates the one-hot dummies)."""
         df = pd.DataFrame([row])
         df = pd.get_dummies(df, columns=["category"], prefix="cat")
         df = pd.get_dummies(df, columns=["brand"], prefix="brand")
+        # Map any brand not present in feature_cols to 'Other' so
+        # one-hot columns match the trained model exactly.
+        brand_cols_in_model = [c for c in feature_cols if c.startswith("brand_")]
+        brand_cols_in_row = [c for c in df.columns if c.startswith("brand_")]
+        for bc in brand_cols_in_row:
+            if bc not in brand_cols_in_model:
+                if "brand_Other" in brand_cols_in_model:
+                    df["brand_Other"] = df.get("brand_Other", 0) + df[bc]
+                df.drop(columns=[bc], inplace=True)
         for col in feature_cols:
             if col not in df.columns:
                 df[col] = 0
@@ -244,7 +276,10 @@ class PricingMLService:
         t0 = deduped[0][0]
         xs = np.array([(d - t0).days for d, _ in deduped], dtype=float)
         ys = np.array([p for _, p in deduped], dtype=float)
-        slope, intercept = np.polyfit(xs, ys, 1)
+        try:
+            slope, intercept = np.polyfit(xs, ys, 1)
+        except np.linalg.LinAlgError:
+            slope, intercept = 0.0, float(ys.mean())
         fitted = intercept + slope * xs
         residual_std = float(np.std(ys - fitted))
         span = max(float(xs[-1]), 1.0)
@@ -312,14 +347,21 @@ class PricingMLService:
     # ------------------------------------------------------------------
     # Portfolio price elasticity (learned from the actual dataset)
     # ------------------------------------------------------------------
-    def _learn_elasticity(self, frame: pd.DataFrame = None) -> float:
-        """Learn portfolio price elasticity from the training data:
-        regression of log(avg daily units) on log(price) + category dummies.
-        Returns the elasticity coefficient (negative for normal goods).
+    # Module-level cache for elasticity (expensive: builds entire training frame)
+    _elasticity_cache: float = None
+    _elasticity_cache_ts: float = 0
 
-        ``frame`` is an optional pre-built training frame so batch analysis
-        does not rebuild it per product.
+    def _learn_elasticity(self, frame: pd.DataFrame = None) -> float:
+        """Learn portfolio price elasticity from the training data.
+
+        Returns the elasticity coefficient (negative for normal goods).
+        The result is cached for 10 minutes since the underlying dataset
+        changes infrequently.
         """
+        import time as _time
+        now = _time.time()
+        if PricingMLService._elasticity_cache is not None and (now - PricingMLService._elasticity_cache_ts) < 600:
+            return PricingMLService._elasticity_cache
         try:
             from sklearn.linear_model import LinearRegression
             frame = frame if frame is not None else self.training.build_training_frame()
@@ -334,7 +376,10 @@ class PricingMLService:
             X = df[features].values
             y = df["log_units"].values
             lr = LinearRegression().fit(X, y)
-            return float(lr.coef_[0])
+            result = float(lr.coef_[0])
+            PricingMLService._elasticity_cache = result
+            PricingMLService._elasticity_cache_ts = now
+            return result
         except Exception:  # noqa: BLE001
             return -1.2
 
@@ -393,13 +438,18 @@ class PricingMLService:
                 "demand_forecast": None,
                 "price_trend": self._price_trend(product, history=price_history),
                 "price_forecast": self._price_forecast(product, history=price_history),
-            }
+            }        # Compute sales aggregates ONCE so _product_row and _learn_elasticity
+        # (via build_training_frame) share the same expensive scan of 216K rows.
+        if aggregates is None:
+            from app.services.training_service import _sales_aggregates
+            aggregates = _sales_aggregates(self.db)
 
         row = self._product_row(product_id, aggregates=aggregates)
         X_row = self._encode_row(row, feature_cols)
         start = time.time()
         predicted_price = float(model.predict(X_row.values)[0])
         prediction_ms = round((time.time() - start) * 1000, 2)
+
 
         current_price = product.current_price or 0
         cost = product.cost_price or 0
@@ -415,6 +465,9 @@ class PricingMLService:
         change_pct = ((suggested - current_price) / current_price * 100) if current_price else 0
 
         # Demand-driven revenue / profit estimate using learned elasticity
+        # training_frame is None here for single-product; _learn_elasticity
+        # has its own cache so the expensive build_training_frame() runs
+        # at most once per 10 minutes.
         elasticity = self._learn_elasticity(training_frame)
         avg_daily_units = max(row["avg_daily_units"], (row["revenue"] or 0) /
                               max(current_price, 1) / max(30, 1))

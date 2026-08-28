@@ -228,6 +228,44 @@ export const salesAPI = {
   analytics: (days) => apiClient.get('/api/v1/sales/analytics', { params: { days } }),
 };
 
+// ======== Competitor Monitoring API ========
+export const competitorAPI = {
+  analyze: (productId) => apiClient.get(`/api/v1/competitors/${productId}`),
+  platforms: () => apiClient.get('/api/v1/competitors/platforms/list'),
+};
+
+// ======== Market Intelligence API ========
+export const marketAPI = {
+  analyze: (productId) => apiClient.get(`/api/v1/market-intelligence/${productId}`),
+  report: (productId, horizon = 30) =>
+    apiClient.get(`/api/v1/market-intelligence/${productId}/report`, { params: { horizon } }),
+};
+
+// ======== Profitability Analytics API ========
+export const profitabilityAPI = {
+  summary: (days) => apiClient.get('/api/v1/profitability/summary', { params: { days } }),
+  trends: (days) => apiClient.get('/api/v1/profitability/trends', { params: { days } }),
+  products: (params) => apiClient.get('/api/v1/profitability/products', { params }),
+  categories: (days) => apiClient.get('/api/v1/profitability/categories', { params: { days } }),
+  aiImpact: (days, topN) => apiClient.get('/api/v1/profitability/ai-impact', { params: { days, top_n: topN } }),
+  opportunities: (days) => apiClient.get('/api/v1/profitability/opportunities', { params: { days } }),
+};
+
+// ======== Business Intelligence API ========
+export const biAPI = {
+  summary: (days) => apiClient.get('/api/v1/business-intelligence/summary', { params: { days } }),
+  refresh: (days) => apiClient.post('/api/v1/business-intelligence/refresh', null, { params: { days } }),
+  cacheStatus: () => apiClient.get('/api/v1/business-intelligence/cache-status'),
+};
+
+// ======== Pricing Strategy API ========
+export const pricingStrategyAPI = {
+  recommendations: (params) => apiClient.get('/api/v1/pricing-strategy/recommendations', { params }),
+  productRecommendation: (productId) => apiClient.get(`/api/v1/pricing-strategy/recommendations/${productId}`),
+  summary: (params) => apiClient.get('/api/v1/pricing-strategy/summary', { params }),
+  categories: () => apiClient.get('/api/v1/pricing-strategy/categories'),
+};
+
 // ======== Loaders API (legacy) ========
 export const loadersAPI = {
   loadRetailPricing: () => apiClient.post('/loaders/retail-pricing'),

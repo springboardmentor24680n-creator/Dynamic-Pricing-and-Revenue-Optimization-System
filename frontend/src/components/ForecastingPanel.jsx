@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { aiAPI, productsAPI } from '../api/client';
 import { useToast } from '../context/ToastContext';
+import ProductSearchSelect from './ProductSearchSelect';
 import {
   LineChart as LineChartIcon, TrendingUp, TrendingDown, Minus, Loader2,
   RefreshCw, CalendarRange, BarChart3, AlertCircle, Sparkles, ArrowRight,
@@ -70,10 +71,10 @@ function TrendBadge({ trend, growth }) {
   return <span className="badge-neutral">Unavailable</span>;
 }
 
-export default function ForecastingPanel({ onUseInOptimization }) {
+export default function ForecastingPanel({ onUseInOptimization, selectedId: externalSelectedId, onSelectProduct }) {
   const toast = useToast();
-  const [products, setProducts] = useState([]);
   const [selectedId, setSelectedId] = useState('');
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [horizon, setHorizon] = useState(30);
   const [forecast, setForecast] = useState(null);
   const [portfolio, setPortfolio] = useState(null);
@@ -81,17 +82,6 @@ export default function ForecastingPanel({ onUseInOptimization }) {
   const [loadingForecast, setLoadingForecast] = useState(false);
   // Guards against stale responses when the product/horizon changes quickly
   const requestSeq = useRef(0);
-
-  const fetchProducts = useCallback(async () => {
-    try {
-      const res = await productsAPI.list({ limit: 100 });
-      const items = res.data.items || [];
-      setProducts(items);
-      if (items.length > 0) setSelectedId((prev) => prev || items[0].id);
-    } catch (err) {
-      toast.error('Failed to load products', err.response?.data?.detail);
-    }
-  }, [toast]);
 
   const fetchPortfolio = useCallback(async () => {
     try {
@@ -101,6 +91,32 @@ export default function ForecastingPanel({ onUseInOptimization }) {
       setLoading(false);
     }
   }, [horizon]);
+
+  // Keep this panel in sync with a product selected elsewhere (e.g. the
+  // Competitor Monitor tab) so Forecasting and Competitor Analysis always
+  // operate on the SAME product.
+  useEffect(() => {
+    if (externalSelectedId != null && externalSelectedId !== selectedId) {
+      setSelectedId(externalSelectedId);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [externalSelectedId]);
+
+  // Hydrate the selected product's details (name, SKU, category, price) for
+  // display; the ID remains the source of truth for all API calls.
+  useEffect(() => {
+    if (!selectedId) {
+      setSelectedProduct(null);
+      return;
+    }
+    if (selectedProduct?.id === selectedId) return;
+    setSelectedProduct(null);
+    productsAPI
+      .getById(selectedId)
+      .then((res) => setSelectedProduct(res.data))
+      .catch(() => setSelectedProduct(null));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedId]);
 
   const runForecast = useCallback(async (productId, h, forceRetrain) => {
     if (!productId) return;
@@ -120,17 +136,23 @@ export default function ForecastingPanel({ onUseInOptimization }) {
   }, [toast]);
 
   useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
-
-  useEffect(() => {
     fetchPortfolio();
   }, [fetchPortfolio]);
 
-  // Auto-run forecast whenever the selected product or horizon changes
+  // Auto-run forecast whenever the selected product or horizon changes.
+  // Clearing the previous forecast first guarantees no stale data from a
+  // previously selected product stays visible while the new one loads.
   useEffect(() => {
+    setForecast(null);
     if (selectedId) runForecast(selectedId, horizon, false);
   }, [selectedId, horizon, runForecast]);
+
+  const handleProductChange = (product) => {
+    if (!product) return;
+    setSelectedId(product.id);
+    setSelectedProduct(product);
+    onSelectProduct?.(product);
+  };
 
   const handleRetrain = () => {
     if (!selectedId) return;
@@ -143,9 +165,8 @@ export default function ForecastingPanel({ onUseInOptimization }) {
       toast.error('Forecast unavailable', 'Run a forecast for this product first');
       return;
     }
-    const product = products.find((p) => p.id === selectedId);
-    if (product && onUseInOptimization) {
-      onUseInOptimization(product, forecast);
+    if (selectedProduct && onUseInOptimization) {
+      onUseInOptimization(selectedProduct, forecast);
     }
   };
 
@@ -215,7 +236,6 @@ export default function ForecastingPanel({ onUseInOptimization }) {
     },
   ];
 
-  const selectedProduct = products.find((p) => p.id === selectedId);
   const insufficient = forecast?.insufficient_data;
   const isFallback = forecast?.fallback;
   const da = forecast?.demand_analysis || {};
@@ -227,18 +247,14 @@ export default function ForecastingPanel({ onUseInOptimization }) {
       <div className="card">
         <div className="card-body">
           <div className="flex flex-wrap items-end gap-4">
-            <div className="flex-1 min-w-[240px]">
+            <div className="flex-1 min-w-[280px]">
               <label className="label">Product</label>
-              <select
-                className="input"
+              <ProductSearchSelect
                 value={selectedId}
-                onChange={(e) => setSelectedId(Number(e.target.value))}
+                onSelect={handleProductChange}
                 disabled={loadingForecast}
-              >
-                {products.map((p) => (
-                  <option key={p.id} value={p.id}>{p.name}</option>
-                ))}
-              </select>
+                placeholder="Search products by name, brand, category or SKU…"
+              />
             </div>
             <div>
               <label className="label">Forecast Horizon</label>

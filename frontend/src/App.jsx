@@ -17,6 +17,9 @@ import Datasets from './pages/Datasets';
 import Reports from './pages/Reports';
 import Users from './pages/Users';
 import Settings from './pages/Settings';
+import Profitability from './pages/Profitability';
+import PricingStrategy from './pages/PricingStrategy';
+import ExecutiveBI from './pages/ExecutiveBI';
 
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
@@ -90,6 +93,9 @@ function AppRoutes() {
         <Route path="/reports" element={<Reports />} />
         <Route path="/users" element={<AdminRoute><Users /></AdminRoute>} />
         <Route path="/access-requests" element={<AdminRoute><AccessRequests /></AdminRoute>} />
+        <Route path="/profitability" element={<Profitability />} />
+        <Route path="/pricing-strategy" element={<PricingStrategy />} />
+        <Route path="/executive-bi" element={<ExecutiveBI />} />
         <Route path="/settings" element={<Settings />} />
       </Route>
 

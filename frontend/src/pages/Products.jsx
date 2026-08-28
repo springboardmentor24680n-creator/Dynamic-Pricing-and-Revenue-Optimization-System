@@ -23,6 +23,7 @@ export default function Products() {
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
+  const [debouncedSearch, setDebouncedSearch] = useState('');
   const [category, setCategory] = useState('');
   const [categories, setCategories] = useState([]);
   const [page, setPage] = useState(0);
@@ -53,7 +54,7 @@ export default function Products() {
     setLoading(true);
     try {
       const params = { skip: page * limit, limit, sort_by: sortBy, sort_order: sortOrder };
-      if (search) params.search = search;
+      if (debouncedSearch) params.search = debouncedSearch;
       if (category) params.category = category;
       if (statusFilter) params.status = statusFilter;
       const res = await productsAPI.list(params);
@@ -65,7 +66,7 @@ export default function Products() {
     } finally {
       setLoading(false);
     }
-  }, [page, category, limit, search, sortBy, sortOrder, statusFilter, toast]);
+  }, [page, category, limit, debouncedSearch, sortBy, sortOrder, statusFilter, toast]);
 
   const fetchCategories = useCallback(async () => {
     try {
@@ -78,6 +79,12 @@ export default function Products() {
     fetchProducts();
     fetchCategories();
   }, [fetchProducts, fetchCategories]);
+
+  // Debounce the search input so each keystroke doesn't fire an API call
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedSearch(search.trim()), 300);
+    return () => clearTimeout(timer);
+  }, [search]);
 
   const toggleSort = (col) => {
     if (sortBy === col) {
@@ -272,7 +279,7 @@ export default function Products() {
               <input
                 type="text"
                 className="input pl-9"
-                placeholder="Search by name or SKU..."
+                placeholder="Search by name, brand, category or SKU... (e.g. laptop, Samsung, iPhone)"
                 value={search}
                 onChange={(e) => { setSearch(e.target.value); setPage(0); }}
               />

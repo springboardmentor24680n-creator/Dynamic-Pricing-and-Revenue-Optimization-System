@@ -5,11 +5,12 @@ import { useToast } from '../context/ToastContext';
 import ConfirmDialog from '../components/ConfirmDialog';
 import ForecastingPanel from '../components/ForecastingPanel';
 import AiAnalysisReport from '../components/AiAnalysisReport';
+import CompetitorMonitor from '../components/CompetitorMonitor';
 import {
   BrainCircuit, Loader2, Sparkles, CheckCircle2, AlertCircle,
   RefreshCw, TrendingUp, TrendingDown, ArrowRight, Search,
   Layers, Database, XCircle, Gauge, LineChart as LineChartIcon, Minus,
-  Cpu, FileSpreadsheet, CalendarClock, ListChecks, Timer, FileText,
+  Cpu, FileSpreadsheet, CalendarClock, ListChecks, Timer, FileText, Radar,
 } from 'lucide-react';
 
 export default function AIPrediction() {
@@ -33,11 +34,17 @@ export default function AIPrediction() {
   const [reportProduct, setReportProduct] = useState(null); // product the report is for
   const [report, setReport] = useState(null);               // report payload
   const [reportLoading, setReportLoading] = useState(false);
-  // Deep-link support: /ai?tab=forecasting opens the Demand Forecasting tab
-  // (used by the dashboard's "Generate Forecast" quick action).
-  const [tab, setTab] = useState(
-    () => new URLSearchParams(window.location.search).get('tab') === 'forecasting' ? 'forecasting' : 'optimization'
-  );
+  // Deep-link support: /ai?tab=forecasting opens the Demand Forecasting tab,
+  // /ai?tab=competitors opens the Competitor Monitoring tab (used by the
+  // dashboard quick actions).
+  const [tab, setTab] = useState(() => {
+    const t = new URLSearchParams(window.location.search).get('tab');
+    return t === 'forecasting' || t === 'competitors' ? t : 'optimization';
+  });
+
+  // Shared product selection across the Forecasting and Competitor tabs so the
+  // SAME product (by ID) drives both demand forecasting and competitor analysis.
+  const [sharedProduct, setSharedProduct] = useState(null);
 
   const isAdminOrPricing = user?.role === 'admin' || user?.role === 'pricing_manager';
 
@@ -260,10 +267,30 @@ export default function AIPrediction() {
           <LineChartIcon className="w-4 h-4" />
           Demand Forecasting
         </button>
+        <button
+          onClick={() => setTab('competitors')}
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
+            tab === 'competitors'
+              ? 'bg-white dark:bg-surface-700 text-primary-600 dark:text-primary-300 shadow-sm'
+              : 'text-surface-500 hover:text-surface-700 dark:hover:text-surface-200'
+          }`}
+        >
+          <Radar className="w-4 h-4" />
+          Competitor Monitor
+        </button>
       </div>
 
       {tab === 'forecasting' ? (
-        <ForecastingPanel onUseInOptimization={handleUseInOptimization} />
+        <ForecastingPanel
+          onUseInOptimization={handleUseInOptimization}
+          selectedId={sharedProduct?.id}
+          onSelectProduct={setSharedProduct}
+        />
+      ) : tab === 'competitors' ? (
+        <CompetitorMonitor
+          selectedId={sharedProduct?.id}
+          onSelectProduct={setSharedProduct}
+        />
       ) : (
       <>
       {/* Model Status Panel */}

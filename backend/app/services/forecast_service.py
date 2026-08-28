@@ -112,7 +112,10 @@ class ForecastService:
         y = daily["revenue"].astype(float).values
         # Normalize for stability
         scale = max(float(np.max(y)), 1e-9)
-        slope, intercept = np.polyfit(x, y / scale, 1)
+        try:
+            slope, intercept = np.polyfit(x, y / scale, 1)
+        except np.linalg.LinAlgError:
+            slope, intercept = 0.0, float(np.mean(y) / scale)
         slope = slope * scale  # revenue/day
 
         avg_daily = float(np.mean(y))

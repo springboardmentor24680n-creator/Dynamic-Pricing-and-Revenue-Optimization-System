@@ -17,6 +17,7 @@ class Sale(Base):
     product_id = Column(Integer, ForeignKey("products.id"), nullable=False)
     quantity = Column(Integer, nullable=False, default=1)
     unit_price = Column(Float, nullable=False)
+    unit_cost = Column(Float, nullable=True)
     total_amount = Column(Float, nullable=False)
     sale_date = Column(DateTime, server_default=func.now())
     sale_channel = Column(String(50))

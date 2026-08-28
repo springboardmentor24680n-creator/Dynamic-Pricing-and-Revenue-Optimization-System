@@ -285,6 +285,22 @@ def _migrate_postgres():
             ("activity_logs", ActivityLog), ("forecast_runs", ForecastRun),
             ("access_requests", AccessRequest), ("model_runs", ModelRun),
         ]
+
+        # Analytics cache table (created via create_all, but columns added here
+        # for pre-existing databases)
+        from app.models.analytics_cache import AnalyticsCache
+        cur.execute("SELECT to_regclass('public.analytics_cache')")
+        if cur.fetchone()[0] is not None:
+            cur.execute(
+                """SELECT column_name FROM information_schema.columns
+                   WHERE table_schema = 'public' AND table_name = 'analytics_cache'"""
+            )
+            existing_ac = {row[0] for row in cur.fetchall()}
+            for col in AnalyticsCache.__table__.columns:
+                if col.name in existing_ac or col.primary_key:
+                    continue
+                cur.execute(f"ALTER TABLE analytics_cache ADD COLUMN {_column_ddl(col)}")
+                print(f"PostgreSQL migration: added analytics_cache.{col.name}")
         for table_name, model in reconcile:
             cur.execute("SELECT to_regclass(%s)", (f"public.{table_name}",))
             if cur.fetchone()[0] is None:

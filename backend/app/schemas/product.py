@@ -13,6 +13,7 @@ class ProductBase(BaseModel):
     sku: str
     description: Optional[str] = None
     category: Optional[str] = None
+    brand: Optional[str] = None
     base_price: float
     current_price: float
     cost_price: Optional[float] = None
@@ -39,6 +40,7 @@ class ProductUpdate(BaseModel):
     sku: Optional[str] = None
     description: Optional[str] = None
     category: Optional[str] = None
+    brand: Optional[str] = None
     base_price: Optional[float] = None
     current_price: Optional[float] = None
     cost_price: Optional[float] = None

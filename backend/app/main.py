@@ -25,6 +25,11 @@ from app.routers import ai
 from app.routers import reports
 from app.routers import sales
 from app.routers import activity
+from app.routers import competitors
+from app.routers import market_intelligence
+from app.routers import profitability
+from app.routers import pricing_strategy
+from app.routers import business_intelligence
 
 # Data loaders
 from app.loaders.retail_loader import router as retail_router
@@ -45,6 +50,7 @@ async def lifespan(app: FastAPI):
     import app.models.recommendation  # noqa: F401
     import app.models.access_request  # noqa: F401
     import app.models.model_run  # noqa: F401 - persisted AI training runs
+    import app.models.analytics_cache  # noqa: F401 - analytics cache
     Base.metadata.create_all(bind=engine)
     
     # Seed sample products if database is empty
@@ -98,6 +104,11 @@ app.include_router(ai.router)
 app.include_router(reports.router)
 app.include_router(sales.router)
 app.include_router(activity.router)
+app.include_router(competitors.router)
+app.include_router(market_intelligence.router)
+app.include_router(profitability.router)
+app.include_router(pricing_strategy.router)
+app.include_router(business_intelligence.router)
 
 # Data Loaders
 app.include_router(retail_router)

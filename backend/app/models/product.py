@@ -21,6 +21,7 @@ class Product(Base):
     base_price = Column(Float, nullable=False)
     current_price = Column(Float, nullable=False)
     cost_price = Column(Float)
+    brand = Column(String(100), index=True)
     image_url = Column(String(500), default="")
     stock_quantity = Column(Integer, default=0)
     revenue = Column(Float, default=0.0)
