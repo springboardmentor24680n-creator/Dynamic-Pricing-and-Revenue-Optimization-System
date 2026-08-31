@@ -184,11 +184,8 @@ export default function Login() {
             </div>
           </div>
 
-          {/* Google Sign-In Button (official OAuth - admin accounts only) */}
+          {/* Google Sign-In Button (official OAuth) */}
           <GoogleSignInButton />
-          <p className="mt-2 text-center text-[11px] text-surface-400 dark:text-surface-500">
-            Google sign-in is available for administrator accounts only.
-          </p>
 
           {/* Register link */}
           <div className="mt-6 text-center">

@@ -707,11 +707,12 @@ class PricingMLService:
         samples = run.samples if run else self.db.query(Product).count()
         ready = run is not None
 
+        _all_models = ["Linear Regression", "Random Forest", "XGBoost"]
         status = {
             "status": "ready" if ready else "insufficient_data",
             "samples": samples,
             "min_samples_required": MIN_SAMPLES,
-            "models_available": ["Linear Regression", "Random Forest", "XGBoost"],
+            "models_available": _all_models,
             "recommendations_pending": pending,
             "recommendations_applied": applied,
             "recommendations_rejected": rejected,
@@ -726,6 +727,9 @@ class PricingMLService:
             status["best_model"] = run.best_model
             status["accuracy"] = run.accuracy
             metrics = json_loads(run.metrics) or {}
+            # Derive models_available from actually trained models, not a hardcoded list
+            if metrics:
+                status["models_available"] = list(metrics.keys())
             status["cv_errors"] = {
                 name: m["mae"] for name, m in metrics.items()
             } if metrics else {}

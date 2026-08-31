@@ -10,7 +10,7 @@ import {
   Package, TrendingUp, DollarSign, Database, Activity, ArrowRight, RefreshCw,
   Loader2, AlertCircle, BrainCircuit, FileSpreadsheet, Boxes, UserCheck, Clock,
   Sparkles, Target, TrendingDown, Gauge, ShieldCheck, CheckCircle2, UploadCloud,
-  LineChart as LineChartIcon, FileDown, Crown, LogIn, UserPlus,
+  LineChart as LineChartIcon, FileDown, Crown, LogIn, UserPlus, BarChart3,
 } from 'lucide-react';
 import {
   ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
@@ -135,6 +135,10 @@ export default function Dashboard() {
   const fallbackTrendRef = useRef([]); // last dashboard 14-day series, used if sales API is empty
 
   const isAdminOrPricing = user?.role === 'admin' || user?.role === 'pricing_manager';
+  const userRole = user?.role || 'data_analyst';
+  const isAdmin = userRole === 'admin';
+  const isPricingManager = userRole === 'pricing_manager';
+  const isDataAnalyst = userRole === 'data_analyst';
 
   const loadTrend = useCallback(async (days) => {
     try {
@@ -316,12 +320,24 @@ export default function Dashboard() {
     },
   ];
 
-  const quickActions = [
+  const quickActions = isAdmin ? [
     { to: '/datasets', icon: UploadCloud, label: 'Upload Dataset', desc: 'Import and process CSV / Excel' },
     { to: '/ai', icon: BrainCircuit, label: 'Run AI Prediction', desc: 'Optimize product prices' },
     { to: '/ai?tab=forecasting', icon: LineChartIcon, label: 'Generate Forecast', desc: 'Prophet demand forecasting' },
     { to: '/reports', icon: FileDown, label: 'Export Report', desc: 'PDF · Excel · CSV' },
     { to: '/products', icon: Package, label: 'Manage Products', desc: 'Catalog & inventory' },
+  ] : isPricingManager ? [
+    { to: '/pricing', icon: DollarSign, label: 'Pricing Management', desc: 'Adjust and optimize prices' },
+    { to: '/ai', icon: BrainCircuit, label: 'AI Price Prediction', desc: 'Get AI-recommended prices' },
+    { to: '/pricing-strategy', icon: Target, label: 'Pricing Strategy', desc: 'View pricing recommendations' },
+    { to: '/products', icon: Package, label: 'Product Catalog', desc: 'Browse product inventory' },
+    { to: '/reports', icon: FileDown, label: 'Export Report', desc: 'PDF · Excel · CSV' },
+  ] : [
+    { to: '/ai', icon: BrainCircuit, label: 'AI Price Prediction', desc: 'Optimize product prices' },
+    { to: '/ai?tab=forecasting', icon: LineChartIcon, label: 'Demand Forecasting', desc: 'Forecast product demand' },
+    { to: '/profitability', icon: TrendingUp, label: 'Profitability', desc: 'Revenue and profit analytics' },
+    { to: '/executive-bi', icon: BarChart3, label: 'Executive BI', desc: 'Business intelligence insights' },
+    { to: '/products', icon: Package, label: 'Product Catalog', desc: 'Browse product inventory' },
   ];
 
   return (
@@ -329,9 +345,13 @@ export default function Dashboard() {
       {/* Header */}
       <div className="flex items-start justify-between gap-4 flex-wrap">
         <div>
-          <h1 className="text-2xl font-bold text-surface-900 dark:text-white">Pricing Intelligence Dashboard</h1>
+          <h1 className="text-2xl font-bold text-surface-900 dark:text-white">
+            {isAdmin ? 'Pricing Intelligence Dashboard' : isPricingManager ? 'Pricing Performance Dashboard' : 'Analytics Dashboard'}
+          </h1>
           <p className="text-surface-500 dark:text-surface-400 mt-1">
-            Welcome back, {user?.full_name || user?.username || 'User'} — real-time insights from your pricing engine
+            {isAdmin && `Welcome back, ${user?.full_name || user?.username || 'User'} — real-time insights from your pricing engine`}
+            {isPricingManager && `Welcome back, ${user?.full_name || user?.username || 'User'} — pricing performance and optimization overview`}
+            {isDataAnalyst && `Welcome back, ${user?.full_name || user?.username || 'User'} — revenue analytics and demand intelligence`}
           </p>
         </div>
         <button onClick={() => fetchAll(true)} className="btn-secondary btn-sm">
@@ -845,7 +865,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Row 4: Recent Activity (timeline) + Recent Imports */}
+      {/* Row 4: Recent Activity (timeline) + Recent Imports — visible to all roles */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Recent Activity timeline */}
         <div className="card lg:col-span-2">
@@ -956,6 +976,46 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
+      {/* Role-specific quick reference */}
+      {isPricingManager && (
+        <div className="card">
+          <div className="card-body py-5">
+            <div className="flex items-start gap-4">
+              <div className="p-3 rounded-xl bg-primary-100 dark:bg-primary-900/30 flex-shrink-0">
+                <Target className="w-6 h-6 text-primary-600 dark:text-primary-400" />
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-surface-900 dark:text-white">Pricing Manager Quick Reference</h3>
+                <p className="text-xs text-surface-500 dark:text-surface-400 mt-1">
+                  Use <Link to="/pricing" className="text-primary-600 dark:text-primary-400 font-medium hover:underline">Pricing Management</Link> to adjust prices,
+                  <Link to="/pricing-strategy" className="text-primary-600 dark:text-primary-400 font-medium hover:underline"> Pricing Strategy</Link> for AI-powered recommendations,
+                  and <Link to="/products" className="text-primary-600 dark:text-primary-400 font-medium hover:underline"> Products</Link> to compare market positioning.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {isDataAnalyst && (
+        <div className="card">
+          <div className="card-body py-5">
+            <div className="flex items-start gap-4">
+              <div className="p-3 rounded-xl bg-primary-100 dark:bg-primary-900/30 flex-shrink-0">
+                <BarChart3 className="w-6 h-6 text-primary-600 dark:text-primary-400" />
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-surface-900 dark:text-white">Analyst Quick Reference</h3>
+                <p className="text-xs text-surface-500 dark:text-surface-400 mt-1">
+                  Explore <Link to="/profitability" className="text-primary-600 dark:text-primary-400 font-medium hover:underline">Profitability Analytics</Link>,
+                  <Link to="/ai?tab=forecasting" className="text-primary-600 dark:text-primary-400 font-medium hover:underline"> Demand Forecasting</Link>,
+                  and <Link to="/executive-bi" className="text-primary-600 dark:text-primary-400 font-medium hover:underline">Executive BI</Link> for comprehensive business intelligence.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

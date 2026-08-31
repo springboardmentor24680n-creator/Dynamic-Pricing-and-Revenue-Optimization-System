@@ -45,17 +45,18 @@ class DashboardService:
             for cat, count in category_rows if cat
         ]
 
-        # ---- Revenue summary ----
-        revenue_data = (
-            self.db.query(
-                func.coalesce(func.sum(Product.revenue), 0),
-                func.coalesce(func.avg(Product.current_price), 0),
-                func.coalesce(func.sum(Product.cost_price), 0),
-            ).first()
+        # ---- Revenue summary (sales-based, matches ProfitabilityService) ----
+        total_revenue = float(
+            self.db.query(func.coalesce(func.sum(Sale.total_amount), 0)).scalar()
         )
-        total_revenue = float(revenue_data[0]) if revenue_data else 0.0
-        avg_price = float(revenue_data[1]) if revenue_data else 0.0
-        total_cost = float(revenue_data[2]) if revenue_data else 0.0
+        total_cost = float(
+            self.db.query(func.coalesce(func.sum(Sale.quantity * Product.cost_price), 0))
+            .join(Product, Product.id == Sale.product_id)
+            .scalar()
+        )
+        avg_price = float(
+            self.db.query(func.coalesce(func.avg(Product.current_price), 0)).scalar()
+        )
         margin = round(((total_revenue - total_cost) / total_revenue * 100) if total_revenue > 0 else 0, 2)
 
         revenue_summary = RevenueSummary(

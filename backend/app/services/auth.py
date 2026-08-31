@@ -279,31 +279,24 @@ class AuthService:
         return user
     
     def google_login(self, email: str, google_id: str, name: str, picture: str = "") -> dict:
-        """Authenticate an administrator via a verified Google profile.
+        """Authenticate a user via a verified Google profile.
 
-        Google sign-in is restricted to administrator accounts only. Non-admin
-        users, pending/rejected accounts, and unknown emails are blocked with
-        403, and NO account is ever created through Google. The caller (router
-        layer) is responsible for verifying the Google ID token server-side
-        before calling this method; this method only persists the verified
-        claims and issues tokens for approved, active admins.
+        Google sign-in is available to all approved users regardless of role.
+        The user's existing database role is preserved — Google authentication
+        never creates accounts or changes roles. Pending users receive an
+        ``access_pending`` response (no tokens) and rejected users are blocked.
+        The caller (router layer) is responsible for verifying the Google ID
+        token server-side before calling this method.
         """
         user = self.db.query(User).filter(User.email == email).first()
         if not user:
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
-                detail="Google sign-in is restricted to administrators. Please sign up with your email and password, or contact your administrator.",
-            )
-        if user.role != "admin":
-            raise HTTPException(
-                status_code=status.HTTP_403_FORBIDDEN,
-                detail="Google sign-in is restricted to administrators. Please sign in with your username and password.",
+                detail="No account found for this Google email. Please sign up with your email and password first, or contact your administrator.",
             )
         if user.approval_status == "pending":
-            raise HTTPException(
-                status_code=status.HTTP_403_FORBIDDEN,
-                detail="Your account is awaiting administrator approval.",
-            )
+            self._ensure_access_request(user.email, user.full_name or user.username, "google", requested_role=user.role)
+            return self._pending_payload(user, provider="google")
         if user.approval_status == "rejected":
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
@@ -314,7 +307,7 @@ class AuthService:
                 status_code=status.HTTP_403_FORBIDDEN,
                 detail="Account is deactivated",
             )
-        # Approved, active admin: link the Google identity if not already linked
+        # Approved, active user of any role: link the Google identity if not already linked
         if user.google_id != google_id:
             user.google_id = google_id
         if picture and user.profile_picture != picture:

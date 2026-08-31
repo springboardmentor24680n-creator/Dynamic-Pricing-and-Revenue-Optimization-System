@@ -65,7 +65,7 @@ export function getSidebarItems() {
     { label: 'Profitability', path: '/profitability', icon: 'TrendingUp', feature: 'PROFITABILITY' },
     { label: 'Pricing Strategy', path: '/pricing-strategy', icon: 'Target', feature: 'PRICING_STRATEGY' },
     { label: 'Executive BI', path: '/executive-bi', icon: 'LayoutDashboard', feature: 'EXECUTIVE_BI' },
-    { label: 'User Management', path: '/users', icon: 'Users', feature: 'USERS' },
+    { label: 'User Management', path: '/users', icon: 'Users', feature: 'USERS', adminOnly: true },
     { label: 'Access Requests', path: '/access-requests', icon: 'UserCheck', feature: 'ACCESS_REQUESTS', adminOnly: true },
     { label: 'Settings', path: '/settings', icon: 'Settings', feature: 'SETTINGS' },
   ];

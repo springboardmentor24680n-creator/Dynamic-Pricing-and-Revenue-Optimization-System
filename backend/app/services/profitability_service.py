@@ -97,6 +97,7 @@ class ProfitabilityService:
             "average_profit_per_product": _round(avg_profit_per_product),
             "total_units_sold": total_units,
             "products_with_sales": products_with_sales,
+            "products_analyzed": products_with_sales,
             "best_product": best,
             "lowest_product": lowest,
             "period_days": days,
