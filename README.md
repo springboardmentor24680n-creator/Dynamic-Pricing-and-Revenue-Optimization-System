@@ -9,11 +9,11 @@
 | Module | Status | Highlights |
 |--------|--------|------------|
 | **Authentication** | ✅ Complete | Register, Login, Logout, JWT access + **refresh tokens**, Forgot/Reset password, **Google Sign-In**, bcrypt hashing |
-| **Role-Based Access Control** | ✅ Complete | `admin`, `pricing_manager`, `business_user` — route & UI guards |
+| **Role-Based Access Control** | ✅ Complete | `admin`, `pricing_manager`, `data_analyst` — route & UI guards |
 | **Dashboard** | ✅ Complete | KPI cards, revenue trend, category distribution, price distribution, recent imports, latest activity — all from real APIs |
 | **Product Management** | ✅ Complete | Full CRUD, search, category filter, sort, pagination, CSV export, bulk delete / bulk status, status toggle |
 | **Pricing Management** | ✅ Complete | Manual price updates, price history, margin, AI recommendations with **approve / reject** workflow |
-| **AI Price Prediction** | ✅ Complete | Random Forest, XGBoost, Linear Regression — selects the best model, real training on your data |
+| **AI Price Prediction** | ✅ Complete | Linear Regression, Random Forest — selects the best model, real training on your data |
 | **Demand Forecasting** | ✅ Complete | **Prophet** daily revenue forecasts per product with 80% confidence intervals, 6h cache, portfolio outlook |
 | **Dataset Management** | ✅ Complete | Upload CSV/Excel → validate → clean → dedupe → stats → preview → **import into catalog** |
 | **Reports** | ✅ Complete | Revenue, pricing, product, user, dataset reports with **CSV / Excel / PDF** export |
@@ -42,11 +42,11 @@ pip install -r requirements.txt
 cp .env.example .env
 
 # Start the API (auto-runs schema migration + seeds on first boot)
-python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+python -m uvicorn app.main:app --host 0.0.0.0 --port 8001
 ```
 
-- API: `http://localhost:8000`
-- Swagger docs: `http://localhost:8000/docs`
+- API: `http://localhost:8001`
+- Swagger docs: `http://localhost:8001/docs`
 
 ### 2. Frontend
 
@@ -57,7 +57,7 @@ npm run dev
 ```
 
 - App: `http://localhost:5173`
-- Vite proxies `/api` and `/loaders` to the backend on port 8000 — no CORS issues in development.
+- Vite proxies `/api` and `/loaders` to the backend on port 8001 — no CORS issues in development.
 
 ### 3. Demo Admin
 
@@ -68,7 +68,7 @@ The database is seeded with a demo admin on first startup:
 | Username | `admin` |
 | Password | `admin123` |
 
-Public self-registration always creates a `business_user` account — role assignment is **admin-only** (via the Users page / `POST /api/v1/users/`).
+Public self-registration always creates a `data_analyst` account — role assignment is **admin-only** (via the Users page / `POST /api/v1/users/`).
 
 ---
 
@@ -90,7 +90,7 @@ Public self-registration always creates a `business_user` account — role assig
 | Pandas / NumPy | 2.2.3 / 1.26 | Dataset processing |
 | openpyxl | 3.1.5 | Excel parsing/export |
 | scikit-learn | 1.6.0 | ML price optimization |
-| XGBoost | 2.1.3 | ML price optimization |
+| scikit-learn | 1.6.0 | ML price optimization (Linear Regression, Random Forest) |
 | Prophet | 1.1.6 | Demand forecasting |
 | fpdf2 | 2.8.7 | PDF report export |
 | google-auth | 2.56.2 | Server-side Google ID token verification |
@@ -128,8 +128,8 @@ Token expiry ──► Axios interceptor silently refreshes via /auth/refresh �
 - **Google Sign-In** (`/api/v1/auth/google`) verifies the ID token **server-side** with Google's official `google-auth` library — signature, audience, issuer, expiry, and verified email. Claims come from the verified token, never from the frontend. Users are auto-created (`is_google_user=True`, `hashed_password=NULL`) or logged in if the email already exists.
 - A code-based OAuth flow (`/google/authorize` + `/google/callback`) is also implemented for server-to-server redirect flows.
 - **Passwords are hashed with bcrypt** via Passlib — never stored in plain text.
-- **Roles**: `admin` / `pricing_manager` / `business_user`. Missing Authorization headers return **401** (with `WWW-Authenticate`); authenticated-but-unauthorized users get **403**.
-- **Security hardening**: public registration cannot self-assign `admin` (always downgraded to `business_user`), self-deactivation/deletion is blocked, and the ML price engine is restricted to admin/pricing roles.
+- **Roles**: `admin` / `pricing_manager` / `data_analyst`. Missing Authorization headers return **401** (with `WWW-Authenticate`); authenticated-but-unauthorized users get **403**.
+- **Security hardening**: public registration cannot self-assign `admin` (always downgraded to `data_analyst`), self-deactivation/deletion is blocked, and the ML price engine is restricted to admin/pricing roles.
 
 ### Environment variables
 
@@ -146,7 +146,7 @@ CORS_ORIGINS=["http://localhost:5173","http://localhost:3000"]
 # Google OAuth (optional — Google button shows only when set)
 GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
-GOOGLE_REDIRECT_URI=http://localhost:8000/api/v1/auth/google/callback
+GOOGLE_REDIRECT_URI=http://localhost:8001/api/v1/auth/google/callback
 
 # MongoDB (optional — connector skips gracefully if unavailable)
 MONGODB_URL=mongodb://localhost:27017
@@ -196,7 +196,7 @@ VITE_GOOGLE_CLIENT_ID=your-google-client-id.apps.googleusercontent.com
 
 1. **Non-destructive startup migration** (`migrate_schema` in `app/database.py`) — reconciles existing PostgreSQL/SQLite schemas against the current SQLAlchemy models by *adding* missing columns (never dropping data), makes `hashed_password` nullable for Google-only accounts, creates the `google_id` index, and backfills legacy renamed columns. Idempotent — safe to run on every boot.
 2. **Service layer** isolates business logic from routers; the ML, forecasting, and dataset-pipeline services are self-contained so future modules plug in without touching existing code.
-3. **Real ML, not mockups** — price optimization trains Random Forest / XGBoost / Linear Regression on your products and picks the best model; Prophet trains per product with confidence intervals. With insufficient data the API returns a clear message instead of fabricating numbers.
+3. **Real ML, not mockups** — price optimization trains Random Forest / Linear Regression on your products and picks the best model; Prophet trains per product with confidence intervals. With insufficient data the API returns a clear message instead of fabricating numbers.
 4. **Vite dev proxy** avoids CORS during development; `VITE_API_URL` points the frontend at a deployed backend in production.
 5. **Feature-flag friendly** — hidden future modules (`frontend/src/modules/future/`) are preserved in the codebase and gated in `src/config/features.js`.
 
@@ -204,12 +204,12 @@ VITE_GOOGLE_CLIENT_ID=your-google-client-id.apps.googleusercontent.com
 
 ## 🔌 Backend API (`/api/v1`)
 
-Interactive docs at **`http://localhost:8000/docs`** (Swagger UI). Auth-protected endpoints require `Authorization: Bearer <access_token>`.
+Interactive docs at **`http://localhost:8001/docs`** (Swagger UI). Auth-protected endpoints require `Authorization: Bearer <access_token>`.
 
 ### Authentication (`/auth`)
 | Method | Endpoint | Access | Description |
 |--------|----------|--------|-------------|
-| `POST` | `/auth/register` | Public | Register (always creates `business_user`) |
+| `POST` | `/auth/register` | Public | Register (always creates `data_analyst`) |
 | `POST` | `/auth/login` | Public | Login → access + refresh tokens |
 | `POST` | `/auth/refresh` | Public | Exchange refresh token for a new pair |
 | `GET` | `/auth/me` | JWT | Current profile |
@@ -316,7 +316,7 @@ Interactive docs at **`http://localhost:8000/docs`** (Swagger UI). Auth-protecte
 | Page | Route | Access | Description |
 |------|-------|--------|-------------|
 | Login | `/login` | Public | Username/password + official Google button |
-| Register | `/register` | Public | Self-registration (business_user) |
+| Register | `/register` | Public | Self-registration (data_analyst) |
 | Forgot Password | `/forgot-password` | Public | Request reset |
 | Reset Password | `/reset-password` | Public | Set new password |
 | Dashboard | `/dashboard` | JWT | KPI cards, revenue trend, category & price distribution, activity |
@@ -358,7 +358,7 @@ All relationships use proper foreign keys, unique constraints (username, email, 
 
 ### Price optimization
 1. `GET /api/v1/ai/status` — reports data coverage, available models, and existing recommendations.
-2. `GET /api/v1/ai/optimize/{product_id}` — builds features from price, cost, stock, demand, category, and historical sales; trains Random Forest, XGBoost, and Linear Regression (with train/test split where data allows) and picks the **best-performing model**.
+2. `GET /api/v1/ai/optimize/{product_id}` — builds features from price, cost, stock, demand, category, and historical sales; trains Random Forest and Linear Regression (with train/test split where data allows) and picks the **best-performing model**.
 3. Returns **current vs suggested price, confidence, expected revenue impact, price difference, reason, and key factors**. With insufficient data, it returns a clear explanation instead of a guess.
 4. `include_forecast=true` folds the Prophet demand signal into the suggestion (conservative in declining demand, room to test higher in rising demand).
 5. Recommendations can be saved (`/ai/optimize/{id}/save`) into the approval workflow and then **approved** (price applied + history entry) or **rejected** on the Pricing page.
@@ -449,7 +449,7 @@ frontend/
 │   │                         #   Products, Pricing, AIPrediction, Datasets,
 │   │                         #   Reports, Users, Settings
 │   └── modules/future/       # Gated future modules (preserved)
-├── vite.config.ts            # Dev proxy /api + /loaders → :8000
+├── vite.config.ts            # Dev proxy /api + /loaders → :8001
 └── package.json
 ```
 
@@ -459,32 +459,32 @@ frontend/
 
 ```bash
 # Health check
-curl http://localhost:8000/health
+curl http://localhost:8001/health
 
 # Login → token
-TOKEN=$(curl -s -X POST http://localhost:8000/api/v1/auth/login \
+TOKEN=$(curl -s -X POST http://localhost:8001/api/v1/auth/login \
   -H "Content-Type: application/json" \
   -d '{"username":"admin","password":"admin123"}' \
   | python -c "import sys,json; print(json.load(sys.stdin)['access_token'])")
 
 # Dashboard with real data
-curl -s http://localhost:8000/api/v1/dashboard/ \
+curl -s http://localhost:8001/api/v1/dashboard/ \
   -H "Authorization: Bearer $TOKEN" | python -m json.tool
 
 # AI engine status
-curl -s http://localhost:8000/api/v1/ai/status \
+curl -s http://localhost:8001/api/v1/ai/status \
   -H "Authorization: Bearer $TOKEN" | python -m json.tool
 
 # Optimize a product's price
-curl -s "http://localhost:8000/api/v1/ai/optimize/1?include_forecast=true" \
+curl -s "http://localhost:8001/api/v1/ai/optimize/1?include_forecast=true" \
   -H "Authorization: Bearer $TOKEN" | python -m json.tool
 
 # Prophet demand forecast
-curl -s "http://localhost:8000/api/v1/ai/forecast/1?horizon=30" \
+curl -s "http://localhost:8001/api/v1/ai/forecast/1?horizon=30" \
   -H "Authorization: Bearer $TOKEN" | python -m json.tool
 
 # Download a PDF report
-curl -s -o report.pdf "http://localhost:8000/api/v1/reports/export?report_type=revenue&format=pdf" \
+curl -s -o report.pdf "http://localhost:8001/api/v1/reports/export?report_type=revenue&format=pdf" \
   -H "Authorization: Bearer $TOKEN"
 ```
 

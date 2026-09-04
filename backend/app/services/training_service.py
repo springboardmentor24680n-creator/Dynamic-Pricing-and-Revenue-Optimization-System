@@ -121,6 +121,38 @@ def _sales_aggregates(db: Session) -> dict:
     return aggregates
 
 
+def invalidate_analytics_caches():
+    """Drop every module-level analytics cache (aggregates, predictions,
+    elasticity, brand map, demand signals, competitor ranges).
+
+    Called after any catalog mutation: dataset import, manual price update,
+    sales-history generation, and model retraining. Local imports keep the
+    dependency graph acyclic (ml_service imports this module at the top).
+    """
+    global _aggregates_cache, _aggregates_cache_ts
+    _aggregates_cache = None
+    _aggregates_cache_ts = 0
+    try:
+        from app.services.ml_service import PricingMLService
+        PricingMLService.clear_prediction_cache()
+        PricingMLService._elasticity_cache = None
+        PricingMLService._elasticity_cache_ts = 0
+        PricingMLService._brand_cache = None
+        PricingMLService._brand_cache_ts = 0
+    except Exception:  # noqa: BLE001
+        logger.debug("ML cache clear skipped", exc_info=True)
+    try:
+        from app.services.forecast_service import clear_demand_signal_cache
+        clear_demand_signal_cache()
+    except Exception:  # noqa: BLE001
+        logger.debug("Forecast cache clear skipped", exc_info=True)
+    try:
+        from app.services.pricing_strategy_service import clear_signal_caches
+        clear_signal_caches()
+    except Exception:  # noqa: BLE001
+        logger.debug("Strategy cache clear skipped", exc_info=True)
+
+
 class ModelTrainingService:
     """Trains, persists, and loads the price-optimization ML models."""
 
@@ -361,6 +393,9 @@ class ModelTrainingService:
             run.training_time_seconds = round(time.time() - start, 2)
             self.db.commit()
             self.db.refresh(run)
+            # New model version + possibly regenerated sales history: cached
+            # predictions / aggregates / demand signals are now outdated.
+            invalidate_analytics_caches()
         return run
 
     def start_background_training(self, user_id: int, dataset_id: int = None,

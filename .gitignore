@@ -170,6 +170,7 @@ node_modules/
 frontend/dist/
 
 # Data upload directory
+backend/data_uploaded/
 # Freebuff
 .freebuff/
 
@@ -177,6 +178,14 @@ frontend/dist/
 *.db
 *.db-shm
 *.db-wal
+
+# ML Models (generated, not source)
+backend/ml_models/
+
+# Recovery/utility scripts
+backend/recover_pyc.py
+backend/decompile_pyc.py
+backend/app_recovered/
 
 # Logs
 *.log

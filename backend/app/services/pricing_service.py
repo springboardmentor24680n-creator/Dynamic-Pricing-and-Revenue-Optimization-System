@@ -39,7 +39,16 @@ class PricingService:
         self.db.add(history)
         self.db.commit()
         self.db.refresh(product)
-        
+
+        # Price edits change model predictions (price is a model feature) and
+        # every competitor price-range that referenced this product, so drop the
+        # in-process analytics caches before the next read.
+        try:
+            from app.services.training_service import invalidate_analytics_caches
+            invalidate_analytics_caches()
+        except Exception:
+            pass
+
         return {
             "message": "Price updated successfully",
             "product_id": product_id,

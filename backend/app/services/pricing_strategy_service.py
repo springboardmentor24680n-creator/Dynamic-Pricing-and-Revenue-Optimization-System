@@ -34,6 +34,24 @@ from app.services.forecast_service import ForecastService
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
+# Module-level caches
+# ---------------------------------------------------------------------------
+# Competitor price ranges are a pure function of the catalog (product prices /
+# names), which changes only on price edits / dataset imports / retrains. Every
+# request to the pricing-strategy endpoints re-ran CompetitorService.analyze for
+# ALL products, which is why /pricing-strategy/summary took ~30-38s. These
+# caches are invalidated explicitly by the callers that mutate the catalog
+# (pricing_service.update_price, dataset import, model retrain), and also have a
+# short TTL as a safety net.
+_COMPETITOR_CACHE: dict = {}
+_COMPETITOR_CACHE_TTL = 900   # 15 minutes
+
+
+def clear_signal_caches():
+    """Drop all module-level caches this service maintains."""
+    _COMPETITOR_CACHE.clear()
+
+# ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
 
@@ -159,22 +177,24 @@ class PricingStrategyService:
         except Exception:
             model, feature_cols, run = None, None, None
 
-        # Batch predictions if model available
+        # Batch predictions for the whole (filtered) catalog. There is no
+        # artificial 200-product cap: every product with a valid price gets an
+        # ML-backed recommendation when a trained model exists (the prediction
+        # itself is cached in PricingMLService, so repeats are near-instant).
         batch_predictions = {}
         if model and run:
             try:
                 ml = PricingMLService(self.db)
                 training_frame = self.training.build_training_frame()
-                batch_products = [p.id for p in products]
-                for pid in batch_products[:200]:  # Cap to avoid excessive processing
+                for p in products:
                     try:
                         pred = ml.predict_product(
-                            pid, aggregates=aggregates,
+                            p.id, aggregates=aggregates,
                             training_frame=training_frame,
                             model=model, feature_cols=feature_cols, run=run,
                         )
                         if not pred.get("insufficient_data"):
-                            batch_predictions[pid] = pred
+                            batch_predictions[p.id] = pred
                     except Exception:
                         continue
             except Exception:
@@ -205,10 +225,15 @@ class PricingStrategyService:
             except Exception:
                 continue
 
-        # Sort
-        priority_order = {"HIGH": 0, "MEDIUM": 1, "LOW": 2}
+        # Sort. ``desc`` must mean "most important first" for every column:
+        # HIGH priority (0) before MEDIUM (1) before LOW (2), and the largest
+        # impact / confidence / margin first for the numeric columns. Priority
+        # uses a negated rank so desc yields HIGH first (before this fix the
+        # plain rank + reverse put LOW rows first, hiding the 50+ HIGH-priority
+        # actions from the top of the page).
+        priority_rank = {"HIGH": 0, "MEDIUM": 1, "LOW": 2}
         sort_key_map = {
-            "priority": lambda r: (priority_order.get(r.get("priority", "LOW"), 2), -abs(r.get("expected_impact_pct", 0))),
+            "priority": lambda r: (-priority_rank.get(r.get("priority", "LOW"), 2), -abs(r.get("expected_impact_pct", 0))),
             "impact": lambda r: -abs(r.get("expected_impact_pct", 0)),
             "confidence": lambda r: -r.get("confidence", 0),
             "margin": lambda r: -r.get("current_margin", 0),
@@ -709,7 +734,10 @@ class PricingStrategyService:
         })
 
     def _get_competitor_data(self, product_id: int) -> dict:
-        """Get competitor pricing data for a product."""
+        """Get competitor pricing data for a product (cached in-process)."""
+        cached = _COMPETITOR_CACHE.get(product_id)
+        if cached and (time.time() - cached[0]) < _COMPETITOR_CACHE_TTL:
+            return cached[1]
         try:
             from app.services.competitor_service import CompetitorService
             cs = CompetitorService(self.db)
@@ -719,7 +747,7 @@ class PricingStrategyService:
             prices = [c.get("price", 0) for c in competitors if c.get("price", 0) > 0]
 
             if prices:
-                return {
+                data = {
                     "competitor_count": len(competitors),
                     "price_range": {
                         "lowest": min(prices),
@@ -728,11 +756,14 @@ class PricingStrategyService:
                     },
                     "verified_count": len([p for p in prices if p > 0]),
                 }
-            return {
-                "competitor_count": len(competitors),
-                "price_range": {"lowest": 0, "highest": 0, "average": 0},
-                "verified_count": 0,
-            }
+            else:
+                data = {
+                    "competitor_count": len(competitors),
+                    "price_range": {"lowest": 0, "highest": 0, "average": 0},
+                    "verified_count": 0,
+                }
+            _COMPETITOR_CACHE[product_id] = (time.time(), data)
+            return data
         except Exception as e:
             logger.debug("Competitor data unavailable for product %d: %s", product_id, e)
             return {

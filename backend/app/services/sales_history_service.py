@@ -174,6 +174,15 @@ class SalesHistoryService:
             self.db.add_all(batch)
             self.db.commit()
 
+        if generated_products > 0 or total_rows > 0:
+            # New sales rows were written: cached sales aggregates, demand
+            # signals and any predictions built from them are now outdated.
+            try:
+                from app.services.training_service import invalidate_analytics_caches
+                invalidate_analytics_caches()
+            except Exception:
+                pass
+
         return {
             "products_generated": generated_products,
             "rows_generated": total_rows,

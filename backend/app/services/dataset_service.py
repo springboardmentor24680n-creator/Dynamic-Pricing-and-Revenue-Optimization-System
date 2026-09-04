@@ -406,6 +406,17 @@ class DatasetProcessingService:
         ))
         self.db.commit()
 
+        # The catalog (prices / names / products) changed at the commit above:
+        # drop every module-level analytics cache (sales aggregates, ML
+        # predictions, demand signals, competitor ranges) so later requests
+        # recompute from the refreshed catalog. This runs even when the
+        # background auto-pipeline below fails to start.
+        try:
+            from app.services.training_service import invalidate_analytics_caches
+            invalidate_analytics_caches()
+        except Exception:  # noqa: BLE001 - cache clearing must never fail an import
+            pass
+
         # Auto-pipeline: generate realistic sales history for the new products
         # (if the dataset didn't provide it) and train the AI models on the
         # refreshed catalog - both in the background so the import returns fast.

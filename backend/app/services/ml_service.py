@@ -9,6 +9,7 @@ score, and data-driven explanation factors from the trained model and the
 product's actual sales history.
 """
 
+import copy
 import logging
 import time
 
@@ -34,9 +35,46 @@ PRICE_FORECAST_HORIZONS = [7, 30, 90, 180, 365]
 class PricingMLService:
     """AI Pricing Optimization Engine - prediction from the persisted model."""
 
+    # In-process prediction cache: (run_id, product_id, current_price, include_forecast)
+    # -> (timestamp, result). Predictions are a pure function of the loaded model
+    # (fixed by run id), the product's current price, and the module-level sales
+    # aggregates (which themselves are cached 5 min). A short TTL therefore never
+    # returns stale values: any retrain changes run_id and any price update changes
+    # the price component of the key.
+    _pred_cache: dict = {}
+    _PRED_TTL = 300          # 5 minutes - matches the sales-aggregate cache
+    _PRED_MAX_ENTRIES = 6000
+
     def __init__(self, db: Session):
         self.db = db
         self.training = ModelTrainingService(db)
+
+    # ------------------------------------------------------------------
+    # Prediction cache helpers
+    # ------------------------------------------------------------------
+    @classmethod
+    def _cache_key(cls, run, product_id: int, current_price: float, include_forecast: bool):
+        return (getattr(run, "id", None), product_id, round(current_price or 0, 2), bool(include_forecast))
+
+    @classmethod
+    def _cache_get(cls, key):
+        hit = cls._pred_cache.get(key)
+        if hit and (time.time() - hit[0]) < cls._PRED_TTL:
+            return copy.deepcopy(hit[1])
+        if hit:
+            cls._pred_cache.pop(key, None)
+        return None
+
+    @classmethod
+    def _cache_put(cls, key, result):
+        if len(cls._pred_cache) > cls._PRED_MAX_ENTRIES:
+            cls._pred_cache.clear()
+        cls._pred_cache[key] = (time.time(), result)
+
+    @classmethod
+    def clear_prediction_cache(cls):
+        """Drop all cached predictions (e.g. after a retrain or dataset import)."""
+        cls._pred_cache.clear()
 
     # ------------------------------------------------------------------
     # Data preparation (shared with training)
@@ -403,6 +441,16 @@ class PricingMLService:
         if not product:
             raise ValueError("Product not found")
 
+        if model is None:
+            model, feature_cols, run = self.training.load_model()
+
+        # Fast path: reuse an in-process prediction for the same model run + price.
+        # This must come BEFORE the price-history query so cache hits stay cheap.
+        cache_key = self._cache_key(run, product_id, product.current_price, include_forecast)
+        cached = self._cache_get(cache_key)
+        if cached is not None:
+            return cached
+
         # Load the dated price ledger ONCE so the trend + forecast share a query.
         price_history = (
             self.db.query(PricingHistory)
@@ -411,8 +459,6 @@ class PricingMLService:
             .all()
         )
 
-        if model is None:
-            model, feature_cols, run = self.training.load_model()
         if model is None or not run:
             return {
                 "product_id": product_id,
@@ -438,7 +484,9 @@ class PricingMLService:
                 "demand_forecast": None,
                 "price_trend": self._price_trend(product, history=price_history),
                 "price_forecast": self._price_forecast(product, history=price_history),
-            }        # Compute sales aggregates ONCE so _product_row and _learn_elasticity
+            }
+
+        # Compute sales aggregates ONCE so _product_row and _learn_elasticity
         # (via build_training_frame) share the same expensive scan of 216K rows.
         if aggregates is None:
             from app.services.training_service import _sales_aggregates
@@ -510,12 +558,12 @@ class PricingMLService:
 
         recommendation = (
             f"Model '{run.best_model}' (trained on {run.samples} records from '{run.dataset_name}', "
-            f"R² {r2:.2f}) suggests setting the price to ${suggested:.2f} from ${current_price:.2f} "
+            f"R² {r2:.4f}) suggests setting the price to ${suggested:.2f} from ${current_price:.2f} "
             f"({change_pct:+.1f}%). At this price the model estimates ~{expected_units_30d:,.0f} units "
             f"over 30 days, ${expected_revenue_30d:,.0f} revenue and ${expected_profit_30d:,.0f} profit."
         )
 
-        return {
+        result = {
             "product_id": product_id,
             "product_name": product.name,
             "current_price": round(current_price, 2),
@@ -544,6 +592,8 @@ class PricingMLService:
             "price_trend": self._price_trend(product, history=price_history),
             "price_forecast": self._price_forecast(product, history=price_history),
         }
+        self._cache_put(cache_key, copy.deepcopy(result))
+        return result
 
     def _explain_factors(self, row: dict, suggested, current_price, cost,
                          elasticity, expected_profit, r2, samples) -> list:
@@ -586,7 +636,7 @@ class PricingMLService:
         factors.append(f"Portfolio price elasticity learned from your data: {elasticity:.2f}")
         if expected_profit > 0:
             factors.append(f"Projected 30-day profit at the suggested price: ${expected_profit:,.0f}")
-        factors.append(f"Model confidence reflects R² {r2:.2f} across {samples} training records")
+        factors.append(f"Model confidence reflects R² {r2:.4f} across {samples} training records")
         return factors
 
     # ------------------------------------------------------------------

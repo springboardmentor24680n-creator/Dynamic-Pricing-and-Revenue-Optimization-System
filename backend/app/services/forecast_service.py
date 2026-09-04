@@ -11,6 +11,7 @@ optimization accounts for expected demand shifts.
 
 import json
 import logging
+import time
 from datetime import datetime, timedelta
 
 import numpy as np
@@ -47,6 +48,21 @@ DATA_COVERAGE = {
     "note": "Only fields that exist in the uploaded dataset are used. Unavailable market "
             "fields are reported as 'Not available in current dataset' rather than fabricated.",
 }
+
+
+# In-process memo for lightweight demand signals (get_demand_signal). Computing a
+# signal scans the sales ledger per product; pricing strategy and analytics
+# precompute call it for every product, so memoize per (product, horizon).
+# A 10-minute TTL matches the other module caches (aggregates 5 min, elasticity
+# 10 min) and is refreshed after sales-history generation / retrain via
+# clear_demand_signal_cache().
+_DEMAND_SIGNAL_MEMO: dict = {}
+_DEMAND_SIGNAL_TTL = 600
+
+
+def clear_demand_signal_cache():
+    """Drop memoized demand signals (after sales history changes / retrain)."""
+    _DEMAND_SIGNAL_MEMO.clear()
 
 
 class ForecastService:
@@ -757,21 +773,33 @@ class ForecastService:
 
         Prefers a fresh cached Prophet forecast; otherwise computes the fast
         linear trend. Never triggers a full Prophet re-fit (keeps optimize fast).
+        Results are memoized in-process for 10 minutes because pricing-strategy
+        and analytics precompute call this for every product in the catalog.
         """
+        import copy as _copy
+        key = (product_id, horizon)
+        hit = _DEMAND_SIGNAL_MEMO.get(key)
+        now = time.time()
+        if hit and (now - hit[0]) < _DEMAND_SIGNAL_TTL:
+            return _copy.deepcopy(hit[1])
+        if hit:
+            _DEMAND_SIGNAL_MEMO.pop(key, None)
+
         cached = self._load_cached(product_id, horizon)
         if cached:
-            return {
+            result = {
                 "trend": cached["metrics"].get("trend", "stable"),
                 "growth_pct": cached["metrics"].get("growth_pct", 0),
                 "avg_daily_revenue": cached["metrics"].get("avg_daily_revenue", 0),
                 "forecast_revenue_total": cached["metrics"].get("forecast_revenue_total", 0),
                 "source": "prophet",
             }
-        daily = self._daily_series(product_id)
-        trend = self._quick_trend(daily, horizon)
-        if trend is None:
-            return {"trend": "unavailable", "growth_pct": 0, "source": "none"}
-        return trend
+        else:
+            daily = self._daily_series(product_id)
+            trend = self._quick_trend(daily, horizon)
+            result = trend if trend is not None else {"trend": "unavailable", "growth_pct": 0, "source": "none"}
+        _DEMAND_SIGNAL_MEMO[key] = (now, _copy.deepcopy(result))
+        return result
 
     def forecastable_count(self) -> int:
         """Count products with enough sales history to forecast (single cheap query)."""

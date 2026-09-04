@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { pricingStrategyAPI } from '../api/client';
 import { Target, TrendingUp, TrendingDown, Minus, AlertTriangle, Search, ChevronDown, ChevronRight, ArrowUp, ArrowDown, Filter, BarChart3, Shield, RefreshCw, Zap, Eye, CheckCircle } from 'lucide-react';
 
@@ -104,7 +104,18 @@ export default function PricingStrategy() {
   const [total, setTotal] = useState(0);
   const [error, setError] = useState(null);
 
+  // Debounced search: each keystroke would otherwise fire a ~10-20s backend
+  // recommendation recompute. 400ms after the user stops typing is enough to
+  // collapse a fast typist's 10+ requests into one.
+  const [searchInput, setSearchInput] = useState('');
+  useEffect(() => {
+    const t = setTimeout(() => { setSearch(searchInput); setPage(0); }, 400);
+    return () => clearTimeout(t);
+  }, [searchInput]);
+
+  const fetchSeq = useRef(0);
   const fetchData = useCallback(async () => {
+    const seq = ++fetchSeq.current;
     setLoading(true);
     setError(null);
     try {
@@ -119,15 +130,17 @@ export default function PricingStrategy() {
         }),
         pricingStrategyAPI.categories(),
       ]);
+      if (seq !== fetchSeq.current) return; // a newer request superseded this one
       setRecommendations(recRes.data.items || []);
       setSummary(recRes.data.summary || null);
       setTotal(recRes.data.total || 0);
       setCategories(catRes.data || []);
     } catch (err) {
+      if (seq !== fetchSeq.current) return;
       console.error('Failed to load pricing strategy:', err);
       setError('Failed to load pricing strategy recommendations.');
     } finally {
-      setLoading(false);
+      if (seq === fetchSeq.current) setLoading(false);
     }
   }, [categoryFilter, search, sortBy, sortOrder, page]);
 
@@ -254,8 +267,8 @@ export default function PricingStrategy() {
             <input
               type="text"
               placeholder="Search products..."
-              value={search}
-              onChange={(e) => { setSearch(e.target.value); setPage(0); }}
+              value={searchInput}
+              onChange={(e) => { setSearchInput(e.target.value); }}
               className="w-full pl-9 pr-3 py-2 bg-surface-800/50 border border-surface-700/50 rounded-lg text-sm text-surface-200 placeholder-surface-500 focus:outline-none focus:border-blue-500/50"
             />
           </div>
