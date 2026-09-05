@@ -1,0 +1,186 @@
+EXPLORATORY DATA ANALYSIS REPORT: demand/train.csv
+============================================================
+
+Dimensions: 913000 rows, 17 columns
+Duplicate Rows: 0
+
+DATA TYPES:
+ - date: str
+ - store: int64
+ - item: int64
+ - sales: int64
+ - year: int64
+ - month: int64
+ - week: int64
+ - day: int64
+ - day_of_week: int64
+ - quarter: int64
+ - sales_lag_1: float64
+ - sales_lag_7: float64
+ - sales_lag_14: float64
+ - sales_lag_30: float64
+ - sales_rolling_mean_7: float64
+ - sales_rolling_mean_14: float64
+ - sales_rolling_mean_30: float64
+
+MISSING VALUES SUMMARY:
+ - sales_lag_1: 500 (0.05%)
+ - sales_lag_7: 3500 (0.38%)
+ - sales_lag_14: 7000 (0.77%)
+ - sales_lag_30: 15000 (1.64%)
+ - sales_rolling_mean_7: 500 (0.05%)
+ - sales_rolling_mean_14: 500 (0.05%)
+ - sales_rolling_mean_30: 500 (0.05%)
+
+OUTLIERS SUMMARY (IQR Method):
+ - store: 0 outliers
+ - item: 0 outliers
+ - sales: 11967 outliers
+ - year: 0 outliers
+ - month: 0 outliers
+ - week: 0 outliers
+ - day: 0 outliers
+ - day_of_week: 0 outliers
+ - quarter: 0 outliers
+ - sales_lag_1: 11967 outliers
+ - sales_lag_7: 11967 outliers
+ - sales_lag_14: 11967 outliers
+ - sales_lag_30: 11967 outliers
+ - sales_rolling_mean_7: 7004 outliers
+ - sales_rolling_mean_14: 6873 outliers
+ - sales_rolling_mean_30: 6509 outliers
+
+NUMERICAL FEATURES STATISTICS:
+ - store:
+     mean: 5.5000
+     std: 2.8723
+     min: 1.0000
+     25%: 3.0000
+     50%: 5.5000
+     75%: 8.0000
+     max: 10.0000
+ - item:
+     mean: 25.5000
+     std: 14.4309
+     min: 1.0000
+     25%: 13.0000
+     50%: 25.5000
+     75%: 38.0000
+     max: 50.0000
+ - sales:
+     mean: 52.2503
+     std: 28.8011
+     min: 0.0000
+     25%: 30.0000
+     50%: 47.0000
+     75%: 70.0000
+     max: 231.0000
+ - year:
+     mean: 2015.0005
+     std: 1.4140
+     min: 2013.0000
+     25%: 2014.0000
+     50%: 2015.0000
+     75%: 2016.0000
+     max: 2017.0000
+ - month:
+     mean: 6.5235
+     std: 3.4485
+     min: 1.0000
+     25%: 4.0000
+     50%: 7.0000
+     75%: 10.0000
+     max: 12.0000
+ - week:
+     mean: 26.6156
+     std: 15.0610
+     min: 1.0000
+     25%: 14.0000
+     50%: 27.0000
+     75%: 40.0000
+     max: 53.0000
+ - day:
+     mean: 15.7278
+     std: 8.7993
+     min: 1.0000
+     25%: 8.0000
+     50%: 16.0000
+     75%: 23.0000
+     max: 31.0000
+ - day_of_week:
+     mean: 3.0016
+     std: 1.9993
+     min: 0.0000
+     25%: 1.0000
+     50%: 3.0000
+     75%: 5.0000
+     max: 6.0000
+ - quarter:
+     mean: 2.5088
+     std: 1.1170
+     min: 1.0000
+     25%: 2.0000
+     50%: 3.0000
+     75%: 4.0000
+     max: 4.0000
+ - sales_lag_1:
+     mean: 52.2500
+     std: 28.8028
+     min: 0.0000
+     25%: 30.0000
+     50%: 47.0000
+     75%: 70.0000
+     max: 231.0000
+ - sales_lag_7:
+     mean: 52.2804
+     std: 28.8185
+     min: 0.0000
+     25%: 30.0000
+     50%: 47.0000
+     75%: 70.0000
+     max: 231.0000
+ - sales_lag_14:
+     mean: 52.3108
+     std: 28.8364
+     min: 0.0000
+     25%: 30.0000
+     50%: 47.0000
+     75%: 70.0000
+     max: 231.0000
+ - sales_lag_30:
+     mean: 52.3751
+     std: 28.8766
+     min: 0.0000
+     25%: 30.0000
+     50%: 47.0000
+     75%: 70.0000
+     max: 231.0000
+ - sales_rolling_mean_7:
+     mean: 52.2216
+     std: 27.0106
+     min: 2.0000
+     25%: 30.4286
+     50%: 47.5714
+     75%: 69.4286
+     max: 175.4286
+ - sales_rolling_mean_14:
+     mean: 52.1925
+     std: 26.9093
+     min: 2.0000
+     25%: 30.4286
+     50%: 47.6429
+     75%: 69.2857
+     max: 167.7857
+ - sales_rolling_mean_30:
+     mean: 52.1267
+     std: 26.8020
+     min: 2.0000
+     25%: 30.4000
+     50%: 47.6667
+     75%: 69.2667
+     max: 165.8000
+
+CATEGORICAL FEATURES SUMMARY:
+ - date (1826 unique values):
+     Top categories: {'2013-01-01': 500, '2013-01-02': 500, '2013-01-03': 500, '2013-01-04': 500, '2013-01-05': 500}
+

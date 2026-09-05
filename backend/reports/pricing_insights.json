@@ -1,0 +1,1566 @@
+{
+  "run_date": "2026-08-10T16:26:01.740712+00:00",
+  "total_products_evaluated": 100,
+  "demand_trend_state": "Seasonal",
+  "insights_statistics": {
+    "High Demand": 20,
+    "Low Demand": 20,
+    "Inventory Running Low": 18,
+    "Seasonal Demand": 100,
+    "Competitor Advantage": 27,
+    "Revenue Opportunity": 66
+  },
+  "product_insights": [
+    {
+      "stockcode": "M",
+      "country": "United Kingdom",
+      "current_price": 0.42,
+      "recommended_price": 0.5,
+      "price_difference": 0.08,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": -99.0,
+      "recommendation": "Increase Price",
+      "insights": [
+        "Seasonal Demand",
+        "Competitor Advantage"
+      ],
+      "reason": "For product M in United Kingdom, stock levels are high with 35.2 days of supply (397 units), forecast models indicate a strong seasonal demand phase, current price (\u20b90.42) is below optimal baseline price (\u20b920.64), offering pricing headroom. We recommend increasing the price by \u20b90.08 (+20.0%) to \u20b90.50. This increase is designed to defend product value and extend run-out time, with a projected change in revenue of -99.00%."
+    },
+    {
+      "stockcode": "22423",
+      "country": "United Kingdom",
+      "current_price": 24.96,
+      "recommended_price": 19.97,
+      "price_difference": -4.99,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 108.04,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22423 in United Kingdom, stock levels are high with 36.8 days of supply (246 units), forecast models indicate a strong seasonal demand phase, current price (\u20b924.96) is higher than optimal baseline (\u20b90.91), suggesting we are overpriced. We recommend decreasing the price by \u20b94.99 (-20.0%) to \u20b919.97. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 108.04%."
+    },
+    {
+      "stockcode": "DOT",
+      "country": "United Kingdom",
+      "current_price": 1714.17,
+      "recommended_price": 1371.34,
+      "price_difference": -342.83,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 1580.01,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Low Demand",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product DOT in United Kingdom, historical sales volume of 2920 units indicates low overall velocity, stock levels are high with 31.9 days of supply (65 units), forecast models indicate a strong seasonal demand phase, current price (\u20b91714.17) is higher than optimal baseline (\u20b9-23.52), suggesting we are overpriced. We recommend decreasing the price by \u20b9342.83 (-20.0%) to \u20b91371.34. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 1580.01%."
+    },
+    {
+      "stockcode": "85123A",
+      "country": "United Kingdom",
+      "current_price": 2.95,
+      "recommended_price": 3.54,
+      "price_difference": 0.59,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": -5.57,
+      "recommendation": "Increase Price",
+      "insights": [
+        "High Demand",
+        "Seasonal Demand",
+        "Competitor Advantage"
+      ],
+      "reason": "For product 85123A in United Kingdom, historical sales volume of 98208 units is in the top 20% of catalog demand, stock levels are healthy with 16.2 days of supply (288 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.95) is below optimal baseline price (\u20b910.23), offering pricing headroom. We recommend increasing the price by \u20b90.59 (+20.0%) to \u20b93.54. This increase is designed to defend product value and extend run-out time, with a projected change in revenue of -5.57%."
+    },
+    {
+      "stockcode": "85099B",
+      "country": "United Kingdom",
+      "current_price": 4.13,
+      "recommended_price": 3.3,
+      "price_difference": -0.83,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 130.17,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "High Demand",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 85099B in United Kingdom, historical sales volume of 96764 units is in the top 20% of catalog demand, stock levels are healthy with 27.0 days of supply (645 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.13) is higher than optimal baseline (\u20b92.01), suggesting we are overpriced. We recommend decreasing the price by \u20b90.83 (-20.0%) to \u20b93.30. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 130.17%."
+    },
+    {
+      "stockcode": "23843",
+      "country": "United Kingdom",
+      "current_price": 2.08,
+      "recommended_price": 2.5,
+      "price_difference": 0.42,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": -16.0,
+      "recommendation": "Increase Price",
+      "insights": [
+        "High Demand",
+        "Seasonal Demand",
+        "Competitor Advantage"
+      ],
+      "reason": "For product 23843 in United Kingdom, historical sales volume of 80995 units is in the top 20% of catalog demand, stock levels are high with 43.1 days of supply (3488970 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.08) is below optimal baseline price (\u20b96.66), offering pricing headroom. We recommend increasing the price by \u20b90.42 (+20.0%) to \u20b92.50. This increase is designed to defend product value and extend run-out time, with a projected change in revenue of -16.00%."
+    },
+    {
+      "stockcode": "47566",
+      "country": "United Kingdom",
+      "current_price": 10.79,
+      "recommended_price": 8.63,
+      "price_difference": -2.16,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 113.72,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 47566 in United Kingdom, stock levels are high with 42.0 days of supply (438 units), forecast models indicate a strong seasonal demand phase, current price (\u20b910.79) is higher than optimal baseline (\u20b91.16), suggesting we are overpriced. We recommend decreasing the price by \u20b92.16 (-20.0%) to \u20b98.63. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 113.72%."
+    },
+    {
+      "stockcode": "84879",
+      "country": "United Kingdom",
+      "current_price": 1.69,
+      "recommended_price": 1.98,
+      "price_difference": 0.29,
+      "price_difference_percentage": 17.02,
+      "expected_revenue_improvement_percentage": -8.8,
+      "recommendation": "Increase Price",
+      "insights": [
+        "High Demand",
+        "Seasonal Demand",
+        "Competitor Advantage"
+      ],
+      "reason": "For product 84879 in United Kingdom, historical sales volume of 80090 units is in the top 20% of catalog demand, stock levels are healthy with 29.8 days of supply (836 units), forecast models indicate a strong seasonal demand phase, current price (\u20b91.69) is below optimal baseline price (\u20b91.92), offering pricing headroom. We recommend increasing the price by \u20b90.29 (+17.0%) to \u20b91.98. This increase is designed to defend product value and extend run-out time, with a projected change in revenue of -8.80%."
+    },
+    {
+      "stockcode": "POST",
+      "country": "France",
+      "current_price": 18.0,
+      "recommended_price": 14.4,
+      "price_difference": -3.6,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 53.61,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product POST in France, stock levels are high with 41.5 days of supply (230 units), forecast models indicate a strong seasonal demand phase, current price (\u20b918.00) is higher than optimal baseline (\u20b90.92), suggesting we are overpriced. We recommend decreasing the price by \u20b93.60 (-20.0%) to \u20b914.40. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 53.61%."
+    },
+    {
+      "stockcode": "22086",
+      "country": "United Kingdom",
+      "current_price": 2.95,
+      "recommended_price": 2.36,
+      "price_difference": -0.59,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": -8.52,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "High Demand",
+        "Seasonal Demand"
+      ],
+      "reason": "For product 22086 in United Kingdom, historical sales volume of 35113 units is in the top 20% of catalog demand, stock levels are healthy with 17.4 days of supply (295 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.95) is higher than optimal baseline (\u20b91.64), suggesting we are overpriced. We recommend decreasing the price by \u20b90.59 (-20.0%) to \u20b92.36. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of -8.52%."
+    },
+    {
+      "stockcode": "23166",
+      "country": "United Kingdom",
+      "current_price": 2.46,
+      "recommended_price": 2.95,
+      "price_difference": 0.49,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": 97.36,
+      "recommendation": "Increase Price",
+      "insights": [
+        "High Demand",
+        "Seasonal Demand",
+        "Competitor Advantage",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 23166 in United Kingdom, historical sales volume of 78033 units is in the top 20% of catalog demand, stock levels are healthy with 27.3 days of supply (8517 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.46) is below optimal baseline price (\u20b97.90), offering pricing headroom. We recommend increasing the price by \u20b90.49 (+20.0%) to \u20b92.95. This increase is designed to expand margins and slow down inventory draw, while capturing an expected revenue improvement of 97.36%."
+    },
+    {
+      "stockcode": "79321",
+      "country": "United Kingdom",
+      "current_price": 5.75,
+      "recommended_price": 4.6,
+      "price_difference": -1.15,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 18.71,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 79321 in United Kingdom, stock levels are healthy with 27.4 days of supply (378 units), forecast models indicate a strong seasonal demand phase, current price (\u20b95.75) is higher than optimal baseline (\u20b94.26), suggesting we are overpriced. We recommend decreasing the price by \u20b91.15 (-20.0%) to \u20b94.60. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 18.71%."
+    },
+    {
+      "stockcode": "22197",
+      "country": "United Kingdom",
+      "current_price": 0.85,
+      "recommended_price": 1.02,
+      "price_difference": 0.17,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": -20.09,
+      "recommendation": "Increase Price",
+      "insights": [
+        "High Demand",
+        "Seasonal Demand",
+        "Competitor Advantage"
+      ],
+      "reason": "For product 22197 in United Kingdom, historical sales volume of 88993 units is in the top 20% of catalog demand, stock levels are healthy with 20.3 days of supply (762 units), forecast models indicate a strong seasonal demand phase, current price (\u20b90.85) is below optimal baseline price (\u20b92.05), offering pricing headroom. We recommend increasing the price by \u20b90.17 (+20.0%) to \u20b91.02. This increase is designed to defend product value and extend run-out time, with a projected change in revenue of -20.09%."
+    },
+    {
+      "stockcode": "22386",
+      "country": "United Kingdom",
+      "current_price": 1.79,
+      "recommended_price": 2.15,
+      "price_difference": 0.36,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": -22.31,
+      "recommendation": "Increase Price",
+      "insights": [
+        "High Demand",
+        "Inventory Running Low",
+        "Seasonal Demand",
+        "Competitor Advantage"
+      ],
+      "reason": "For product 22386 in United Kingdom, historical sales volume of 39437 units is in the top 20% of catalog demand, stock levels are critical with only 9.8 days of supply remaining (169 units), forecast models indicate a strong seasonal demand phase, current price (\u20b91.79) is below optimal baseline price (\u20b92.30), offering pricing headroom. We recommend increasing the price by \u20b90.36 (+20.0%) to \u20b92.15. This increase is designed to defend product value and extend run-out time, with a projected change in revenue of -22.31%."
+    },
+    {
+      "stockcode": "84347",
+      "country": "United Kingdom",
+      "current_price": 2.55,
+      "recommended_price": 2.04,
+      "price_difference": -0.51,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 17.25,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "High Demand",
+        "Inventory Running Low",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 84347 in United Kingdom, historical sales volume of 31522 units is in the top 20% of catalog demand, stock levels are critical with only 5.4 days of supply remaining (216 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.55) is higher than optimal baseline (\u20b91.13), suggesting we are overpriced. We recommend decreasing the price by \u20b90.51 (-20.0%) to \u20b92.04. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 17.25%."
+    },
+    {
+      "stockcode": "20725",
+      "country": "United Kingdom",
+      "current_price": 1.45,
+      "recommended_price": 1.16,
+      "price_difference": -0.29,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": -14.5,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "High Demand",
+        "Seasonal Demand"
+      ],
+      "reason": "For product 20725 in United Kingdom, historical sales volume of 40317 units is in the top 20% of catalog demand, stock levels are high with 36.7 days of supply (479 units), forecast models indicate a strong seasonal demand phase, current price (\u20b91.45) is higher than optimal baseline (\u20b91.16), suggesting we are overpriced. We recommend decreasing the price by \u20b90.29 (-20.0%) to \u20b91.16. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of -14.50%."
+    },
+    {
+      "stockcode": "85099F",
+      "country": "United Kingdom",
+      "current_price": 4.13,
+      "recommended_price": 4.96,
+      "price_difference": 0.83,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": 88.62,
+      "recommendation": "Increase Price",
+      "insights": [
+        "High Demand",
+        "Seasonal Demand",
+        "Competitor Advantage",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 85099F in United Kingdom, historical sales volume of 36964 units is in the top 20% of catalog demand, stock levels are healthy with 11.3 days of supply (224 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.13) is below optimal baseline price (\u20b98.56), offering pricing headroom. We recommend increasing the price by \u20b90.83 (+20.0%) to \u20b94.96. This increase is designed to expand margins and slow down inventory draw, while capturing an expected revenue improvement of 88.62%."
+    },
+    {
+      "stockcode": "48138",
+      "country": "United Kingdom",
+      "current_price": 14.13,
+      "recommended_price": 11.3,
+      "price_difference": -2.83,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 121.03,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 48138 in United Kingdom, stock levels are healthy with 29.0 days of supply (174 units), forecast models indicate a strong seasonal demand phase, current price (\u20b914.13) is higher than optimal baseline (\u20b93.16), suggesting we are overpriced. We recommend decreasing the price by \u20b92.83 (-20.0%) to \u20b911.30. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 121.03%."
+    },
+    {
+      "stockcode": "23084",
+      "country": "United Kingdom",
+      "current_price": 2.08,
+      "recommended_price": 1.98,
+      "price_difference": -0.1,
+      "price_difference_percentage": -4.92,
+      "expected_revenue_improvement_percentage": 0.58,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "High Demand",
+        "Seasonal Demand"
+      ],
+      "reason": "For product 23084 in United Kingdom, historical sales volume of 31673 units is in the top 20% of catalog demand, stock levels are healthy with 15.9 days of supply (490 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.08) is higher than optimal baseline (\u20b91.92), suggesting we are overpriced. We recommend decreasing the price by \u20b90.10 (-4.9%) to \u20b91.98. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 0.58%."
+    },
+    {
+      "stockcode": "20685",
+      "country": "United Kingdom",
+      "current_price": 7.08,
+      "recommended_price": 5.66,
+      "price_difference": -1.42,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 8.53,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 20685 in United Kingdom, stock levels are healthy with 22.2 days of supply (125 units), forecast models indicate a strong seasonal demand phase, current price (\u20b97.08) is higher than optimal baseline (\u20b91.05), suggesting we are overpriced. We recommend decreasing the price by \u20b91.42 (-20.0%) to \u20b95.66. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 8.53%."
+    },
+    {
+      "stockcode": "21137",
+      "country": "United Kingdom",
+      "current_price": 3.39,
+      "recommended_price": 2.71,
+      "price_difference": -0.68,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 1.35,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand"
+      ],
+      "reason": "For product 21137 in United Kingdom, stock levels are healthy with 22.0 days of supply (647 units), forecast models indicate a strong seasonal demand phase, current price (\u20b93.39) is higher than optimal baseline (\u20b91.05), suggesting we are overpriced. We recommend decreasing the price by \u20b90.68 (-20.0%) to \u20b92.71. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 1.35%."
+    },
+    {
+      "stockcode": "21843",
+      "country": "United Kingdom",
+      "current_price": 20.79,
+      "recommended_price": 16.63,
+      "price_difference": -4.16,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 104.16,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Low Demand",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 21843 in United Kingdom, historical sales volume of 6130 units indicates low overall velocity, stock levels are healthy with 18.3 days of supply (73 units), forecast models indicate a strong seasonal demand phase, current price (\u20b920.79) is higher than optimal baseline (\u20b91.05), suggesting we are overpriced. We recommend decreasing the price by \u20b94.16 (-20.0%) to \u20b916.63. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 104.16%."
+    },
+    {
+      "stockcode": "21931",
+      "country": "United Kingdom",
+      "current_price": 1.79,
+      "recommended_price": 2.15,
+      "price_difference": 0.36,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": -28.69,
+      "recommendation": "Increase Price",
+      "insights": [
+        "Inventory Running Low",
+        "Seasonal Demand",
+        "Competitor Advantage"
+      ],
+      "reason": "For product 21931 in United Kingdom, stock levels are critical with only 9.1 days of supply remaining (112 units), forecast models indicate a strong seasonal demand phase, current price (\u20b91.79) is below optimal baseline price (\u20b92.30), offering pricing headroom. We recommend increasing the price by \u20b90.36 (+20.0%) to \u20b92.15. This increase is designed to defend product value and extend run-out time, with a projected change in revenue of -28.69%."
+    },
+    {
+      "stockcode": "22502",
+      "country": "United Kingdom",
+      "current_price": 2.0,
+      "recommended_price": 2.4,
+      "price_difference": 0.4,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": -88.93,
+      "recommendation": "Increase Price",
+      "insights": [
+        "Low Demand",
+        "Seasonal Demand",
+        "Competitor Advantage"
+      ],
+      "reason": "For product 22502 in United Kingdom, historical sales volume of 4012 units indicates low overall velocity, stock levels are high with 32.3 days of supply (137 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.00) is below optimal baseline price (\u20b911.93), offering pricing headroom. We recommend increasing the price by \u20b90.40 (+20.0%) to \u20b92.40. This increase is designed to defend product value and extend run-out time, with a projected change in revenue of -88.93%."
+    },
+    {
+      "stockcode": "21621",
+      "country": "United Kingdom",
+      "current_price": 8.5,
+      "recommended_price": 6.8,
+      "price_difference": -1.7,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 2.64,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Low Demand",
+        "Seasonal Demand"
+      ],
+      "reason": "For product 21621 in United Kingdom, historical sales volume of 7000 units indicates low overall velocity, stock levels are high with 31.7 days of supply (169 units), forecast models indicate a strong seasonal demand phase, current price (\u20b98.50) is higher than optimal baseline (\u20b94.79), suggesting we are overpriced. We recommend decreasing the price by \u20b91.70 (-20.0%) to \u20b96.80. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 2.64%."
+    },
+    {
+      "stockcode": "22114",
+      "country": "United Kingdom",
+      "current_price": 8.29,
+      "recommended_price": 6.63,
+      "price_difference": -1.66,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 72.2,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22114 in United Kingdom, stock levels are healthy with 13.6 days of supply (100 units), forecast models indicate a strong seasonal demand phase, current price (\u20b98.29) is higher than optimal baseline (\u20b91.64), suggesting we are overpriced. We recommend decreasing the price by \u20b91.66 (-20.0%) to \u20b96.63. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 72.20%."
+    },
+    {
+      "stockcode": "85099C",
+      "country": "United Kingdom",
+      "current_price": 1.79,
+      "recommended_price": 2.15,
+      "price_difference": 0.36,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": -21.99,
+      "recommendation": "Increase Price",
+      "insights": [
+        "Seasonal Demand",
+        "Competitor Advantage"
+      ],
+      "reason": "For product 85099C in United Kingdom, stock levels are high with 32.7 days of supply (529 units), forecast models indicate a strong seasonal demand phase, current price (\u20b91.79) is below optimal baseline price (\u20b92.30), offering pricing headroom. We recommend increasing the price by \u20b90.36 (+20.0%) to \u20b92.15. This increase is designed to defend product value and extend run-out time, with a projected change in revenue of -21.99%."
+    },
+    {
+      "stockcode": "22910",
+      "country": "United Kingdom",
+      "current_price": 2.95,
+      "recommended_price": 2.36,
+      "price_difference": -0.59,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 2.77,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand"
+      ],
+      "reason": "For product 22910 in United Kingdom, stock levels are high with 31.9 days of supply (433 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.95) is higher than optimal baseline (\u20b91.64), suggesting we are overpriced. We recommend decreasing the price by \u20b90.59 (-20.0%) to \u20b92.36. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 2.77%."
+    },
+    {
+      "stockcode": "22112",
+      "country": "United Kingdom",
+      "current_price": 4.95,
+      "recommended_price": 3.96,
+      "price_difference": -0.99,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": -1.75,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand"
+      ],
+      "reason": "For product 22112 in United Kingdom, stock levels are healthy with 26.3 days of supply (166 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.95) is higher than optimal baseline (\u20b91.72), suggesting we are overpriced. We recommend decreasing the price by \u20b90.99 (-20.0%) to \u20b93.96. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of -1.75%."
+    },
+    {
+      "stockcode": "15056N",
+      "country": "United Kingdom",
+      "current_price": 5.95,
+      "recommended_price": 4.76,
+      "price_difference": -1.19,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 20.46,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Inventory Running Low",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 15056N in United Kingdom, stock levels are critical with only 5.6 days of supply remaining (60 units), forecast models indicate a strong seasonal demand phase, current price (\u20b95.95) is higher than optimal baseline (\u20b90.91), suggesting we are overpriced. We recommend decreasing the price by \u20b91.19 (-20.0%) to \u20b94.76. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 20.46%."
+    },
+    {
+      "stockcode": "22411",
+      "country": "United Kingdom",
+      "current_price": 1.79,
+      "recommended_price": 2.15,
+      "price_difference": 0.36,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": -28.43,
+      "recommendation": "Increase Price",
+      "insights": [
+        "Seasonal Demand",
+        "Competitor Advantage"
+      ],
+      "reason": "For product 22411 in United Kingdom, stock levels are healthy with 17.7 days of supply (219 units), forecast models indicate a strong seasonal demand phase, current price (\u20b91.79) is below optimal baseline price (\u20b92.30), offering pricing headroom. We recommend increasing the price by \u20b90.36 (+20.0%) to \u20b92.15. This increase is designed to defend product value and extend run-out time, with a projected change in revenue of -28.43%."
+    },
+    {
+      "stockcode": "82484",
+      "country": "United Kingdom",
+      "current_price": 16.63,
+      "recommended_price": 13.3,
+      "price_difference": -3.33,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 199.63,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Inventory Running Low",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 82484 in United Kingdom, stock levels are critical with only 8.7 days of supply remaining (72 units), forecast models indicate a strong seasonal demand phase, current price (\u20b916.63) is higher than optimal baseline (\u20b91.64), suggesting we are overpriced. We recommend decreasing the price by \u20b93.33 (-20.0%) to \u20b913.30. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 199.63%."
+    },
+    {
+      "stockcode": "22470",
+      "country": "United Kingdom",
+      "current_price": 2.95,
+      "recommended_price": 3.54,
+      "price_difference": 0.59,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": -17.64,
+      "recommendation": "Increase Price",
+      "insights": [
+        "Inventory Running Low",
+        "Seasonal Demand",
+        "Competitor Advantage"
+      ],
+      "reason": "For product 22470 in United Kingdom, stock levels are critical with only 7.2 days of supply remaining (63 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.95) is below optimal baseline price (\u20b910.23), offering pricing headroom. We recommend increasing the price by \u20b90.59 (+20.0%) to \u20b93.54. This increase is designed to defend product value and extend run-out time, with a projected change in revenue of -17.64%."
+    },
+    {
+      "stockcode": "22139",
+      "country": "Germany",
+      "current_price": 4.95,
+      "recommended_price": 3.96,
+      "price_difference": -0.99,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 4.16,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand"
+      ],
+      "reason": "For product 22139 in Germany, stock levels are healthy with 25.8 days of supply (130 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.95) is higher than optimal baseline (\u20b90.99), suggesting we are overpriced. We recommend decreasing the price by \u20b90.99 (-20.0%) to \u20b93.96. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 4.16%."
+    },
+    {
+      "stockcode": "20914",
+      "country": "United Kingdom",
+      "current_price": 5.79,
+      "recommended_price": 4.63,
+      "price_difference": -1.16,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 114.13,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Inventory Running Low",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 20914 in United Kingdom, stock levels are critical with only 9.6 days of supply remaining (86 units), forecast models indicate a strong seasonal demand phase, current price (\u20b95.79) is higher than optimal baseline (\u20b93.22), suggesting we are overpriced. We recommend decreasing the price by \u20b91.16 (-20.0%) to \u20b94.63. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 114.13%."
+    },
+    {
+      "stockcode": "22178",
+      "country": "United Kingdom",
+      "current_price": 1.95,
+      "recommended_price": 1.9,
+      "price_difference": -0.05,
+      "price_difference_percentage": -2.54,
+      "expected_revenue_improvement_percentage": 50.95,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "High Demand",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22178 in United Kingdom, historical sales volume of 40081 units is in the top 20% of catalog demand, stock levels are high with 32.0 days of supply (695 units), forecast models indicate a strong seasonal demand phase. We recommend decreasing the price by \u20b90.05 (-2.5%) to \u20b91.90. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 50.95%."
+    },
+    {
+      "stockcode": "21212",
+      "country": "United Kingdom",
+      "current_price": 2.08,
+      "recommended_price": 2.5,
+      "price_difference": 0.42,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": 219.89,
+      "recommendation": "Increase Price",
+      "insights": [
+        "High Demand",
+        "Seasonal Demand",
+        "Competitor Advantage",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 21212 in United Kingdom, historical sales volume of 94884 units is in the top 20% of catalog demand, stock levels are high with 42.2 days of supply (1258 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.08) is below optimal baseline price (\u20b93.10), offering pricing headroom. We recommend increasing the price by \u20b90.42 (+20.0%) to \u20b92.50. This increase is designed to expand margins and slow down inventory draw, while capturing an expected revenue improvement of 219.89%."
+    },
+    {
+      "stockcode": "22090",
+      "country": "United Kingdom",
+      "current_price": 2.95,
+      "recommended_price": 2.36,
+      "price_difference": -0.59,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 1.73,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Inventory Running Low",
+        "Seasonal Demand"
+      ],
+      "reason": "For product 22090 in United Kingdom, stock levels are critical with only 9.8 days of supply remaining (95 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.95) is higher than optimal baseline (\u20b91.64), suggesting we are overpriced. We recommend decreasing the price by \u20b90.59 (-20.0%) to \u20b92.36. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 1.73%."
+    },
+    {
+      "stockcode": "21733",
+      "country": "United Kingdom",
+      "current_price": 2.95,
+      "recommended_price": 3.54,
+      "price_difference": 0.59,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": -13.5,
+      "recommendation": "Increase Price",
+      "insights": [
+        "Seasonal Demand",
+        "Competitor Advantage"
+      ],
+      "reason": "For product 21733 in United Kingdom, stock levels are high with 31.2 days of supply (305 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.95) is below optimal baseline price (\u20b910.23), offering pricing headroom. We recommend increasing the price by \u20b90.59 (+20.0%) to \u20b93.54. This increase is designed to defend product value and extend run-out time, with a projected change in revenue of -13.50%."
+    },
+    {
+      "stockcode": "21181",
+      "country": "United Kingdom",
+      "current_price": 4.13,
+      "recommended_price": 3.3,
+      "price_difference": -0.83,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 115.6,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 21181 in United Kingdom, stock levels are healthy with 14.3 days of supply (195 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.13) is higher than optimal baseline (\u20b91.92), suggesting we are overpriced. We recommend decreasing the price by \u20b90.83 (-20.0%) to \u20b93.30. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 115.60%."
+    },
+    {
+      "stockcode": "22111",
+      "country": "United Kingdom",
+      "current_price": 4.95,
+      "recommended_price": 3.96,
+      "price_difference": -0.99,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 1.11,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Inventory Running Low",
+        "Seasonal Demand"
+      ],
+      "reason": "For product 22111 in United Kingdom, stock levels are critical with only 6.5 days of supply remaining (37 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.95) is higher than optimal baseline (\u20b91.72), suggesting we are overpriced. We recommend decreasing the price by \u20b90.99 (-20.0%) to \u20b93.96. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 1.11%."
+    },
+    {
+      "stockcode": "21929",
+      "country": "United Kingdom",
+      "current_price": 1.79,
+      "recommended_price": 2.15,
+      "price_difference": 0.36,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": -22.45,
+      "recommendation": "Increase Price",
+      "insights": [
+        "Seasonal Demand",
+        "Competitor Advantage"
+      ],
+      "reason": "For product 21929 in United Kingdom, stock levels are healthy with 28.9 days of supply (453 units), forecast models indicate a strong seasonal demand phase, current price (\u20b91.79) is below optimal baseline price (\u20b92.30), offering pricing headroom. We recommend increasing the price by \u20b90.36 (+20.0%) to \u20b92.15. This increase is designed to defend product value and extend run-out time, with a projected change in revenue of -22.45%."
+    },
+    {
+      "stockcode": "22189",
+      "country": "United Kingdom",
+      "current_price": 3.39,
+      "recommended_price": 2.71,
+      "price_difference": -0.68,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 15.75,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22189 in United Kingdom, stock levels are healthy with 13.9 days of supply (172 units), forecast models indicate a strong seasonal demand phase, current price (\u20b93.39) is higher than optimal baseline (\u20b9-22.98), suggesting we are overpriced. We recommend decreasing the price by \u20b90.68 (-20.0%) to \u20b92.71. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 15.75%."
+    },
+    {
+      "stockcode": "21232",
+      "country": "United Kingdom",
+      "current_price": 2.46,
+      "recommended_price": 1.97,
+      "price_difference": -0.49,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 97.19,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "High Demand",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 21232 in United Kingdom, historical sales volume of 37998 units is in the top 20% of catalog demand, stock levels are high with 35.0 days of supply (535 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.46) is higher than optimal baseline (\u20b91.64), suggesting we are overpriced. We recommend decreasing the price by \u20b90.49 (-20.0%) to \u20b91.97. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 97.19%."
+    },
+    {
+      "stockcode": "84946",
+      "country": "United Kingdom",
+      "current_price": 1.25,
+      "recommended_price": 1.5,
+      "price_difference": 0.25,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": -21.7,
+      "recommendation": "Increase Price",
+      "insights": [
+        "High Demand",
+        "Seasonal Demand",
+        "Competitor Advantage"
+      ],
+      "reason": "For product 84946 in United Kingdom, historical sales volume of 36696 units is in the top 20% of catalog demand, stock levels are healthy with 13.8 days of supply (283 units), forecast models indicate a strong seasonal demand phase, current price (\u20b91.25) is below optimal baseline price (\u20b93.10), offering pricing headroom. We recommend increasing the price by \u20b90.25 (+20.0%) to \u20b91.50. This increase is designed to defend product value and extend run-out time, with a projected change in revenue of -21.70%."
+    },
+    {
+      "stockcode": "22469",
+      "country": "United Kingdom",
+      "current_price": 1.65,
+      "recommended_price": 1.98,
+      "price_difference": 0.33,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": -20.7,
+      "recommendation": "Increase Price",
+      "insights": [
+        "Inventory Running Low",
+        "Seasonal Demand",
+        "Competitor Advantage"
+      ],
+      "reason": "For product 22469 in United Kingdom, stock levels are critical with only 7.3 days of supply remaining (92 units), forecast models indicate a strong seasonal demand phase, current price (\u20b91.65) is below optimal baseline price (\u20b911.93), offering pricing headroom. We recommend increasing the price by \u20b90.33 (+20.0%) to \u20b91.98. This increase is designed to defend product value and extend run-out time, with a projected change in revenue of -20.70%."
+    },
+    {
+      "stockcode": "48194",
+      "country": "United Kingdom",
+      "current_price": 8.25,
+      "recommended_price": 6.6,
+      "price_difference": -1.65,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 36.25,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Low Demand",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 48194 in United Kingdom, historical sales volume of 7738 units indicates low overall velocity, stock levels are high with 33.2 days of supply (189 units), forecast models indicate a strong seasonal demand phase, current price (\u20b98.25) is higher than optimal baseline (\u20b94.79), suggesting we are overpriced. We recommend decreasing the price by \u20b91.65 (-20.0%) to \u20b96.60. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 36.25%."
+    },
+    {
+      "stockcode": "21731",
+      "country": "United Kingdom",
+      "current_price": 1.65,
+      "recommended_price": 1.41,
+      "price_difference": -0.24,
+      "price_difference_percentage": -14.4,
+      "expected_revenue_improvement_percentage": 3.28,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand"
+      ],
+      "reason": "For product 21731 in United Kingdom, stock levels are high with 39.0 days of supply (729 units), forecast models indicate a strong seasonal demand phase, current price (\u20b91.65) is higher than optimal baseline (\u20b91.49), suggesting we are overpriced. We recommend decreasing the price by \u20b90.24 (-14.4%) to \u20b91.41. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 3.28%."
+    },
+    {
+      "stockcode": "22457",
+      "country": "United Kingdom",
+      "current_price": 5.79,
+      "recommended_price": 4.63,
+      "price_difference": -1.16,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 95.76,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Inventory Running Low",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22457 in United Kingdom, stock levels are critical with only 5.7 days of supply remaining (42 units), forecast models indicate a strong seasonal demand phase, current price (\u20b95.79) is higher than optimal baseline (\u20b93.22), suggesting we are overpriced. We recommend decreasing the price by \u20b91.16 (-20.0%) to \u20b94.63. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 95.76%."
+    },
+    {
+      "stockcode": "15056BL",
+      "country": "United Kingdom",
+      "current_price": 5.95,
+      "recommended_price": 4.76,
+      "price_difference": -1.19,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 25.6,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 15056BL in United Kingdom, stock levels are high with 41.9 days of supply (462 units), forecast models indicate a strong seasonal demand phase, current price (\u20b95.95) is higher than optimal baseline (\u20b90.91), suggesting we are overpriced. We recommend decreasing the price by \u20b91.19 (-20.0%) to \u20b94.76. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 25.60%."
+    },
+    {
+      "stockcode": "21754",
+      "country": "United Kingdom",
+      "current_price": 11.63,
+      "recommended_price": 9.3,
+      "price_difference": -2.33,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 97.48,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Low Demand",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 21754 in United Kingdom, historical sales volume of 7595 units indicates low overall velocity, stock levels are healthy with 17.1 days of supply (62 units), forecast models indicate a strong seasonal demand phase, current price (\u20b911.63) is higher than optimal baseline (\u20b92.01), suggesting we are overpriced. We recommend decreasing the price by \u20b92.33 (-20.0%) to \u20b99.30. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 97.48%."
+    },
+    {
+      "stockcode": "48187",
+      "country": "United Kingdom",
+      "current_price": 8.25,
+      "recommended_price": 6.6,
+      "price_difference": -1.65,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 35.23,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Low Demand",
+        "Inventory Running Low",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 48187 in United Kingdom, historical sales volume of 7314 units indicates low overall velocity, stock levels are critical with only 7.7 days of supply remaining (44 units), forecast models indicate a strong seasonal demand phase, current price (\u20b98.25) is higher than optimal baseline (\u20b94.79), suggesting we are overpriced. We recommend decreasing the price by \u20b91.65 (-20.0%) to \u20b96.60. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 35.23%."
+    },
+    {
+      "stockcode": "21928",
+      "country": "United Kingdom",
+      "current_price": 4.13,
+      "recommended_price": 4.96,
+      "price_difference": 0.83,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": 82.26,
+      "recommendation": "Increase Price",
+      "insights": [
+        "Inventory Running Low",
+        "Seasonal Demand",
+        "Competitor Advantage",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 21928 in United Kingdom, stock levels are critical with only 9.9 days of supply remaining (155 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.13) is below optimal baseline price (\u20b94.79), offering pricing headroom. We recommend increasing the price by \u20b90.83 (+20.0%) to \u20b94.96. This increase is designed to expand margins and slow down inventory draw, while capturing an expected revenue improvement of 82.26%."
+    },
+    {
+      "stockcode": "21523",
+      "country": "United Kingdom",
+      "current_price": 16.63,
+      "recommended_price": 13.3,
+      "price_difference": -3.33,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 161.17,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Low Demand",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 21523 in United Kingdom, historical sales volume of 6959 units indicates low overall velocity, stock levels are high with 33.1 days of supply (204 units), forecast models indicate a strong seasonal demand phase, current price (\u20b916.63) is higher than optimal baseline (\u20b92.94), suggesting we are overpriced. We recommend decreasing the price by \u20b93.33 (-20.0%) to \u20b913.30. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 161.17%."
+    },
+    {
+      "stockcode": "22138",
+      "country": "France",
+      "current_price": 4.95,
+      "recommended_price": 3.96,
+      "price_difference": -0.99,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 5.28,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22138 in France, stock levels are high with 43.4 days of supply (211 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.95) is higher than optimal baseline (\u20b90.96), suggesting we are overpriced. We recommend decreasing the price by \u20b90.99 (-20.0%) to \u20b93.96. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 5.28%."
+    },
+    {
+      "stockcode": "48185",
+      "country": "United Kingdom",
+      "current_price": 8.25,
+      "recommended_price": 6.6,
+      "price_difference": -1.65,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 28.05,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Low Demand",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 48185 in United Kingdom, historical sales volume of 6824 units indicates low overall velocity, stock levels are high with 36.7 days of supply (253 units), forecast models indicate a strong seasonal demand phase, current price (\u20b98.25) is higher than optimal baseline (\u20b94.79), suggesting we are overpriced. We recommend decreasing the price by \u20b91.65 (-20.0%) to \u20b96.60. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 28.05%."
+    },
+    {
+      "stockcode": "20727",
+      "country": "United Kingdom",
+      "current_price": 1.65,
+      "recommended_price": 1.98,
+      "price_difference": 0.33,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": -19.01,
+      "recommendation": "Increase Price",
+      "insights": [
+        "Seasonal Demand",
+        "Competitor Advantage"
+      ],
+      "reason": "For product 20727 in United Kingdom, stock levels are high with 31.7 days of supply (352 units), forecast models indicate a strong seasonal demand phase, current price (\u20b91.65) is below optimal baseline price (\u20b911.93), offering pricing headroom. We recommend increasing the price by \u20b90.33 (+20.0%) to \u20b91.98. This increase is designed to defend product value and extend run-out time, with a projected change in revenue of -19.01%."
+    },
+    {
+      "stockcode": "21623",
+      "country": "United Kingdom",
+      "current_price": 9.95,
+      "recommended_price": 7.96,
+      "price_difference": -1.99,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 41.36,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Low Demand",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 21623 in United Kingdom, historical sales volume of 6202 units indicates low overall velocity, stock levels are high with 39.2 days of supply (456 units), forecast models indicate a strong seasonal demand phase, current price (\u20b99.95) is higher than optimal baseline (\u20b94.31), suggesting we are overpriced. We recommend decreasing the price by \u20b91.99 (-20.0%) to \u20b97.96. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 41.36%."
+    },
+    {
+      "stockcode": "22355",
+      "country": "United Kingdom",
+      "current_price": 2.46,
+      "recommended_price": 1.97,
+      "price_difference": -0.49,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 80.28,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "High Demand",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22355 in United Kingdom, historical sales volume of 31975 units is in the top 20% of catalog demand, stock levels are healthy with 26.6 days of supply (482 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.46) is higher than optimal baseline (\u20b90.91), suggesting we are overpriced. We recommend decreasing the price by \u20b90.49 (-20.0%) to \u20b91.97. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 80.28%."
+    },
+    {
+      "stockcode": "71477",
+      "country": "United Kingdom",
+      "current_price": 6.63,
+      "recommended_price": 5.3,
+      "price_difference": -1.33,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 133.92,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 71477 in United Kingdom, stock levels are healthy with 25.5 days of supply (466 units), forecast models indicate a strong seasonal demand phase, current price (\u20b96.63) is higher than optimal baseline (\u20b93.22), suggesting we are overpriced. We recommend decreasing the price by \u20b91.33 (-20.0%) to \u20b95.30. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 133.92%."
+    },
+    {
+      "stockcode": "22326",
+      "country": "Germany",
+      "current_price": 2.95,
+      "recommended_price": 2.36,
+      "price_difference": -0.59,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 7.18,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22326 in Germany, stock levels are high with 40.3 days of supply (443 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.95) is higher than optimal baseline (\u20b90.94), suggesting we are overpriced. We recommend decreasing the price by \u20b90.59 (-20.0%) to \u20b92.36. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 7.18%."
+    },
+    {
+      "stockcode": "21175",
+      "country": "United Kingdom",
+      "current_price": 4.96,
+      "recommended_price": 4.09,
+      "price_difference": -0.87,
+      "price_difference_percentage": -17.57,
+      "expected_revenue_improvement_percentage": 143.58,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 21175 in United Kingdom, stock levels are high with 44.3 days of supply (547 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.96) is higher than optimal baseline (\u20b94.31), suggesting we are overpriced. We recommend decreasing the price by \u20b90.87 (-17.6%) to \u20b94.09. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 143.58%."
+    },
+    {
+      "stockcode": "84078A",
+      "country": "United Kingdom",
+      "current_price": 58.29,
+      "recommended_price": 46.63,
+      "price_difference": -11.66,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 55.96,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Low Demand",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 84078A in United Kingdom, historical sales volume of 1128 units indicates low overall velocity, stock levels are healthy with 25.9 days of supply (89 units), forecast models indicate a strong seasonal demand phase, current price (\u20b958.29) is higher than optimal baseline (\u20b91.16), suggesting we are overpriced. We recommend decreasing the price by \u20b911.66 (-20.0%) to \u20b946.63. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 55.96%."
+    },
+    {
+      "stockcode": "82494L",
+      "country": "United Kingdom",
+      "current_price": 2.95,
+      "recommended_price": 2.56,
+      "price_difference": -0.39,
+      "price_difference_percentage": -13.17,
+      "expected_revenue_improvement_percentage": 8.3,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Inventory Running Low",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 82494L in United Kingdom, stock levels are critical with only 6.8 days of supply remaining (52 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.95) is higher than optimal baseline (\u20b92.30), suggesting we are overpriced. We recommend decreasing the price by \u20b90.39 (-13.2%) to \u20b92.56. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 8.30%."
+    },
+    {
+      "stockcode": "22383",
+      "country": "United Kingdom",
+      "current_price": 4.96,
+      "recommended_price": 4.09,
+      "price_difference": -0.87,
+      "price_difference_percentage": -17.57,
+      "expected_revenue_improvement_percentage": 199.29,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22383 in United Kingdom, stock levels are high with 41.8 days of supply (429 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.96) is higher than optimal baseline (\u20b94.31), suggesting we are overpriced. We recommend decreasing the price by \u20b90.87 (-17.6%) to \u20b94.09. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 199.29%."
+    },
+    {
+      "stockcode": "23298",
+      "country": "Germany",
+      "current_price": 4.95,
+      "recommended_price": 3.96,
+      "price_difference": -0.99,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 3.05,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Low Demand",
+        "Seasonal Demand"
+      ],
+      "reason": "For product 23298 in Germany, historical sales volume of 8637 units indicates low overall velocity, stock levels are healthy with 18.8 days of supply (139 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.95) is higher than optimal baseline (\u20b90.57), suggesting we are overpriced. We recommend decreasing the price by \u20b90.99 (-20.0%) to \u20b93.96. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 3.05%."
+    },
+    {
+      "stockcode": "84029E",
+      "country": "United Kingdom",
+      "current_price": 8.29,
+      "recommended_price": 6.63,
+      "price_difference": -1.66,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 113.38,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 84029E in United Kingdom, stock levels are high with 39.9 days of supply (365 units), forecast models indicate a strong seasonal demand phase, current price (\u20b98.29) is higher than optimal baseline (\u20b91.64), suggesting we are overpriced. We recommend decreasing the price by \u20b91.66 (-20.0%) to \u20b96.63. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 113.38%."
+    },
+    {
+      "stockcode": "21915",
+      "country": "United Kingdom",
+      "current_price": 1.25,
+      "recommended_price": 1.5,
+      "price_difference": 0.25,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": -10.13,
+      "recommendation": "Increase Price",
+      "insights": [
+        "High Demand",
+        "Seasonal Demand",
+        "Competitor Advantage"
+      ],
+      "reason": "For product 21915 in United Kingdom, historical sales volume of 36517 units is in the top 20% of catalog demand, stock levels are high with 36.6 days of supply (1291 units), forecast models indicate a strong seasonal demand phase, current price (\u20b91.25) is below optimal baseline price (\u20b911.93), offering pricing headroom. We recommend increasing the price by \u20b90.25 (+20.0%) to \u20b91.50. This increase is designed to defend product value and extend run-out time, with a projected change in revenue of -10.13%."
+    },
+    {
+      "stockcode": "20728",
+      "country": "United Kingdom",
+      "current_price": 4.13,
+      "recommended_price": 3.3,
+      "price_difference": -0.83,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 149.93,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 20728 in United Kingdom, stock levels are healthy with 29.4 days of supply (346 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.13) is higher than optimal baseline (\u20b92.94), suggesting we are overpriced. We recommend decreasing the price by \u20b90.83 (-20.0%) to \u20b93.30. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 149.93%."
+    },
+    {
+      "stockcode": "23203",
+      "country": "United Kingdom",
+      "current_price": 2.08,
+      "recommended_price": 1.66,
+      "price_difference": -0.42,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 5.95,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 23203 in United Kingdom, stock levels are healthy with 20.6 days of supply (341 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.08) is higher than optimal baseline (\u20b91.49), suggesting we are overpriced. We recommend decreasing the price by \u20b90.42 (-20.0%) to \u20b91.66. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 5.95%."
+    },
+    {
+      "stockcode": "82482",
+      "country": "United Kingdom",
+      "current_price": 4.96,
+      "recommended_price": 3.97,
+      "price_difference": -0.99,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 108.54,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Inventory Running Low",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 82482 in United Kingdom, stock levels are critical with only 5.8 days of supply remaining (48 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.96) is higher than optimal baseline (\u20b92.05), suggesting we are overpriced. We recommend decreasing the price by \u20b90.99 (-20.0%) to \u20b93.97. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 108.54%."
+    },
+    {
+      "stockcode": "20713",
+      "country": "United Kingdom",
+      "current_price": 1.79,
+      "recommended_price": 2.15,
+      "price_difference": 0.36,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": -16.07,
+      "recommendation": "Increase Price",
+      "insights": [
+        "Seasonal Demand",
+        "Competitor Advantage"
+      ],
+      "reason": "For product 20713 in United Kingdom, stock levels are healthy with 11.6 days of supply (197 units), forecast models indicate a strong seasonal demand phase, current price (\u20b91.79) is below optimal baseline price (\u20b92.30), offering pricing headroom. We recommend increasing the price by \u20b90.36 (+20.0%) to \u20b92.15. This increase is designed to defend product value and extend run-out time, with a projected change in revenue of -16.07%."
+    },
+    {
+      "stockcode": "22083",
+      "country": "United Kingdom",
+      "current_price": 2.95,
+      "recommended_price": 2.37,
+      "price_difference": -0.58,
+      "price_difference_percentage": -19.61,
+      "expected_revenue_improvement_percentage": 4.16,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand"
+      ],
+      "reason": "For product 22083 in United Kingdom, stock levels are healthy with 25.9 days of supply (252 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.95) is higher than optimal baseline (\u20b92.30), suggesting we are overpriced. We recommend decreasing the price by \u20b90.58 (-19.6%) to \u20b92.37. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 4.16%."
+    },
+    {
+      "stockcode": "84997D",
+      "country": "Germany",
+      "current_price": 4.15,
+      "recommended_price": 3.32,
+      "price_difference": -0.83,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 15.31,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 84997D in Germany, stock levels are healthy with 26.1 days of supply (252 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.15) is higher than optimal baseline (\u20b90.65), suggesting we are overpriced. We recommend decreasing the price by \u20b90.83 (-20.0%) to \u20b93.32. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 15.31%."
+    },
+    {
+      "stockcode": "85066",
+      "country": "United Kingdom",
+      "current_price": 12.75,
+      "recommended_price": 10.2,
+      "price_difference": -2.55,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 6.32,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Low Demand",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 85066 in United Kingdom, historical sales volume of 3095 units indicates low overall velocity, stock levels are high with 40.4 days of supply (132 units), forecast models indicate a strong seasonal demand phase, current price (\u20b912.75) is higher than optimal baseline (\u20b91.16), suggesting we are overpriced. We recommend decreasing the price by \u20b92.55 (-20.0%) to \u20b910.20. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 6.32%."
+    },
+    {
+      "stockcode": "20726",
+      "country": "United Kingdom",
+      "current_price": 4.13,
+      "recommended_price": 3.32,
+      "price_difference": -0.81,
+      "price_difference_percentage": -19.72,
+      "expected_revenue_improvement_percentage": 146.8,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 20726 in United Kingdom, stock levels are healthy with 23.7 days of supply (269 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.13) is higher than optimal baseline (\u20b93.22), suggesting we are overpriced. We recommend decreasing the price by \u20b90.81 (-19.7%) to \u20b93.32. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 146.80%."
+    },
+    {
+      "stockcode": "22960",
+      "country": "United Kingdom",
+      "current_price": 8.29,
+      "recommended_price": 6.63,
+      "price_difference": -1.66,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 105.09,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22960 in United Kingdom, stock levels are healthy with 15.6 days of supply (122 units), forecast models indicate a strong seasonal demand phase, current price (\u20b98.29) is higher than optimal baseline (\u20b91.49), suggesting we are overpriced. We recommend decreasing the price by \u20b91.66 (-20.0%) to \u20b96.63. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 105.09%."
+    },
+    {
+      "stockcode": "22699",
+      "country": "United Kingdom",
+      "current_price": 5.79,
+      "recommended_price": 4.63,
+      "price_difference": -1.16,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 105.78,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Inventory Running Low",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22699 in United Kingdom, stock levels are critical with only 5.0 days of supply remaining (45 units), forecast models indicate a strong seasonal demand phase, current price (\u20b95.79) is higher than optimal baseline (\u20b91.64), suggesting we are overpriced. We recommend decreasing the price by \u20b91.16 (-20.0%) to \u20b94.63. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 105.78%."
+    },
+    {
+      "stockcode": "21166",
+      "country": "United Kingdom",
+      "current_price": 4.13,
+      "recommended_price": 3.32,
+      "price_difference": -0.81,
+      "price_difference_percentage": -19.72,
+      "expected_revenue_improvement_percentage": 129.39,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 21166 in United Kingdom, stock levels are healthy with 25.0 days of supply (353 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.13) is higher than optimal baseline (\u20b93.22), suggesting we are overpriced. We recommend decreasing the price by \u20b90.81 (-19.7%) to \u20b93.32. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 129.39%."
+    },
+    {
+      "stockcode": "23284",
+      "country": "United Kingdom",
+      "current_price": 15.79,
+      "recommended_price": 12.63,
+      "price_difference": -3.16,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 136.85,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Low Demand",
+        "Inventory Running Low",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 23284 in United Kingdom, historical sales volume of 5500 units indicates low overall velocity, stock levels are critical with only 5.2 days of supply remaining (39 units), forecast models indicate a strong seasonal demand phase, current price (\u20b915.79) is higher than optimal baseline (\u20b92.94), suggesting we are overpriced. We recommend decreasing the price by \u20b93.16 (-20.0%) to \u20b912.63. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 136.85%."
+    },
+    {
+      "stockcode": "22720",
+      "country": "United Kingdom",
+      "current_price": 10.79,
+      "recommended_price": 8.63,
+      "price_difference": -2.16,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 120.76,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Low Demand",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22720 in United Kingdom, historical sales volume of 7497 units indicates low overall velocity, stock levels are healthy with 18.4 days of supply (98 units), forecast models indicate a strong seasonal demand phase, current price (\u20b910.79) is higher than optimal baseline (\u20b92.01), suggesting we are overpriced. We recommend decreasing the price by \u20b92.16 (-20.0%) to \u20b98.63. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 120.76%."
+    },
+    {
+      "stockcode": "82486",
+      "country": "United Kingdom",
+      "current_price": 8.95,
+      "recommended_price": 7.16,
+      "price_difference": -1.79,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 15.65,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Low Demand",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 82486 in United Kingdom, historical sales volume of 4728 units indicates low overall velocity, stock levels are healthy with 17.5 days of supply (64 units), forecast models indicate a strong seasonal demand phase, current price (\u20b98.95) is higher than optimal baseline (\u20b91.49), suggesting we are overpriced. We recommend decreasing the price by \u20b91.79 (-20.0%) to \u20b97.16. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 15.65%."
+    },
+    {
+      "stockcode": "22629",
+      "country": "France",
+      "current_price": 1.95,
+      "recommended_price": 1.56,
+      "price_difference": -0.39,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 11.17,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22629 in France, stock levels are high with 35.0 days of supply (527 units), forecast models indicate a strong seasonal demand phase, current price (\u20b91.95) is higher than optimal baseline (\u20b90.81), suggesting we are overpriced. We recommend decreasing the price by \u20b90.39 (-20.0%) to \u20b91.56. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 11.17%."
+    },
+    {
+      "stockcode": "20712",
+      "country": "United Kingdom",
+      "current_price": 4.13,
+      "recommended_price": 3.32,
+      "price_difference": -0.81,
+      "price_difference_percentage": -19.72,
+      "expected_revenue_improvement_percentage": 102.9,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 20712 in United Kingdom, stock levels are healthy with 23.6 days of supply (292 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.13) is higher than optimal baseline (\u20b93.22), suggesting we are overpriced. We recommend decreasing the price by \u20b90.81 (-19.7%) to \u20b93.32. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 102.90%."
+    },
+    {
+      "stockcode": "21485",
+      "country": "United Kingdom",
+      "current_price": 4.95,
+      "recommended_price": 3.96,
+      "price_difference": -0.99,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 5.42,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Low Demand",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 21485 in United Kingdom, historical sales volume of 7593 units indicates low overall velocity, stock levels are high with 36.2 days of supply (194 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.95) is higher than optimal baseline (\u20b93.10), suggesting we are overpriced. We recommend decreasing the price by \u20b90.99 (-20.0%) to \u20b93.96. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 5.42%."
+    },
+    {
+      "stockcode": "22727",
+      "country": "France",
+      "current_price": 3.75,
+      "recommended_price": 3.0,
+      "price_difference": -0.75,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": -1.45,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand"
+      ],
+      "reason": "For product 22727 in France, stock levels are healthy with 26.3 days of supply (176 units), forecast models indicate a strong seasonal demand phase, current price (\u20b93.75) is higher than optimal baseline (\u20b90.96), suggesting we are overpriced. We recommend decreasing the price by \u20b90.75 (-20.0%) to \u20b93.00. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of -1.45%."
+    },
+    {
+      "stockcode": "22328",
+      "country": "Germany",
+      "current_price": 2.95,
+      "recommended_price": 2.36,
+      "price_difference": -0.59,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 9.93,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22328 in Germany, stock levels are healthy with 27.6 days of supply (305 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.95) is higher than optimal baseline (\u20b90.94), suggesting we are overpriced. We recommend decreasing the price by \u20b90.59 (-20.0%) to \u20b92.36. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 9.93%."
+    },
+    {
+      "stockcode": "21524",
+      "country": "United Kingdom",
+      "current_price": 8.25,
+      "recommended_price": 6.6,
+      "price_difference": -1.65,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 25.45,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Low Demand",
+        "Inventory Running Low",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 21524 in United Kingdom, historical sales volume of 5257 units indicates low overall velocity, stock levels are critical with only 7.7 days of supply remaining (35 units), forecast models indicate a strong seasonal demand phase, current price (\u20b98.25) is higher than optimal baseline (\u20b94.79), suggesting we are overpriced. We recommend decreasing the price by \u20b91.65 (-20.0%) to \u20b96.60. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 25.45%."
+    },
+    {
+      "stockcode": "20724",
+      "country": "United Kingdom",
+      "current_price": 2.46,
+      "recommended_price": 1.97,
+      "price_difference": -0.49,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 134.15,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "High Demand",
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 20724 in United Kingdom, historical sales volume of 32207 units is in the top 20% of catalog demand, stock levels are healthy with 13.9 days of supply (216 units), forecast models indicate a strong seasonal demand phase, current price (\u20b92.46) is higher than optimal baseline (\u20b90.91), suggesting we are overpriced. We recommend decreasing the price by \u20b90.49 (-20.0%) to \u20b91.97. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 134.15%."
+    },
+    {
+      "stockcode": "21755",
+      "country": "United Kingdom",
+      "current_price": 6.25,
+      "recommended_price": 5.68,
+      "price_difference": -0.57,
+      "price_difference_percentage": -9.15,
+      "expected_revenue_improvement_percentage": 4.6,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Low Demand",
+        "Seasonal Demand"
+      ],
+      "reason": "For product 21755 in United Kingdom, historical sales volume of 5643 units indicates low overall velocity, stock levels are healthy with 27.5 days of supply (90 units), forecast models indicate a strong seasonal demand phase, current price (\u20b96.25) is higher than optimal baseline (\u20b95.51), suggesting we are overpriced. We recommend decreasing the price by \u20b90.57 (-9.2%) to \u20b95.68. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 4.60%."
+    },
+    {
+      "stockcode": "22379",
+      "country": "United Kingdom",
+      "current_price": 4.96,
+      "recommended_price": 3.97,
+      "price_difference": -0.99,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 134.76,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22379 in United Kingdom, stock levels are high with 43.6 days of supply (434 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.96) is higher than optimal baseline (\u20b92.05), suggesting we are overpriced. We recommend decreasing the price by \u20b90.99 (-20.0%) to \u20b93.97. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 134.76%."
+    },
+    {
+      "stockcode": "84997B",
+      "country": "Germany",
+      "current_price": 4.15,
+      "recommended_price": 3.32,
+      "price_difference": -0.83,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 15.85,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 84997B in Germany, stock levels are high with 41.3 days of supply (371 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.15) is higher than optimal baseline (\u20b90.65), suggesting we are overpriced. We recommend decreasing the price by \u20b90.83 (-20.0%) to \u20b93.32. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 15.85%."
+    },
+    {
+      "stockcode": "22384",
+      "country": "United Kingdom",
+      "current_price": 4.96,
+      "recommended_price": 5.95,
+      "price_difference": 0.99,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": 154.04,
+      "recommendation": "Increase Price",
+      "insights": [
+        "Seasonal Demand",
+        "Competitor Advantage",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22384 in United Kingdom, stock levels are healthy with 10.9 days of supply (105 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.96) is below optimal baseline price (\u20b97.90), offering pricing headroom. We recommend increasing the price by \u20b90.99 (+20.0%) to \u20b95.95. This increase is designed to expand margins and slow down inventory draw, while capturing an expected revenue improvement of 154.04%."
+    },
+    {
+      "stockcode": "22382",
+      "country": "United Kingdom",
+      "current_price": 4.13,
+      "recommended_price": 4.94,
+      "price_difference": 0.81,
+      "price_difference_percentage": 19.57,
+      "expected_revenue_improvement_percentage": 107.34,
+      "recommendation": "Increase Price",
+      "insights": [
+        "Seasonal Demand",
+        "Competitor Advantage",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22382 in United Kingdom, stock levels are healthy with 20.9 days of supply (194 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.13) is below optimal baseline price (\u20b94.79), offering pricing headroom. We recommend increasing the price by \u20b90.81 (+19.6%) to \u20b94.94. This increase is designed to expand margins and slow down inventory draw, while capturing an expected revenue improvement of 107.34%."
+    },
+    {
+      "stockcode": "22666",
+      "country": "United Kingdom",
+      "current_price": 5.79,
+      "recommended_price": 4.63,
+      "price_difference": -1.16,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 91.79,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22666 in United Kingdom, stock levels are healthy with 24.3 days of supply (155 units), forecast models indicate a strong seasonal demand phase, current price (\u20b95.79) is higher than optimal baseline (\u20b91.13), suggesting we are overpriced. We recommend decreasing the price by \u20b91.16 (-20.0%) to \u20b94.63. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 91.79%."
+    },
+    {
+      "stockcode": "22630",
+      "country": "United Kingdom",
+      "current_price": 4.13,
+      "recommended_price": 4.96,
+      "price_difference": 0.83,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": 88.34,
+      "recommendation": "Increase Price",
+      "insights": [
+        "Seasonal Demand",
+        "Competitor Advantage",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22630 in United Kingdom, stock levels are healthy with 25.1 days of supply (336 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.13) is below optimal baseline price (\u20b98.56), offering pricing headroom. We recommend increasing the price by \u20b90.83 (+20.0%) to \u20b94.96. This increase is designed to expand margins and slow down inventory draw, while capturing an expected revenue improvement of 88.34%."
+    },
+    {
+      "stockcode": "15036",
+      "country": "United Kingdom",
+      "current_price": 1.63,
+      "recommended_price": 1.96,
+      "price_difference": 0.33,
+      "price_difference_percentage": 20.0,
+      "expected_revenue_improvement_percentage": 84.37,
+      "recommendation": "Increase Price",
+      "insights": [
+        "High Demand",
+        "Seasonal Demand",
+        "Competitor Advantage",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 15036 in United Kingdom, historical sales volume of 44392 units is in the top 20% of catalog demand, stock levels are healthy with 26.1 days of supply (1165 units), forecast models indicate a strong seasonal demand phase, current price (\u20b91.63) is below optimal baseline price (\u20b911.93), offering pricing headroom. We recommend increasing the price by \u20b90.33 (+20.0%) to \u20b91.96. This increase is designed to expand margins and slow down inventory draw, while capturing an expected revenue improvement of 84.37%."
+    },
+    {
+      "stockcode": "84997C",
+      "country": "Germany",
+      "current_price": 4.15,
+      "recommended_price": 3.32,
+      "price_difference": -0.83,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": 15.98,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Seasonal Demand",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 84997C in Germany, stock levels are high with 37.6 days of supply (343 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.15) is higher than optimal baseline (\u20b90.65), suggesting we are overpriced. We recommend decreasing the price by \u20b90.83 (-20.0%) to \u20b93.32. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of 15.98%."
+    },
+    {
+      "stockcode": "22726",
+      "country": "France",
+      "current_price": 3.75,
+      "recommended_price": 3.0,
+      "price_difference": -0.75,
+      "price_difference_percentage": -20.0,
+      "expected_revenue_improvement_percentage": -8.24,
+      "recommendation": "Decrease Price",
+      "insights": [
+        "Low Demand",
+        "Seasonal Demand"
+      ],
+      "reason": "For product 22726 in France, historical sales volume of 7672 units indicates low overall velocity, stock levels are healthy with 19.6 days of supply (116 units), forecast models indicate a strong seasonal demand phase, current price (\u20b93.75) is higher than optimal baseline (\u20b90.96), suggesting we are overpriced. We recommend decreasing the price by \u20b90.75 (-20.0%) to \u20b93.00. This markdown aims to clear inventory, stimulate volume sales, and capture a projected revenue improvement of -8.24%."
+    },
+    {
+      "stockcode": "22385",
+      "country": "United Kingdom",
+      "current_price": 4.13,
+      "recommended_price": 4.54,
+      "price_difference": 0.41,
+      "price_difference_percentage": 10.0,
+      "expected_revenue_improvement_percentage": 103.24,
+      "recommendation": "Increase Price",
+      "insights": [
+        "Seasonal Demand",
+        "Competitor Advantage",
+        "Revenue Opportunity"
+      ],
+      "reason": "For product 22385 in United Kingdom, stock levels are high with 37.3 days of supply (505 units), forecast models indicate a strong seasonal demand phase, current price (\u20b94.13) is below optimal baseline price (\u20b94.79), offering pricing headroom. We recommend increasing the price by \u20b90.41 (+10.0%) to \u20b94.54. This increase is designed to expand margins and slow down inventory draw, while capturing an expected revenue improvement of 103.24%."
+    }
+  ]
+}

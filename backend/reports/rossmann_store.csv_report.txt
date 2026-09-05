@@ -1,0 +1,95 @@
+EXPLORATORY DATA ANALYSIS REPORT: rossmann/store.csv
+============================================================
+
+Dimensions: 1112 rows, 10 columns
+Duplicate Rows: 0
+
+DATA TYPES:
+ - store: int64
+ - storetype: str
+ - assortment: str
+ - competitiondistance: float64
+ - competitionopensincemonth: float64
+ - competitionopensinceyear: float64
+ - promo2: int64
+ - promo2sinceweek: float64
+ - promo2sinceyear: float64
+ - promointerval: str
+
+MISSING VALUES SUMMARY:
+
+OUTLIERS SUMMARY (IQR Method):
+ - store: 0 outliers
+ - competitiondistance: 108 outliers
+ - competitionopensincemonth: 14 outliers
+ - competitionopensinceyear: 92 outliers
+ - promo2: 0 outliers
+ - promo2sinceweek: 537 outliers
+ - promo2sinceyear: 489 outliers
+
+NUMERICAL FEATURES STATISTICS:
+ - store:
+     mean: 557.8939
+     std: 322.2024
+     min: 1.0000
+     25%: 278.7500
+     50%: 557.5000
+     75%: 836.2500
+     max: 1115.0000
+ - competitiondistance:
+     mean: 5404.9011
+     std: 7663.1747
+     min: 20.0000
+     25%: 717.5000
+     50%: 2325.0000
+     75%: 6882.5000
+     max: 75860.0000
+ - competitionopensincemonth:
+     mean: 7.4694
+     std: 2.6812
+     min: 1.0000
+     25%: 6.0000
+     50%: 8.0000
+     75%: 9.0000
+     max: 12.0000
+ - competitionopensinceyear:
+     mean: 2009.0890
+     std: 5.1618
+     min: 1900.0000
+     25%: 2008.0000
+     50%: 2010.0000
+     75%: 2011.0000
+     max: 2015.0000
+ - promo2:
+     mean: 0.5126
+     std: 0.5001
+     min: 0.0000
+     25%: 0.0000
+     50%: 1.0000
+     75%: 1.0000
+     max: 1.0000
+ - promo2sinceweek:
+     mean: 22.8345
+     std: 10.1469
+     min: 1.0000
+     25%: 22.0000
+     50%: 22.0000
+     75%: 22.0000
+     max: 50.0000
+ - promo2sinceyear:
+     mean: 2011.8777
+     std: 1.2051
+     min: 2009.0000
+     25%: 2012.0000
+     50%: 2012.0000
+     75%: 2012.0000
+     max: 2015.0000
+
+CATEGORICAL FEATURES SUMMARY:
+ - storetype (4 unique values):
+     Top categories: {'a': 601, 'd': 346, 'c': 148, 'b': 17}
+ - assortment (3 unique values):
+     Top categories: {'a': 591, 'c': 512, 'b': 9}
+ - promointerval (4 unique values):
+     Top categories: {'Unknown': 542, 'Jan,Apr,Jul,Oct': 335, 'Feb,May,Aug,Nov': 129, 'Mar,Jun,Sept,Dec': 106}
+

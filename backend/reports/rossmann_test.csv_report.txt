@@ -1,0 +1,142 @@
+EXPLORATORY DATA ANALYSIS REPORT: rossmann/test.csv
+============================================================
+
+Dimensions: 41088 rows, 14 columns
+Duplicate Rows: 0
+
+DATA TYPES:
+ - id: int64
+ - store: int64
+ - dayofweek: int64
+ - date: str
+ - open: float64
+ - promo: int64
+ - stateholiday: str
+ - schoolholiday: int64
+ - year: int64
+ - month: int64
+ - week: int64
+ - day: int64
+ - day_of_week: int64
+ - quarter: int64
+
+MISSING VALUES SUMMARY:
+
+OUTLIERS SUMMARY (IQR Method):
+ - id: 0 outliers
+ - store: 0 outliers
+ - dayofweek: 0 outliers
+ - open: 5984 outliers
+ - promo: 0 outliers
+ - schoolholiday: 0 outliers
+ - year: 0 outliers
+ - month: 0 outliers
+ - week: 0 outliers
+ - day: 0 outliers
+ - day_of_week: 0 outliers
+ - quarter: 0 outliers
+
+NUMERICAL FEATURES STATISTICS:
+ - id:
+     mean: 20544.5000
+     std: 11861.2283
+     min: 1.0000
+     25%: 10272.7500
+     50%: 20544.5000
+     75%: 30816.2500
+     max: 41088.0000
+ - store:
+     mean: 555.8995
+     std: 320.2745
+     min: 1.0000
+     25%: 279.7500
+     50%: 553.5000
+     75%: 832.2500
+     max: 1115.0000
+ - dayofweek:
+     mean: 3.9792
+     std: 2.0155
+     min: 1.0000
+     25%: 2.0000
+     50%: 4.0000
+     75%: 6.0000
+     max: 7.0000
+ - open:
+     mean: 0.8544
+     std: 0.3527
+     min: 0.0000
+     25%: 1.0000
+     50%: 1.0000
+     75%: 1.0000
+     max: 1.0000
+ - promo:
+     mean: 0.3958
+     std: 0.4890
+     min: 0.0000
+     25%: 0.0000
+     50%: 0.0000
+     75%: 1.0000
+     max: 1.0000
+ - schoolholiday:
+     mean: 0.4435
+     std: 0.4968
+     min: 0.0000
+     25%: 0.0000
+     50%: 0.0000
+     75%: 1.0000
+     max: 1.0000
+ - year:
+     mean: 2015.0000
+     std: 0.0000
+     min: 2015.0000
+     25%: 2015.0000
+     50%: 2015.0000
+     75%: 2015.0000
+     max: 2015.0000
+ - month:
+     mean: 8.3542
+     std: 0.4783
+     min: 8.0000
+     25%: 8.0000
+     50%: 8.0000
+     75%: 9.0000
+     max: 9.0000
+ - week:
+     mean: 34.6458
+     std: 2.0155
+     min: 31.0000
+     25%: 33.0000
+     50%: 35.0000
+     75%: 36.0000
+     max: 38.0000
+ - day:
+     mean: 13.5208
+     std: 8.4484
+     min: 1.0000
+     25%: 6.7500
+     50%: 12.5000
+     75%: 19.2500
+     max: 31.0000
+ - day_of_week:
+     mean: 2.9792
+     std: 2.0155
+     min: 0.0000
+     25%: 1.0000
+     50%: 3.0000
+     75%: 5.0000
+     max: 6.0000
+ - quarter:
+     mean: 3.0000
+     std: 0.0000
+     min: 3.0000
+     25%: 3.0000
+     50%: 3.0000
+     75%: 3.0000
+     max: 3.0000
+
+CATEGORICAL FEATURES SUMMARY:
+ - date (48 unique values):
+     Top categories: {'2015-09-17': 856, '2015-09-16': 856, '2015-09-15': 856, '2015-09-14': 856, '2015-09-13': 856}
+ - stateholiday (2 unique values):
+     Top categories: {'0': 40908, 'a': 180}
+

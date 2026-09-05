@@ -1,0 +1,168 @@
+EXPLORATORY DATA ANALYSIS REPORT: online_retail/online_retail_II.csv
+============================================================
+
+Dimensions: 1010535 rows, 19 columns
+Duplicate Rows: 0
+
+DATA TYPES:
+ - invoice: object
+ - stockcode: object
+ - description: str
+ - quantity: int64
+ - invoicedate: str
+ - price: float64
+ - customer_id: str
+ - country: str
+ - year: int64
+ - month: int64
+ - week: int64
+ - day: int64
+ - day_of_week: int64
+ - quarter: int64
+ - quantity_lag_1: float64
+ - quantity_lag_7: float64
+ - quantity_rolling_mean_7: float64
+ - quantity_rolling_mean_14: float64
+ - revenue: float64
+
+MISSING VALUES SUMMARY:
+ - quantity_lag_1: 4985 (0.49%)
+ - quantity_lag_7: 32412 (3.21%)
+ - quantity_rolling_mean_7: 4985 (0.49%)
+ - quantity_rolling_mean_14: 4985 (0.49%)
+
+OUTLIERS SUMMARY (IQR Method):
+ - quantity: 53669 outliers
+ - price: 79000 outliers
+ - year: 0 outliers
+ - month: 0 outliers
+ - week: 0 outliers
+ - day: 0 outliers
+ - day_of_week: 0 outliers
+ - quarter: 0 outliers
+ - quantity_lag_1: 53379 outliers
+ - quantity_lag_7: 52120 outliers
+ - quantity_rolling_mean_7: 91535 outliers
+ - quantity_rolling_mean_14: 80623 outliers
+ - revenue: 84955 outliers
+
+NUMERICAL FEATURES STATISTICS:
+ - quantity:
+     mean: 11.3365
+     std: 131.4654
+     min: 1.0000
+     25%: 1.0000
+     50%: 4.0000
+     75%: 12.0000
+     max: 80995.0000
+ - price:
+     mean: 4.0641
+     std: 50.3668
+     min: 0.0000
+     25%: 1.2500
+     50%: 2.1000
+     75%: 4.1300
+     max: 25111.0900
+ - year:
+     mean: 2010.4366
+     std: 0.5765
+     min: 2009.0000
+     25%: 2010.0000
+     50%: 2010.0000
+     75%: 2011.0000
+     max: 2011.0000
+ - month:
+     mean: 7.4028
+     std: 3.4999
+     min: 1.0000
+     25%: 4.0000
+     50%: 8.0000
+     75%: 11.0000
+     max: 12.0000
+ - week:
+     mean: 30.0909
+     std: 15.1746
+     min: 1.0000
+     25%: 17.0000
+     50%: 33.0000
+     75%: 44.0000
+     max: 52.0000
+ - day:
+     mean: 15.3530
+     std: 8.6405
+     min: 1.0000
+     25%: 8.0000
+     50%: 15.0000
+     75%: 23.0000
+     max: 31.0000
+ - day_of_week:
+     mean: 2.4608
+     std: 1.8835
+     min: 0.0000
+     25%: 1.0000
+     50%: 2.0000
+     75%: 4.0000
+     max: 6.0000
+ - quarter:
+     mean: 2.7889
+     std: 1.1446
+     min: 1.0000
+     25%: 2.0000
+     50%: 3.0000
+     75%: 4.0000
+     max: 4.0000
+ - quantity_lag_1:
+     mean: 11.2221
+     std: 102.6854
+     min: 1.0000
+     25%: 1.0000
+     50%: 4.0000
+     75%: 12.0000
+     max: 74215.0000
+ - quantity_lag_7:
+     mean: 11.2078
+     std: 101.3535
+     min: 1.0000
+     25%: 1.0000
+     50%: 4.0000
+     75%: 12.0000
+     max: 74215.0000
+ - quantity_rolling_mean_7:
+     mean: 11.4741
+     std: 98.5378
+     min: 1.0000
+     25%: 3.4286
+     50%: 6.1429
+     75%: 11.4286
+     max: 74215.0000
+ - quantity_rolling_mean_14:
+     mean: 11.5898
+     std: 98.8047
+     min: 1.0000
+     25%: 3.8571
+     50%: 6.8333
+     75%: 12.2857
+     max: 74215.0000
+ - revenue:
+     mean: 20.2632
+     std: 205.4517
+     min: 0.0000
+     25%: 4.1300
+     50%: 10.0800
+     75%: 17.7000
+     max: 168469.6000
+
+CATEGORICAL FEATURES SUMMARY:
+ - invoice (51238 unique values):
+     Top categories: {'573585': 1066, '581219': 714, '580729': 683, '581492': 662, '579777': 651}
+ - stockcode (4987 unique values):
+     Top categories: {'85123A': 5517, '85099B': 4047, '22423': 3954, '21212': 3181, '20725': 3090}
+ - description (5470 unique values):
+     Top categories: {'WHITE HANGING HEART T-LIGHT HOLDER': 5606, 'REGENCY CAKESTAND 3 TIER': 3954, 'JUMBO BAG RED RETROSPOT': 3316, 'ASSORTED COLOUR BIRD ORNAMENT': 2849, 'PARTY BUNTING': 2707}
+ - invoicedate (38424 unique values):
+     Top categories: {'2011-10-31 14:41:00': 1114, '2011-12-08 09:28:00': 749, '2011-12-09 10:03:00': 731, '2011-12-05 17:24:00': 721, '2011-06-29 15:58:00': 705}
+ - customer_id (5882 unique values):
+     Top categories: {'Unknown': 231040, '17841.0': 12435, '14911.0': 11079, '12748.0': 6587, '14606.0': 6359}
+ - country (43 unique values):
+     Top categories: {'United Kingdom': 928633, 'EIRE': 17159, 'Germany': 16440, 'France': 13640, 'Netherlands': 5090}
+

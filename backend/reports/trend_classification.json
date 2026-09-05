@@ -1,0 +1,31 @@
+{
+  "model_type": "Prophet",
+  "dataset_name": "train.csv",
+  "run_date": "2026-08-07T13:02:55.218187+00:00",
+  "overall_period": {
+    "start_date": "2013-01-01",
+    "end_date": "2018-03-31",
+    "classification": "Seasonal",
+    "metrics": {
+      "trend_percentage_change": 35.23,
+      "trend_start_value": 22602.37931056,
+      "trend_end_value": 30565.58289891653,
+      "seasonality_strength": 0.8091,
+      "trend_variance": 7842716.5821519755,
+      "seasonality_variance": 33239632.61434416
+    }
+  },
+  "forecast_period": {
+    "start_date": "2018-01-01",
+    "end_date": "2018-03-31",
+    "classification": "Seasonal",
+    "metrics": {
+      "trend_percentage_change": 1.21,
+      "trend_start_value": 30200.768841149747,
+      "trend_end_value": 30565.58289891653,
+      "seasonality_strength": 0.9993,
+      "trend_variance": 11467.421414967968,
+      "seasonality_variance": 17211857.29364571
+    }
+  }
+}

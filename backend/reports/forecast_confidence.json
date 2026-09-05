@@ -1,0 +1,750 @@
+{
+  "model_type": "Prophet",
+  "dataset_name": "train.csv",
+  "run_date": "2026-08-07T13:01:34.671282+00:00",
+  "horizons_confidence_summary": {
+    "7_days": {
+      "horizon_days": 7,
+      "average_confidence_score": 86.51,
+      "high_confidence_count": 6,
+      "medium_confidence_count": 1,
+      "low_confidence_count": 0
+    },
+    "30_days": {
+      "horizon_days": 30,
+      "average_confidence_score": 86.37,
+      "high_confidence_count": 24,
+      "medium_confidence_count": 6,
+      "low_confidence_count": 0
+    },
+    "90_days": {
+      "horizon_days": 90,
+      "average_confidence_score": 87.83,
+      "high_confidence_count": 81,
+      "medium_confidence_count": 9,
+      "low_confidence_count": 0
+    }
+  },
+  "predictions_confidence": [
+    {
+      "date": "2018-01-01",
+      "forecast": 17239.517250282144,
+      "lower_bound": 15761.579740463278,
+      "upper_bound": 18766.283555928636,
+      "confidence_score_percent": 82.57,
+      "confidence_classification": "Medium"
+    },
+    {
+      "date": "2018-01-02",
+      "forecast": 20650.9886980815,
+      "lower_bound": 19206.06879735921,
+      "upper_bound": 22149.460469560712,
+      "confidence_score_percent": 85.75,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-03",
+      "forecast": 20686.96233429494,
+      "lower_bound": 19199.66864913664,
+      "upper_bound": 22114.572622383712,
+      "confidence_score_percent": 85.91,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-04",
+      "forecast": 22323.90638015204,
+      "lower_bound": 20768.8212834801,
+      "upper_bound": 23790.46207509992,
+      "confidence_score_percent": 86.46,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-05",
+      "forecast": 23996.737141819136,
+      "lower_bound": 22454.855592337288,
+      "upper_bound": 25470.165824411204,
+      "confidence_score_percent": 87.43,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-06",
+      "forecast": 25703.098989784918,
+      "lower_bound": 24203.636652602872,
+      "upper_bound": 27189.975454735166,
+      "confidence_score_percent": 88.38,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-07",
+      "forecast": 27396.38676048934,
+      "lower_bound": 25862.167600294524,
+      "upper_bound": 28857.64535713241,
+      "confidence_score_percent": 89.07,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-08",
+      "forecast": 16980.088833257345,
+      "lower_bound": 15510.553897209267,
+      "upper_bound": 18549.494890872367,
+      "confidence_score_percent": 82.1,
+      "confidence_classification": "Medium"
+    },
+    {
+      "date": "2018-01-09",
+      "forecast": 20377.01416987124,
+      "lower_bound": 18987.030612224822,
+      "upper_bound": 21835.031576627855,
+      "confidence_score_percent": 86.02,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-10",
+      "forecast": 20408.72478239834,
+      "lower_bound": 18925.11400994364,
+      "upper_bound": 22026.002063758588,
+      "confidence_score_percent": 84.81,
+      "confidence_classification": "Medium"
+    },
+    {
+      "date": "2018-01-11",
+      "forecast": 22051.921177507167,
+      "lower_bound": 20586.92973494753,
+      "upper_bound": 23495.162961134738,
+      "confidence_score_percent": 86.81,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-12",
+      "forecast": 23741.40661866785,
+      "lower_bound": 22346.818422806315,
+      "upper_bound": 25138.007678800306,
+      "confidence_score_percent": 88.24,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-13",
+      "forecast": 25474.386721072122,
+      "lower_bound": 23954.364399202583,
+      "upper_bound": 26891.71996962111,
+      "confidence_score_percent": 88.47,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-14",
+      "forecast": 27203.52012642791,
+      "lower_bound": 25570.32257668883,
+      "upper_bound": 28711.252427877305,
+      "confidence_score_percent": 88.45,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-15",
+      "forecast": 16831.29743871174,
+      "lower_bound": 15438.604830106213,
+      "upper_bound": 18429.73435800946,
+      "confidence_score_percent": 82.23,
+      "confidence_classification": "Medium"
+    },
+    {
+      "date": "2018-01-16",
+      "forecast": 20279.310448733904,
+      "lower_bound": 18835.67046224391,
+      "upper_bound": 21801.281721732284,
+      "confidence_score_percent": 85.38,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-17",
+      "forecast": 20367.731707195526,
+      "lower_bound": 18894.251903983193,
+      "upper_bound": 21819.26251433897,
+      "confidence_score_percent": 85.64,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-18",
+      "forecast": 22071.75048302268,
+      "lower_bound": 20539.009784601167,
+      "upper_bound": 23520.624955599775,
+      "confidence_score_percent": 86.49,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-19",
+      "forecast": 23824.58937827213,
+      "lower_bound": 22317.290976166438,
+      "upper_bound": 25219.15430760761,
+      "confidence_score_percent": 87.82,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-20",
+      "forecast": 25621.856529750494,
+      "lower_bound": 24089.63951001279,
+      "upper_bound": 27103.60611892361,
+      "confidence_score_percent": 88.24,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-21",
+      "forecast": 27414.647592302445,
+      "lower_bound": 25913.09845350845,
+      "upper_bound": 28763.14890133427,
+      "confidence_score_percent": 89.6,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-22",
+      "forecast": 17103.973207244235,
+      "lower_bound": 15693.6411480828,
+      "upper_bound": 18540.668427324024,
+      "confidence_score_percent": 83.35,
+      "confidence_classification": "Medium"
+    },
+    {
+      "date": "2018-01-23",
+      "forecast": 20610.072623515305,
+      "lower_bound": 19164.60004452664,
+      "upper_bound": 22164.847602165053,
+      "confidence_score_percent": 85.44,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-24",
+      "forecast": 20751.932322551063,
+      "lower_bound": 19251.83715950464,
+      "upper_bound": 22306.477878749327,
+      "confidence_score_percent": 85.28,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-25",
+      "forecast": 22503.754660725324,
+      "lower_bound": 21013.547791681987,
+      "upper_bound": 24062.209663534497,
+      "confidence_score_percent": 86.45,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-26",
+      "forecast": 24297.99998717038,
+      "lower_bound": 22875.96079739893,
+      "upper_bound": 25787.936474094597,
+      "confidence_score_percent": 88.02,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-27",
+      "forecast": 26129.75658456626,
+      "lower_bound": 24700.48483851539,
+      "upper_bound": 27546.38224359805,
+      "confidence_score_percent": 89.11,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-28",
+      "forecast": 27949.85228604213,
+      "lower_bound": 26536.84043716872,
+      "upper_bound": 29419.80114305071,
+      "confidence_score_percent": 89.69,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-29",
+      "forecast": 17659.28337902255,
+      "lower_bound": 16020.152974296305,
+      "upper_bound": 19183.18362153466,
+      "confidence_score_percent": 82.09,
+      "confidence_classification": "Medium"
+    },
+    {
+      "date": "2018-01-30",
+      "forecast": 21178.5216142723,
+      "lower_bound": 19650.090485449196,
+      "upper_bound": 22640.743992945998,
+      "confidence_score_percent": 85.88,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-01-31",
+      "forecast": 21327.01856002835,
+      "lower_bound": 19815.30153328073,
+      "upper_bound": 22728.93641136188,
+      "confidence_score_percent": 86.34,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-01",
+      "forecast": 23079.65292276062,
+      "lower_bound": 21659.24748157997,
+      "upper_bound": 24520.45748343637,
+      "confidence_score_percent": 87.6,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-02",
+      "forecast": 24869.745100014872,
+      "lower_bound": 23325.810028906693,
+      "upper_bound": 26347.92015513028,
+      "confidence_score_percent": 87.85,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-03",
+      "forecast": 26693.394290046435,
+      "lower_bound": 25201.498707969196,
+      "upper_bound": 28223.151669342733,
+      "confidence_score_percent": 88.68,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-04",
+      "forecast": 28502.55312990939,
+      "lower_bound": 27000.465756381698,
+      "upper_bound": 30002.795335508254,
+      "confidence_score_percent": 89.47,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-05",
+      "forecast": 18199.41669285926,
+      "lower_bound": 16747.566772810056,
+      "upper_bound": 19740.45896394499,
+      "confidence_score_percent": 83.56,
+      "confidence_classification": "Medium"
+    },
+    {
+      "date": "2018-02-06",
+      "forecast": 21705.68795124175,
+      "lower_bound": 20205.41368996564,
+      "upper_bound": 23198.673547912265,
+      "confidence_score_percent": 86.21,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-07",
+      "forecast": 21842.0402580163,
+      "lower_bound": 20368.215454367917,
+      "upper_bound": 23336.32690304934,
+      "confidence_score_percent": 86.41,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-08",
+      "forecast": 23584.52376998201,
+      "lower_bound": 22078.193693859834,
+      "upper_bound": 25062.27723851848,
+      "confidence_score_percent": 87.35,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-09",
+      "forecast": 25367.54132745457,
+      "lower_bound": 23934.706411370516,
+      "upper_bound": 26871.231210187056,
+      "confidence_score_percent": 88.42,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-10",
+      "forecast": 27188.1502782238,
+      "lower_bound": 25723.837468260463,
+      "upper_bound": 28573.65924011111,
+      "confidence_score_percent": 89.52,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-11",
+      "forecast": 28999.106258464544,
+      "lower_bound": 27426.62315982072,
+      "upper_bound": 30488.137196727435,
+      "confidence_score_percent": 89.44,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-12",
+      "forecast": 18703.226653898462,
+      "lower_bound": 17247.048349663826,
+      "upper_bound": 20208.404564262833,
+      "confidence_score_percent": 84.17,
+      "confidence_classification": "Medium"
+    },
+    {
+      "date": "2018-02-13",
+      "forecast": 22222.636564416433,
+      "lower_bound": 20704.66042248066,
+      "upper_bound": 23813.4639830938,
+      "confidence_score_percent": 86.01,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-14",
+      "forecast": 22378.218350159776,
+      "lower_bound": 20823.013003588763,
+      "upper_bound": 23726.703292405065,
+      "confidence_score_percent": 87.02,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-15",
+      "forecast": 24146.012000282266,
+      "lower_bound": 22678.318433251952,
+      "upper_bound": 25550.64389858897,
+      "confidence_score_percent": 88.1,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-16",
+      "forecast": 25960.19194511339,
+      "lower_bound": 24449.866467229265,
+      "upper_bound": 27418.46728386448,
+      "confidence_score_percent": 88.56,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-17",
+      "forecast": 27817.37669278049,
+      "lower_bound": 26342.154613237035,
+      "upper_bound": 29298.739528400387,
+      "confidence_score_percent": 89.37,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-18",
+      "forecast": 29669.68698842396,
+      "lower_bound": 28090.79053488587,
+      "upper_bound": 31055.276735130563,
+      "confidence_score_percent": 90.01,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-19",
+      "forecast": 19419.129711349196,
+      "lower_bound": 17907.43687709519,
+      "upper_bound": 20877.73636008886,
+      "confidence_score_percent": 84.7,
+      "confidence_classification": "Medium"
+    },
+    {
+      "date": "2018-02-20",
+      "forecast": 22986.869646801242,
+      "lower_bound": 21564.351261651904,
+      "upper_bound": 24452.418131792758,
+      "confidence_score_percent": 87.44,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-21",
+      "forecast": 23192.709370891753,
+      "lower_bound": 21703.048963287543,
+      "upper_bound": 24549.813516159862,
+      "confidence_score_percent": 87.73,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-22",
+      "forecast": 25011.523521506817,
+      "lower_bound": 23550.917757213534,
+      "upper_bound": 26517.260333184804,
+      "confidence_score_percent": 88.14,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-23",
+      "forecast": 26876.272011770634,
+      "lower_bound": 25431.24136159307,
+      "upper_bound": 28269.6294757498,
+      "confidence_score_percent": 89.44,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-24",
+      "forecast": 28782.347437455803,
+      "lower_bound": 27259.466305008682,
+      "upper_bound": 30259.807048790943,
+      "confidence_score_percent": 89.58,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-25",
+      "forecast": 30680.671218817366,
+      "lower_bound": 29199.256319854834,
+      "upper_bound": 32269.47886939957,
+      "confidence_score_percent": 89.99,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-26",
+      "forecast": 20472.11453727645,
+      "lower_bound": 18952.743596406053,
+      "upper_bound": 21923.283578160965,
+      "confidence_score_percent": 85.49,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-27",
+      "forecast": 24076.80509053277,
+      "lower_bound": 22569.555022811444,
+      "upper_bound": 25577.832241849115,
+      "confidence_score_percent": 87.51,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-02-28",
+      "forecast": 24313.638861506566,
+      "lower_bound": 22763.958142787236,
+      "upper_bound": 25866.970620209762,
+      "confidence_score_percent": 87.24,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-01",
+      "forecast": 26156.74223466659,
+      "lower_bound": 24708.743273846612,
+      "upper_bound": 27809.161137193023,
+      "confidence_score_percent": 88.15,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-02",
+      "forecast": 28038.50820489355,
+      "lower_bound": 26414.974537657083,
+      "upper_bound": 29450.3832270522,
+      "confidence_score_percent": 89.17,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-03",
+      "forecast": 29953.961271969707,
+      "lower_bound": 28449.226061624686,
+      "upper_bound": 31339.798764828418,
+      "confidence_score_percent": 90.35,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-04",
+      "forecast": 31853.865071062744,
+      "lower_bound": 30391.26317615012,
+      "upper_bound": 33333.19602310713,
+      "confidence_score_percent": 90.76,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-05",
+      "forecast": 21639.148493704226,
+      "lower_bound": 20233.66794225006,
+      "upper_bound": 23137.799458560487,
+      "confidence_score_percent": 86.58,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-06",
+      "forecast": 25230.211205193387,
+      "lower_bound": 23736.513073026428,
+      "upper_bound": 26673.735648115755,
+      "confidence_score_percent": 88.36,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-07",
+      "forecast": 25446.42782842776,
+      "lower_bound": 23886.680390887534,
+      "upper_bound": 26886.916825099746,
+      "confidence_score_percent": 88.21,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-08",
+      "forecast": 27262.59638876156,
+      "lower_bound": 25691.286296177856,
+      "upper_bound": 28711.69199728822,
+      "confidence_score_percent": 88.92,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-09",
+      "forecast": 29111.955204368507,
+      "lower_bound": 27637.359020499673,
+      "upper_bound": 30608.885486311927,
+      "confidence_score_percent": 89.79,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-10",
+      "forecast": 30990.523415918746,
+      "lower_bound": 29500.38793414827,
+      "upper_bound": 32397.772200141917,
+      "confidence_score_percent": 90.65,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-11",
+      "forecast": 32850.179952069346,
+      "lower_bound": 31338.104358732133,
+      "upper_bound": 34306.94703200189,
+      "confidence_score_percent": 90.96,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-12",
+      "forecast": 22593.05754961003,
+      "lower_bound": 20984.234191091804,
+      "upper_bound": 24137.837040991883,
+      "confidence_score_percent": 86.04,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-13",
+      "forecast": 26140.81369319218,
+      "lower_bound": 24649.30740852386,
+      "upper_bound": 27501.299427266353,
+      "confidence_score_percent": 89.09,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-14",
+      "forecast": 26314.098767218296,
+      "lower_bound": 24867.25752811324,
+      "upper_bound": 27756.07125434387,
+      "confidence_score_percent": 89.02,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-15",
+      "forecast": 28088.968071524956,
+      "lower_bound": 26645.931986512463,
+      "upper_bound": 29490.892606544385,
+      "confidence_score_percent": 89.87,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-16",
+      "forecast": 29899.86294392025,
+      "lower_bound": 28327.412513347528,
+      "upper_bound": 31351.34948144785,
+      "confidence_score_percent": 89.89,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-17",
+      "forecast": 31743.917214462468,
+      "lower_bound": 30211.932937290854,
+      "upper_bound": 33284.621618156125,
+      "confidence_score_percent": 90.32,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-18",
+      "forecast": 33574.00475943941,
+      "lower_bound": 32047.18181042592,
+      "upper_bound": 34908.507576441516,
+      "confidence_score_percent": 91.48,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-19",
+      "forecast": 23293.10566014261,
+      "lower_bound": 21798.108845754534,
+      "upper_bound": 24716.97961590312,
+      "confidence_score_percent": 87.47,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-20",
+      "forecast": 26823.55360643987,
+      "lower_bound": 25348.452436800595,
+      "upper_bound": 28272.28327263711,
+      "confidence_score_percent": 89.1,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-21",
+      "forecast": 26986.485479745395,
+      "lower_bound": 25354.113888675674,
+      "upper_bound": 28422.813202681602,
+      "confidence_score_percent": 88.63,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-22",
+      "forecast": 28758.240260331317,
+      "lower_bound": 27254.634243671655,
+      "upper_bound": 30174.076675604858,
+      "confidence_score_percent": 89.85,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-23",
+      "forecast": 30573.332832283395,
+      "lower_bound": 29059.959807492127,
+      "upper_bound": 32126.70915409243,
+      "confidence_score_percent": 89.97,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-24",
+      "forecast": 32428.759071955454,
+      "lower_bound": 30861.89700928995,
+      "upper_bound": 33996.29823420888,
+      "confidence_score_percent": 90.33,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-25",
+      "forecast": 34277.047975220004,
+      "lower_bound": 32827.30154450588,
+      "upper_bound": 35782.68447961697,
+      "confidence_score_percent": 91.38,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-26",
+      "forecast": 24020.63814685232,
+      "lower_bound": 22545.069058079407,
+      "upper_bound": 25532.730272652163,
+      "confidence_score_percent": 87.56,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-27",
+      "forecast": 27581.140946252075,
+      "lower_bound": 26082.078722607162,
+      "upper_bound": 29048.441148688005,
+      "confidence_score_percent": 89.24,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-28",
+      "forecast": 27778.810728153505,
+      "lower_bound": 26341.93351740366,
+      "upper_bound": 29335.87707702572,
+      "confidence_score_percent": 89.22,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-29",
+      "forecast": 29588.968692292718,
+      "lower_bound": 28042.316409522078,
+      "upper_bound": 31068.179057952522,
+      "confidence_score_percent": 89.77,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-30",
+      "forecast": 31445.00516991881,
+      "lower_bound": 30016.1476865418,
+      "upper_bound": 32870.27791239065,
+      "confidence_score_percent": 90.92,
+      "confidence_classification": "High"
+    },
+    {
+      "date": "2018-03-31",
+      "forecast": 33342.71589541578,
+      "lower_bound": 31918.43374581311,
+      "upper_bound": 34945.30876477542,
+      "confidence_score_percent": 90.92,
+      "confidence_classification": "High"
+    }
+  ]
+}

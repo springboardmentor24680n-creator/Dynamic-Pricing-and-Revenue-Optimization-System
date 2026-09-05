@@ -1,0 +1,81 @@
+{
+  "xgboost_price_prediction": {
+    "target_variable": "price",
+    "features_used": [
+      "quantity",
+      "revenue",
+      "year",
+      "month",
+      "week",
+      "day",
+      "day_of_week",
+      "quarter",
+      "quantity_lag_1",
+      "quantity_lag_7",
+      "quantity_rolling_mean_7",
+      "quantity_rolling_mean_14",
+      "stockcode",
+      "country"
+    ],
+    "train_size": 684686,
+    "validation_size": 146718,
+    "test_size": 146719,
+    "total_records": 978123
+  },
+  "lightgbm_price_prediction": {
+    "target_variable": "price",
+    "features_used": [
+      "quantity",
+      "revenue",
+      "year",
+      "month",
+      "week",
+      "day",
+      "day_of_week",
+      "quarter",
+      "quantity_lag_1",
+      "quantity_lag_7",
+      "quantity_rolling_mean_7",
+      "quantity_rolling_mean_14",
+      "stockcode",
+      "country"
+    ],
+    "train_size": 684686,
+    "validation_size": 146718,
+    "test_size": 146719,
+    "total_records": 978123
+  },
+  "prophet_demand_forecasting": {
+    "target_variable": "y",
+    "features_used": [
+      "ds"
+    ],
+    "train_size": 1278,
+    "validation_size": 274,
+    "test_size": 274,
+    "total_records": 1826
+  },
+  "catboost_revenue_prediction": {
+    "target_variable": "revenue",
+    "features_used": [
+      "quantity",
+      "price",
+      "year",
+      "month",
+      "week",
+      "day",
+      "day_of_week",
+      "quarter",
+      "quantity_lag_1",
+      "quantity_lag_7",
+      "quantity_rolling_mean_7",
+      "quantity_rolling_mean_14",
+      "stockcode",
+      "country"
+    ],
+    "train_size": 684686,
+    "validation_size": 146718,
+    "test_size": 146719,
+    "total_records": 978123
+  }
+}

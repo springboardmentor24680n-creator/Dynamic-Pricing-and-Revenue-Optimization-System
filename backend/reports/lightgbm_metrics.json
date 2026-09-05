@@ -1,0 +1,62 @@
+{
+  "model_type": "LightGBM Regressor",
+  "target_column": "price",
+  "dataset_name": "online_retail_II.csv",
+  "train_samples": 684686,
+  "validation_samples": 146718,
+  "test_samples": 146719,
+  "features_used": [
+    "stockcode",
+    "quantity",
+    "country",
+    "year",
+    "month",
+    "week",
+    "day",
+    "day_of_week",
+    "quarter",
+    "quantity_lag_1",
+    "quantity_lag_7",
+    "quantity_rolling_mean_7",
+    "quantity_rolling_mean_14",
+    "revenue"
+  ],
+  "training_time": 1.3590588569641113,
+  "training_date": "2026-08-05T18:27:40.078718+00:00",
+  "metrics": {
+    "train": {
+      "mae": 0.4872812923628303,
+      "rmse": 26.0116942687304,
+      "r2_score": 0.7654236508201818,
+      "mape": 8748779216361.246
+    },
+    "validation": {
+      "mae": 0.45926810095750964,
+      "rmse": 14.753688457221434,
+      "r2_score": 0.6648187370587615,
+      "mape": 8915170719667.146
+    },
+    "test": {
+      "mae": 0.49032202235728867,
+      "rmse": 10.393086328434423,
+      "r2_score": 0.8860860366742352,
+      "mape": 6395734751462.721
+    }
+  },
+  "feature_importances": {
+    "revenue": 996.0,
+    "quantity": 491.0,
+    "quantity_rolling_mean_14": 434.0,
+    "stockcode": 323.0,
+    "quantity_rolling_mean_7": 312.0,
+    "day": 138.0,
+    "week": 78.0,
+    "day_of_week": 43.0,
+    "quantity_lag_1": 40.0,
+    "month": 37.0,
+    "country": 24.0,
+    "quantity_lag_7": 12.0,
+    "year": 8.0,
+    "quarter": 0.0
+  }
+}

@@ -1,0 +1,54 @@
+product_name,category,price,quantity_sold,sales_date
+Wireless Headphones,Audio,1999,48,2024-01-15
+Smartwatch,Wearables,3499,36,2024-01-22
+Bluetooth Speaker,Audio,1499,54,2024-01-25
+Gaming Mouse,Peripherals,1199,72,2024-01-30
+Mechanical Keyboard,Peripherals,2499,41,2024-02-05
+4K Monitor,Displays,18999,27,2024-02-12
+Laptop,Computers,59999,19,2024-02-18
+Smartphone,Mobiles,39999,33,2024-02-24
+Tablet,Mobiles,27999,22,2024-03-04
+Webcam,Accessories,3499,60,2024-03-10
+External SSD,Storage,8999,28,2024-03-15
+Portable Charger,Accessories,1999,67,2024-03-22
+Smart Lamp,Home,2999,31,2024-03-29
+Fitness Band,Wearables,2499,45,2024-04-05
+Noise-Canceling Earbuds,Audio,2999,58,2024-04-12
+Action Camera,Video,19999,34,2024-04-19
+Wireless Router,Networking,6999,44,2024-04-26
+VR Headset,Electronics,34999,12,2024-05-03
+Office Chair,Furniture,9999,23,2024-05-10
+Standing Desk,Furniture,22999,17,2024-05-17
+Smart Thermostat,Home,7999,29,2024-05-24
+Robot Vacuum,Home,25999,18,2024-05-31
+eReader,Electronics,12999,39,2024-06-07
+Drone,Electronics,49999,14,2024-06-14
+Portable Projector,Audio,25999,21,2024-06-21
+LED Light Strip,Home,1499,56,2024-06-28
+Smart Plug,Home,999,73,2024-07-05
+Wireless Charger,Accessories,2499,61,2024-07-12
+Security Camera,Home,10999,26,2024-07-19
+Air Purifier,Home,17999,20,2024-07-26
+DSLR Camera,Video,69999,10,2024-08-02
+Smart Speaker,Audio,4999,48,2024-08-09
+Game Console,Electronics,39999,15,2024-08-16
+Monitor Arm,Accessories,4999,34,2024-08-23
+Laptop Stand,Accessories,1999,52,2024-08-30
+Noise Isolating Earbuds,Audio,1499,69,2024-09-06
+Camera Tripod,Accessories,2499,25,2024-09-13
+Smart Door Lock,Home,12999,22,2024-09-20
+Wireless Keyboard,Peripherals,1199,58,2024-09-27
+Tablet Stylus,Accessories,2999,42,2024-10-04
+Streaming Stick,Electronics,3999,33,2024-10-11
+Fitness Scale,Home,2999,47,2024-10-18
+Power Bank,Accessories,2499,71,2024-10-25
+Smart Glasses,Electronics,44999,8,2024-11-01
+GPS Tracker,Electronics,5999,40,2024-11-08
+Home Hub,Home,9999,30,2024-11-15
+LED Desk Lamp,Home,3999,54,2024-11-22
+Smart Lock,Home,14999,19,2024-11-29
+Portable Projector,Audio,19999,24,2024-12-06
+Wireless Earbuds,Audio,2299,66,2024-12-13
+Smart Camera,Home,12999,27,2024-12-20
+Gaming Headset,Audio,6999,37,2024-12-27
+End of File,Other,0,0,2024-12-31

@@ -1,0 +1,207 @@
+EXPLORATORY DATA ANALYSIS REPORT: rossmann/train.csv
+============================================================
+
+Dimensions: 1017209 rows, 20 columns
+Duplicate Rows: 0
+
+DATA TYPES:
+ - store: int64
+ - dayofweek: int64
+ - date: str
+ - sales: int64
+ - customers: int64
+ - open: int64
+ - promo: int64
+ - stateholiday: str
+ - schoolholiday: int64
+ - year: int64
+ - month: int64
+ - week: int64
+ - day: int64
+ - day_of_week: int64
+ - quarter: int64
+ - sales_lag_1: float64
+ - sales_lag_7: float64
+ - sales_lag_14: float64
+ - sales_rolling_mean_7: float64
+ - sales_rolling_mean_14: float64
+
+MISSING VALUES SUMMARY:
+ - sales_lag_1: 1115 (0.11%)
+ - sales_lag_7: 7805 (0.77%)
+ - sales_lag_14: 15610 (1.53%)
+ - sales_rolling_mean_7: 1115 (0.11%)
+ - sales_rolling_mean_14: 1115 (0.11%)
+
+OUTLIERS SUMMARY (IQR Method):
+ - store: 0 outliers
+ - dayofweek: 0 outliers
+ - sales: 26694 outliers
+ - customers: 38095 outliers
+ - open: 172817 outliers
+ - promo: 0 outliers
+ - schoolholiday: 181721 outliers
+ - year: 0 outliers
+ - month: 0 outliers
+ - week: 0 outliers
+ - day: 0 outliers
+ - day_of_week: 0 outliers
+ - quarter: 0 outliers
+ - sales_lag_1: 26697 outliers
+ - sales_lag_7: 26589 outliers
+ - sales_lag_14: 26315 outliers
+ - sales_rolling_mean_7: 38944 outliers
+ - sales_rolling_mean_14: 39037 outliers
+
+NUMERICAL FEATURES STATISTICS:
+ - store:
+     mean: 558.4297
+     std: 321.9087
+     min: 1.0000
+     25%: 280.0000
+     50%: 558.0000
+     75%: 838.0000
+     max: 1115.0000
+ - dayofweek:
+     mean: 3.9983
+     std: 1.9974
+     min: 1.0000
+     25%: 2.0000
+     50%: 4.0000
+     75%: 6.0000
+     max: 7.0000
+ - sales:
+     mean: 5773.8190
+     std: 3849.9262
+     min: 0.0000
+     25%: 3727.0000
+     50%: 5744.0000
+     75%: 7856.0000
+     max: 41551.0000
+ - customers:
+     mean: 633.1459
+     std: 464.4117
+     min: 0.0000
+     25%: 405.0000
+     50%: 609.0000
+     75%: 837.0000
+     max: 7388.0000
+ - open:
+     mean: 0.8301
+     std: 0.3755
+     min: 0.0000
+     25%: 1.0000
+     50%: 1.0000
+     75%: 1.0000
+     max: 1.0000
+ - promo:
+     mean: 0.3815
+     std: 0.4858
+     min: 0.0000
+     25%: 0.0000
+     50%: 0.0000
+     75%: 1.0000
+     max: 1.0000
+ - schoolholiday:
+     mean: 0.1786
+     std: 0.3831
+     min: 0.0000
+     25%: 0.0000
+     50%: 0.0000
+     75%: 0.0000
+     max: 1.0000
+ - year:
+     mean: 2013.8323
+     std: 0.7774
+     min: 2013.0000
+     25%: 2013.0000
+     50%: 2014.0000
+     75%: 2014.0000
+     max: 2015.0000
+ - month:
+     mean: 5.8468
+     std: 3.3261
+     min: 1.0000
+     25%: 3.0000
+     50%: 6.0000
+     75%: 8.0000
+     max: 12.0000
+ - week:
+     mean: 23.6155
+     std: 14.4334
+     min: 1.0000
+     25%: 11.0000
+     50%: 22.0000
+     75%: 35.0000
+     max: 52.0000
+ - day:
+     mean: 15.7028
+     std: 8.7876
+     min: 1.0000
+     25%: 8.0000
+     50%: 16.0000
+     75%: 23.0000
+     max: 31.0000
+ - day_of_week:
+     mean: 2.9983
+     std: 1.9974
+     min: 0.0000
+     25%: 1.0000
+     50%: 3.0000
+     75%: 5.0000
+     max: 6.0000
+ - quarter:
+     mean: 2.2943
+     std: 1.0818
+     min: 1.0000
+     25%: 1.0000
+     50%: 2.0000
+     75%: 3.0000
+     max: 4.0000
+ - sales_lag_1:
+     mean: 5770.2052
+     std: 3849.1128
+     min: 0.0000
+     25%: 3724.0000
+     50%: 5741.0000
+     75%: 7851.0000
+     max: 41551.0000
+ - sales_lag_7:
+     mean: 5765.4241
+     std: 3847.2641
+     min: 0.0000
+     25%: 3722.0000
+     50%: 5735.0000
+     75%: 7844.0000
+     max: 41551.0000
+ - sales_lag_14:
+     mean: 5770.5730
+     std: 3852.5678
+     min: 0.0000
+     25%: 3722.0000
+     50%: 5741.0000
+     75%: 7854.0000
+     max: 41551.0000
+ - sales_rolling_mean_7:
+     mean: 5755.5014
+     std: 2320.8917
+     min: 0.0000
+     25%: 4225.4286
+     50%: 5356.2857
+     75%: 6770.1429
+     max: 29380.4286
+ - sales_rolling_mean_14:
+     mean: 5752.0188
+     std: 2178.5826
+     min: 0.0000
+     25%: 4329.6429
+     50%: 5398.2857
+     75%: 6691.5000
+     max: 26139.2857
+
+CATEGORICAL FEATURES SUMMARY:
+ - date (942 unique values):
+     Top categories: {'2013-01-02': 1115, '2013-01-03': 1115, '2013-01-04': 1115, '2013-01-05': 1115, '2013-01-06': 1115}
+ - stateholiday (4 unique values):
+     Top categories: {'0': 986159, 'a': 20260, 'b': 6690, 'c': 4100}
+

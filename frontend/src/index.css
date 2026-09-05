@@ -1,271 +1,108 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
-@layer base {
-  * {
-    @apply border-surface-200 dark:border-surface-700;
-  }
-  
-  body {
-    @apply bg-surface-50 text-surface-900 dark:bg-surface-950 dark:text-surface-100;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  }
+/* ─── CSS Custom Properties ──────────────────────────────── */
+:root {
+  /* typography */
+  --sans: "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
+  --heading: "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
 
-  :root {
-    --sidebar-width: 280px;
-    --header-height: 72px;
-  }
+  /* light palette */
+  --color-bg:       #f8fafc;
+  --color-surface:  #ffffff;
+  --color-border:   #e2e8f0;
+  --color-text:     #334155;
+  --color-heading:  #0f172a;
+  --color-muted:    #94a3b8;
+  --color-accent:   #7c3aed;
+  --color-accent-2: #0ea5e9;
+
+  /* shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.10), 0 2px 4px rgba(0,0,0,.06);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+
+  font: 15px/150% var(--sans);
+  letter-spacing: 0.01px;
+  color-scheme: light;
+  color: var(--color-text);
+  background: var(--color-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@layer components {
-  .card {
-    @apply bg-white dark:bg-surface-800 rounded-xl border border-surface-200 dark:border-surface-700 shadow-sm hover:shadow-md transition-all duration-200;
-  }
+/* ─── Dark Mode Overrides (class-based via .dark on <html>) ─ */
+.dark {
+  --color-bg:       #09090b;
+  --color-surface:  #18181b;
+  --color-border:   #27272a;
+  --color-text:     #a1a1aa;
+  --color-heading:  #fafafa;
+  --color-muted:    #52525b;
+  --color-accent:   #8b5cf6;
+  --color-accent-2: #38bdf8;
 
-  .card-header {
-    @apply px-6 py-4 border-b border-surface-200 dark:border-surface-700;
-  }
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.4),  0 1px 2px rgba(0,0,0,.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.5), 0 2px 4px rgba(0,0,0,.3);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,.6), 0 4px 8px rgba(0,0,0,.3);
 
-  .card-body {
-    @apply p-6;
-  }
-
-  .stat-card {
-    @apply card p-6 flex flex-col gap-2;
-  }
-
-  .stat-label {
-    @apply text-sm font-medium text-surface-500 dark:text-surface-400;
-  }
-
-  .stat-value {
-    @apply text-2xl font-bold text-surface-900 dark:text-white;
-  }
-
-  .stat-description {
-    @apply text-xs text-surface-400 dark:text-surface-500;
-  }
-
-  .btn {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-medium text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed;
-  }
-
-  .btn-primary {
-    @apply btn bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-800 shadow-sm shadow-primary-500/20;
-  }
-
-  .btn-secondary {
-    @apply btn bg-surface-100 dark:bg-surface-700 text-surface-700 dark:text-surface-200 hover:bg-surface-200 dark:hover:bg-surface-600;
-  }
-
-  .btn-outline {
-    @apply btn border border-surface-300 dark:border-surface-600 text-surface-700 dark:text-surface-200 hover:bg-surface-50 dark:hover:bg-surface-800;
-  }
-
-  .btn-danger {
-    @apply btn bg-red-600 text-white hover:bg-red-700 shadow-sm;
-  }
-
-  .btn-success {
-    @apply btn bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm shadow-emerald-500/20;
-  }
-
-  .btn-ghost {
-    @apply btn text-surface-600 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800;
-  }
-
-  .btn-sm {
-    @apply px-3 py-1.5 text-xs;
-  }
-
-  .btn-lg {
-    @apply px-6 py-3 text-base;
-  }
-
-  .input {
-    @apply w-full px-3.5 py-2.5 rounded-lg border border-surface-300 dark:border-surface-600 bg-white dark:bg-surface-800 text-surface-900 dark:text-surface-100 placeholder-surface-400 dark:placeholder-surface-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 text-sm;
-  }
-
-  .input-error {
-    @apply border-red-500 focus:ring-red-500 focus:border-red-500;
-  }
-
-  .label {
-    @apply block text-sm font-medium text-surface-700 dark:text-surface-300 mb-1.5;
-  }
-
-  .error-text {
-    @apply text-xs text-red-500 mt-1;
-  }
-
-  .badge {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
-  }
-
-  .badge-success {
-    @apply badge bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400;
-  }
-
-  .badge-warning {
-    @apply badge bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400;
-  }
-
-  .badge-danger {
-    @apply badge bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400;
-  }
-
-  .badge-info {
-    @apply badge bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-400;
-  }
-
-  .badge-info {
-    @apply badge bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-400;
-  }
-
-  .badge-neutral {
-    @apply badge bg-surface-100 dark:bg-surface-700 text-surface-600 dark:text-surface-300;
-  }
-
-  .sidebar-item {
-    @apply flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200;
-  }
-
-  .sidebar-item-active {
-    @apply sidebar-item bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300;
-  }
-
-  .sidebar-item-inactive {
-    @apply sidebar-item text-surface-600 dark:text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-800 hover:text-surface-900 dark:hover:text-surface-100;
-  }
-
-  .table-header {
-    @apply px-4 py-3 text-left text-xs font-semibold text-surface-500 dark:text-surface-400 uppercase tracking-wider;
-  }
-
-  .table-cell {
-    @apply px-4 py-3 text-sm text-surface-700 dark:text-surface-300;
-  }
-
-  .table-row {
-    @apply hover:bg-surface-50 dark:hover:bg-surface-800/50 transition-colors duration-150;
-  }
-
-  .modal-overlay {
-    @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in;
-  }
-
-  .modal-content {
-    @apply bg-white dark:bg-surface-800 rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto animate-scale-in;
-  }
-
-  .skeleton {
-    @apply bg-gradient-to-r from-surface-200 via-surface-100 to-surface-200 dark:from-surface-700 dark:via-surface-600 dark:to-surface-700 bg-[length:200%_100%] animate-shimmer rounded;
-  }
-
-  .page-transition {
-    @apply animate-fade-in;
-  }
-
-  .empty-state {
-    @apply flex flex-col items-center justify-center py-16 text-center;
-  }
+  color-scheme: dark;
 }
 
-/* Forecast confidence-band cover: matches the card background so the band renders
-   between the lower/upper bounds instead of from zero. */
-.forecast-cover {
-  fill: #ffffff;
+/* ─── Base ───────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-.dark .forecast-cover {
-  fill: #1e293b; /* surface-800 */
+body {
+  margin: 0;
+  font-family: var(--sans);
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
-/* ============ Print: AI Analysis Report ============ */
-@media print {
-  @page {
-    size: A4;
-    margin: 10mm;
-  }
-
-  body {
-    background: #ffffff !important;
-  }
-
-  /* Hide everything except the report panel */
-  body * {
-    visibility: hidden;
-  }
-
-  #ai-analysis-report,
-  #ai-analysis-report * {
-    visibility: visible;
-  }
-
-  #ai-analysis-report {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Force light, print-friendly colors inside the report */
-  #ai-analysis-report .card,
-  #ai-analysis-report .card-body {
-    box-shadow: none !important;
-    border-color: #e2e8f0 !important;
-    background: #ffffff !important;
-  }
-
-  #ai-analysis-report .text-surface-900,
-  #ai-analysis-report .dark\:text-white {
-    color: #0f172a !important;
-  }
-
-  #ai-analysis-report .text-surface-700,
-  #ai-analysis-report .text-surface-600,
-  #ai-analysis-report .dark\:text-surface-300,
-  #ai-analysis-report .dark\:text-surface-400 {
-    color: #334155 !important;
-  }
-
-  #ai-analysis-report .dark\:bg-surface-700\/30,
-  #ai-analysis-report .dark\:bg-surface-700\/40,
-  #ai-analysis-report .bg-surface-50,
-  #ai-analysis-report .dark\:bg-surface-800 {
-    background: #f8fafc !important;
-  }
-
-  #ai-analysis-report .dark\:border-surface-700 {
-    border-color: #e2e8f0 !important;
-  }
-
-  .print\:hidden {
-    display: none !important;
-  }
-
-  .print\:shadow-none {
-    box-shadow: none !important;
-  }
+/* Remove Vite's fixed-width constraint – let the layout fill viewport */
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+/* ─── Typography ─────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading);
+  color: var(--color-heading);
+  line-height: 1.2;
+  margin: 0;
 }
 
-::-webkit-scrollbar-track {
-  @apply bg-transparent;
+p { margin: 0; }
+
+code, .counter {
+  font-family: var(--mono);
+  font-size: 13px;
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--color-heading);
+  padding: 2px 6px;
+  background: var(--color-border);
 }
 
-::-webkit-scrollbar-thumb {
-  @apply bg-surface-300 dark:bg-surface-600 rounded-full;
+/* ─── Scrollbars ─────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-muted); }
+
+/* ─── Responsive helpers ─────────────────────────────────── */
+@media (max-width: 768px) {
+  :root { font-size: 14px; }
 }
 
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-surface-400 dark:bg-surface-500;
-}

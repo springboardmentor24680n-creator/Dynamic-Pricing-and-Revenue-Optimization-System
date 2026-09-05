@@ -1,0 +1,35 @@
+{
+  "comparison_date": "2026-08-06T13:32:28.569672+00:00",
+  "evaluation_split_used": "test",
+  "models": {
+    "XGBoost": {
+      "algorithm": "XGBoost Regressor",
+      "dataset": "online_retail_II.csv",
+      "features_count": 14,
+      "metrics": {
+        "mae": 0.8060854600100409,
+        "rmse": 62.46830383514374,
+        "r2_score": -3.1153551549062044,
+        "mape": 17638601086727.32
+      }
+    },
+    "LightGBM": {
+      "algorithm": "LightGBM Regressor",
+      "dataset": "online_retail_II.csv",
+      "features_count": 14,
+      "metrics": {
+        "mae": 0.49032202235728867,
+        "rmse": 10.393086328434423,
+        "r2_score": 0.8860860366742352,
+        "mape": 6395734751462.721
+      }
+    }
+  },
+  "comparison_metrics": {
+    "mae_diff": 0.3157634376527522,
+    "rmse_diff": 52.07521750670932,
+    "r2_diff": 4.001441191580439,
+    "mape_diff": 11242866335264.6
+  },
+  "best_performing_model": "LightGBM"
+}

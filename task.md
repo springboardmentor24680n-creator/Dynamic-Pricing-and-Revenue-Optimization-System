@@ -1,0 +1,7 @@
+- [x] Update backend `main.py` roles configuration
+- [x] Update backend `routes/dashboard.py` users telemetry logic
+- [x] Update frontend `App.jsx` sidebars, role options, normalization, and view guards
+- [x] Update frontend `AdminDashboard.jsx` users distribution widget
+- [x] Run backend tests to verify recommendations and health endpoints
+- [x] Build production frontend bundle using `npm run build`
+- [x] Verify that no references to the old `USER` role remain in navigation or routes

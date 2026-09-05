@@ -1,0 +1,60 @@
+{
+  "model_type": "LightGBM Demand Regressor",
+  "target_column": "quantity",
+  "dataset_name": "lightgbm_price_train.csv",
+  "train_samples": 684686,
+  "validation_samples": 146718,
+  "test_samples": 146719,
+  "features_used": [
+    "price",
+    "year",
+    "month",
+    "week",
+    "day",
+    "day_of_week",
+    "quarter",
+    "quantity_lag_1",
+    "quantity_lag_7",
+    "quantity_rolling_mean_7",
+    "quantity_rolling_mean_14",
+    "stockcode",
+    "country"
+  ],
+  "training_time": 1.514469861984253,
+  "training_date": "2026-08-14T00:43:47.156600+00:00",
+  "metrics": {
+    "train": {
+      "mae": 8.289692852124036,
+      "rmse": 46.5417385203199,
+      "r2_score": 0.6357252695822295,
+      "mape": 2.234898314363151
+    },
+    "validation": {
+      "mae": 9.513391268367853,
+      "rmse": 39.34108174874846,
+      "r2_score": -0.02504678763324053,
+      "mape": 2.439169297463159
+    },
+    "test": {
+      "mae": 9.00557732180933,
+      "rmse": 49.014827190219115,
+      "r2_score": -0.04773890718999341,
+      "mape": 2.701695870261844
+    }
+  },
+  "feature_importances": {
+    "price": 751.0,
+    "stockcode": 580.0,
+    "quantity_lag_1": 254.0,
+    "quantity_rolling_mean_7": 246.0,
+    "quantity_rolling_mean_14": 187.0,
+    "day": 140.0,
+    "week": 139.0,
+    "country": 136.0,
+    "day_of_week": 119.0,
+    "quantity_lag_7": 111.0,
+    "month": 67.0,
+    "year": 29.0,
+    "quarter": 0.0
+  }
+}

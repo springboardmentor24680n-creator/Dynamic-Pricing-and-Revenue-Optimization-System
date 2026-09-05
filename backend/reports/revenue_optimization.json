@@ -1,0 +1,237 @@
+{
+  "run_date": "2026-08-10T16:26:03.923259+00:00",
+  "total_products_optimized": 100,
+  "overall_metrics": {
+    "total_current_revenue": 6443486.05,
+    "total_predicted_revenue": 13762309.75,
+    "total_revenue_gain": 7318823.7,
+    "total_revenue_growth_percentage": 113.58
+  },
+  "action_breakdown": {
+    "Increase Price": {
+      "product_count": 27,
+      "current_revenue": 2085051.06,
+      "predicted_revenue": 1965965.29,
+      "revenue_gain": -119085.77,
+      "revenue_growth_percentage": -5.71
+    },
+    "Decrease Price": {
+      "product_count": 73,
+      "current_revenue": 4358434.99,
+      "predicted_revenue": 11796344.46,
+      "revenue_gain": 7437909.47,
+      "revenue_growth_percentage": 170.66
+    },
+    "Maintain Price": {
+      "product_count": 0,
+      "current_revenue": 0,
+      "predicted_revenue": 0,
+      "revenue_gain": 0,
+      "revenue_growth_percentage": 0.0
+    }
+  },
+  "top_gain_contributors": [
+    {
+      "stockcode": "DOT",
+      "country": "United Kingdom",
+      "current_price": 1714.17,
+      "recommended_price": 1371.34,
+      "historical_revenue": 309854.11,
+      "expected_revenue": 5205591.46,
+      "revenue_gain": 4895737.35,
+      "revenue_growth_percentage": 1580.01
+    },
+    {
+      "stockcode": "22423",
+      "country": "United Kingdom",
+      "current_price": 24.96,
+      "recommended_price": 19.97,
+      "historical_revenue": 330590.32,
+      "expected_revenue": 687767.81,
+      "revenue_gain": 357177.49,
+      "revenue_growth_percentage": 108.04
+    },
+    {
+      "stockcode": "85099B",
+      "country": "United Kingdom",
+      "current_price": 4.13,
+      "recommended_price": 3.3,
+      "historical_revenue": 180569.34,
+      "expected_revenue": 415620.73,
+      "revenue_gain": 235051.39,
+      "revenue_growth_percentage": 130.17
+    },
+    {
+      "stockcode": "47566",
+      "country": "United Kingdom",
+      "current_price": 10.79,
+      "recommended_price": 8.63,
+      "historical_revenue": 148318.28,
+      "expected_revenue": 316987.76,
+      "revenue_gain": 168669.48,
+      "revenue_growth_percentage": 113.72
+    },
+    {
+      "stockcode": "21212",
+      "country": "United Kingdom",
+      "current_price": 2.08,
+      "recommended_price": 2.5,
+      "historical_revenue": 51825.15,
+      "expected_revenue": 165781.32,
+      "revenue_gain": 113956.17,
+      "revenue_growth_percentage": 219.89
+    },
+    {
+      "stockcode": "82484",
+      "country": "United Kingdom",
+      "current_price": 16.63,
+      "recommended_price": 13.3,
+      "historical_revenue": 56745.73,
+      "expected_revenue": 170029.11,
+      "revenue_gain": 113283.38,
+      "revenue_growth_percentage": 199.63
+    },
+    {
+      "stockcode": "22383",
+      "country": "United Kingdom",
+      "current_price": 4.96,
+      "recommended_price": 4.09,
+      "historical_revenue": 43254.35,
+      "expected_revenue": 129456.37,
+      "revenue_gain": 86202.02,
+      "revenue_growth_percentage": 199.29
+    },
+    {
+      "stockcode": "48138",
+      "country": "United Kingdom",
+      "current_price": 14.13,
+      "recommended_price": 11.3,
+      "historical_revenue": 67010.31,
+      "expected_revenue": 148112.92,
+      "revenue_gain": 81102.61,
+      "revenue_growth_percentage": 121.03
+    },
+    {
+      "stockcode": "23166",
+      "country": "United Kingdom",
+      "current_price": 2.46,
+      "recommended_price": 2.95,
+      "historical_revenue": 81700.92,
+      "expected_revenue": 161247.39,
+      "revenue_gain": 79546.47,
+      "revenue_growth_percentage": 97.36
+    },
+    {
+      "stockcode": "21523",
+      "country": "United Kingdom",
+      "current_price": 16.63,
+      "recommended_price": 13.3,
+      "historical_revenue": 46083.71,
+      "expected_revenue": 120357.3,
+      "revenue_gain": 74273.59,
+      "revenue_growth_percentage": 161.17
+    }
+  ],
+  "top_growth_opportunities": [
+    {
+      "stockcode": "DOT",
+      "country": "United Kingdom",
+      "current_price": 1714.17,
+      "recommended_price": 1371.34,
+      "historical_revenue": 309854.11,
+      "expected_revenue": 5205591.46,
+      "revenue_gain": 4895737.35,
+      "revenue_growth_percentage": 1580.01
+    },
+    {
+      "stockcode": "21212",
+      "country": "United Kingdom",
+      "current_price": 2.08,
+      "recommended_price": 2.5,
+      "historical_revenue": 51825.15,
+      "expected_revenue": 165781.32,
+      "revenue_gain": 113956.17,
+      "revenue_growth_percentage": 219.89
+    },
+    {
+      "stockcode": "82484",
+      "country": "United Kingdom",
+      "current_price": 16.63,
+      "recommended_price": 13.3,
+      "historical_revenue": 56745.73,
+      "expected_revenue": 170029.11,
+      "revenue_gain": 113283.38,
+      "revenue_growth_percentage": 199.63
+    },
+    {
+      "stockcode": "22383",
+      "country": "United Kingdom",
+      "current_price": 4.96,
+      "recommended_price": 4.09,
+      "historical_revenue": 43254.35,
+      "expected_revenue": 129456.37,
+      "revenue_gain": 86202.02,
+      "revenue_growth_percentage": 199.29
+    },
+    {
+      "stockcode": "21523",
+      "country": "United Kingdom",
+      "current_price": 16.63,
+      "recommended_price": 13.3,
+      "historical_revenue": 46083.71,
+      "expected_revenue": 120357.3,
+      "revenue_gain": 74273.59,
+      "revenue_growth_percentage": 161.17
+    },
+    {
+      "stockcode": "22384",
+      "country": "United Kingdom",
+      "current_price": 4.96,
+      "recommended_price": 5.95,
+      "historical_revenue": 34088.79,
+      "expected_revenue": 86598.62,
+      "revenue_gain": 52509.83,
+      "revenue_growth_percentage": 154.04
+    },
+    {
+      "stockcode": "20728",
+      "country": "United Kingdom",
+      "current_price": 4.13,
+      "recommended_price": 3.3,
+      "historical_revenue": 42270.3,
+      "expected_revenue": 105644.74,
+      "revenue_gain": 63374.44,
+      "revenue_growth_percentage": 149.93
+    },
+    {
+      "stockcode": "20726",
+      "country": "United Kingdom",
+      "current_price": 4.13,
+      "recommended_price": 3.32,
+      "historical_revenue": 38506.74,
+      "expected_revenue": 95034.11,
+      "revenue_gain": 56527.37,
+      "revenue_growth_percentage": 146.8
+    },
+    {
+      "stockcode": "21175",
+      "country": "United Kingdom",
+      "current_price": 4.96,
+      "recommended_price": 4.09,
+      "historical_revenue": 43851.48,
+      "expected_revenue": 106813.51,
+      "revenue_gain": 62962.03,
+      "revenue_growth_percentage": 143.58
+    },
+    {
+      "stockcode": "23284",
+      "country": "United Kingdom",
+      "current_price": 15.79,
+      "recommended_price": 12.63,
+      "historical_revenue": 38133.64,
+      "expected_revenue": 90318.8,
+      "revenue_gain": 52185.16,
+      "revenue_growth_percentage": 136.85
+    }
+  ]
+}
