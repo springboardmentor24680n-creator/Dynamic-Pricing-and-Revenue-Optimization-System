@@ -1,0 +1,331 @@
+{"kind":"deck","id":"pr/iuc4h6","name":"Deck"}
+{"kind":"layout","layoutId":"9cbe90dc-9e08-472d-8cb9-362558309b6f","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"aecb1c6b-9674-403a-82bc-abaf72d1f08d","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/c2ks59","slide":1,"title":"PROJECT EXPLAINER","textShapes":19}
+{"kind":"shape","id":"sh/18jitsfu","slide":1,"bbox":[780,0,500,720]}
+{"kind":"shape","id":"sh/e58jyxw3","slide":1,"bbox":[780,0,500,12]}
+{"kind":"textbox","id":"sh/f6h0rixo","slide":1,"text":"PROJECT EXPLAINER","textPreview":"PROJECT EXPLAINER","textChars":17,"textLines":1,"bbox":[72,72,320,24]}
+{"kind":"textbox","id":"sh/oba147e5","slide":1,"text":"PricePilot AI","textPreview":"PricePilot AI","textChars":13,"textLines":1,"bbox":[72,132,650,80]}
+{"kind":"textbox","id":"sh/9cj2xcfq","slide":1,"text":"Dynamic Pricing Optimization & Revenue Intelligence","textPreview":"Dynamic Pricing Optimization & Revenue Intelligence","textChars":51,"textLines":1,"bbox":[76,226,610,72]}
+{"kind":"shape","id":"sh/29sj2xwz","slide":1,"bbox":[76,330,520,4]}
+{"kind":"textbox","id":"sh/na10v2xk","slide":1,"text":"How data, machine learning, optimization, and multi-agent AI connect to turn market signals into pricing decisions.","textPreview":"How data, machine learning, optimization, and multi-agent AI connect to turn market signals into pricing decisions.","textChars":115,"textLines":1,"bbox":[76,366,540,100]}
+{"kind":"shape","id":"sh/wzu187eh","slide":1,"bbox":[806,150,110,30]}
+{"kind":"textbox","id":"sh/x0321cf2","slide":1,"text":"Next.js","textPreview":"Next.js","textChars":7,"textLines":1,"bbox":[816,156,90,18]}
+{"kind":"shape","id":"sh/p4ju9c32","slide":1,"bbox":[936,150,110,30]}
+{"kind":"textbox","id":"sh/4jat072h","slide":1,"text":"FastAPI","textPreview":"FastAPI","textChars":7,"textLines":1,"bbox":[946,156,90,18]}
+{"kind":"shape","id":"sh/3ihc72lw","slide":1,"bbox":[1066,150,110,30]}
+{"kind":"textbox","id":"sh/2h8byxkb","slide":1,"text":"ML + AI","textPreview":"ML + AI","textChars":7,"textLines":1,"bbox":[1076,156,90,18]}
+{"kind":"textbox","id":"sh/d8judw3y","slide":1,"text":"DECISION LOOP","textPreview":"DECISION LOOP","textChars":13,"textLines":1,"bbox":[842,254,240,20]}
+{"kind":"shape","id":"sh/c7ad4r2d","slide":1,"bbox":[842,296,300,68]}
+{"kind":"shape","id":"sh/r61cbml8","slide":1,"bbox":[842,296,7,68]}
+{"kind":"textbox","id":"sh/q5sv2hkn","slide":1,"text":"Observe","textPreview":"Observe","textChars":7,"textLines":1,"bbox":[864,312,266,28]}
+{"kind":"textbox","id":"sh/tczu1s3u","slide":1,"text":"#5B6472","textPreview":"#5B6472","textChars":7,"textLines":1,"bbox":[864,348,266,8]}
+{"kind":"textbox","id":"sh/sbqtsnm9","slide":1,"text":"↓","textPreview":"↓","textChars":1,"textLines":1,"bbox":[954,369,70,30]}
+{"kind":"shape","id":"sh/kvad8nu5","slide":1,"bbox":[842,408,300,68]}
+{"kind":"shape","id":"sh/lw3uhsbq","slide":1,"bbox":[842,408,7,68]}
+{"kind":"textbox","id":"sh/ytsb6xcz","slide":1,"text":"Predict","textPreview":"Predict","textChars":7,"textLines":1,"bbox":[864,424,266,28]}
+{"kind":"textbox","id":"sh/zu1cfitk","slide":1,"text":"#5B6472","textPreview":"#5B6472","textChars":7,"textLines":1,"bbox":[864,460,266,8]}
+{"kind":"textbox","id":"sh/8judc7u1","slide":1,"text":"↓","textPreview":"↓","textChars":1,"textLines":1,"bbox":[954,481,70,30]}
+{"kind":"shape","id":"sh/tk3ulcbm","slide":1,"bbox":[842,520,300,68]}
+{"kind":"shape","id":"sh/6xcvaxcb","slide":1,"bbox":[842,520,7,68]}
+{"kind":"textbox","id":"sh/7ylcj2tw","slide":1,"text":"Optimize","textPreview":"Optimize","textChars":8,"textLines":1,"bbox":[864,536,266,28]}
+{"kind":"textbox","id":"sh/gnudg7ad","slide":1,"text":"#5B6472","textPreview":"#5B6472","textChars":7,"textLines":1,"bbox":[864,572,266,8]}
+{"kind":"textbox","id":"sh/honupcby","slide":1,"text":"Prepared from the complete project repository","textPreview":"Prepared from the complete project repository","textChars":45,"textLines":1,"bbox":[72,646,500,20]}
+{"kind":"textbox","id":"sh/ripgf6d0","slide":1,"text":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textPreview":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textChars":56,"textLines":1,"bbox":[72,681,800,16]}
+{"kind":"textbox","id":"sh/qhgf6lwf","slide":1,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[1168,679,40,18]}
+{"kind":"notes","id":"nt/c2ks59","slide":1,"text":"[Sources]\nProject source: repository files backend/main.py, backend/ml_engine.py, backend/agent_orchestrator.py, src/app/page.tsx."}
+{"kind":"slide","id":"sl/9y3dkl","slide":2,"title":"THE PRODUCT","textShapes":16}
+{"kind":"textbox","id":"sh/cret4jud","slide":2,"text":"THE PRODUCT","textPreview":"THE PRODUCT","textChars":11,"textLines":1,"bbox":[72,42,420,20]}
+{"kind":"textbox","id":"sh/bq5cbet8","slide":2,"text":"One decision loop unifies pricing, demand, and market intelligence","textPreview":"One decision loop unifies pricing, demand, and market intelligence","textChars":66,"textLines":1,"bbox":[72,74,1136,58]}
+{"kind":"textbox","id":"sh/apwb29cn","slide":2,"text":"The platform is built to answer a business question: what price should we set next, and why?","textPreview":"The platform is built to answer a business question: what price should we set next, and why?","textChars":92,"textLines":1,"bbox":[72,136,1060,32]}
+{"kind":"shape","id":"sh/lg7uhoba","slide":2,"bbox":[72,180,1136,1]}
+{"kind":"shape","id":"sh/kfed8jup","slide":2,"bbox":[72,230,330,116]}
+{"kind":"shape","id":"sh/ze5cfet4","slide":2,"bbox":[72,230,7,116]}
+{"kind":"textbox","id":"sh/ydwb6tcj","slide":2,"text":"1  Start with product reality","textPreview":"1  Start with product reality","textChars":29,"textLines":1,"bbox":[94,246,296,28]}
+{"kind":"textbox","id":"sh/1k3u54bq","slide":2,"text":"Current price • cost • competitor • inventory • elasticity","textPreview":"Current price • cost • competitor • inventory • elasticity","textChars":58,"textLines":1,"bbox":[94,282,296,56]}
+{"kind":"textbox","id":"sh/0jutwzul","slide":2,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[410,268,70,30]}
+{"kind":"shape","id":"sh/2tc3axcj","slide":2,"bbox":[480,230,330,116]}
+{"kind":"shape","id":"sh/nul432d4","slide":2,"bbox":[480,230,7,116]}
+{"kind":"textbox","id":"sh/ovelc7up","slide":2,"text":"2  Forecast demand","textPreview":"2  Forecast demand","textChars":18,"textLines":1,"bbox":[502,246,296,28]}
+{"kind":"textbox","id":"sh/9wnm5cva","slide":2,"text":"Three models learn from historical price, promotion, calendar, and sales signals.","textPreview":"Three models learn from historical price, promotion, calendar, and sales signals.","textChars":81,"textLines":1,"bbox":[502,282,296,56]}
+{"kind":"textbox","id":"sh/axwnehcv","slide":2,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[818,268,70,30]}
+{"kind":"shape","id":"sh/by5472dg","slide":2,"bbox":[888,230,320,116]}
+{"kind":"shape","id":"sh/wze5g7u1","slide":2,"bbox":[888,230,7,116]}
+{"kind":"textbox","id":"sh/x0nm9cv6","slide":2,"text":"3  Recommend an action","textPreview":"3  Recommend an action","textChars":22,"textLines":1,"bbox":[910,246,286,28]}
+{"kind":"textbox","id":"sh/y1wnihcr","slide":2,"text":"Search + news context explain the price move in business language.","textPreview":"Search + news context explain the price move in business language.","textChars":66,"textLines":1,"bbox":[910,282,286,56]}
+{"kind":"shape","id":"sh/j2p4bmdc","slide":2,"bbox":[72,406,1136,160]}
+{"kind":"textbox","id":"sh/vqp4zm9k","slide":2,"text":"The core design principle","textPreview":"The core design principle","textChars":25,"textLines":1,"bbox":[102,434,260,22]}
+{"kind":"textbox","id":"sh/upg36hsz","slide":2,"text":"Separate the hard numbers from the explanation layer.","textPreview":"Separate the hard numbers from the explanation layer.","textChars":53,"textLines":1,"bbox":[102,470,700,38]}
+{"kind":"textbox","id":"sh/hs7m1wrq","slide":2,"text":"ML estimates demand and profit. Agents add current market context. The product UI makes the recommendation reviewable.","textPreview":"ML estimates demand and profit. Agents add current market context. The product UI makes the recommendation reviewable.","textChars":118,"textLines":1,"bbox":[102,518,900,26]}
+{"kind":"textbox","id":"sh/gryl8ra5","slide":2,"text":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textPreview":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textChars":56,"textLines":1,"bbox":[72,681,800,16]}
+{"kind":"textbox","id":"sh/72pkvm98","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1168,679,40,18]}
+{"kind":"notes","id":"nt/9y3dkl","slide":2,"text":"[Sources]\nProject source: backend/ml_engine.py (forecasting and optimization), backend/agent_orchestrator.py (market agents), src/components/SingleProductPredictionModal.tsx (decision presentation)."}
+{"kind":"slide","id":"sl/xpc0n1","slide":3,"title":"ARCHITECTURE","textShapes":19}
+{"kind":"textbox","id":"sh/szy5kf2x","slide":3,"text":"ARCHITECTURE","textPreview":"ARCHITECTURE","textChars":12,"textLines":1,"bbox":[72,42,420,20]}
+{"kind":"textbox","id":"sh/rypora1c","slide":3,"text":"The system has four connected layers","textPreview":"The system has four connected layers","textChars":36,"textLines":1,"bbox":[72,74,1136,58]}
+{"kind":"textbox","id":"sh/6xgnipkr","slide":3,"text":"Each layer has a distinct job, with the FastAPI endpoints acting as the hand-off between intelligence and interface.","textPreview":"Each layer has a distinct job, with the FastAPI endpoints acting as the hand-off between intelligence and interface.","textChars":116,"textLines":1,"bbox":[72,136,1060,32]}
+{"kind":"shape","id":"sh/5w76pk36","slide":3,"bbox":[72,180,1136,1]}
+{"kind":"shape","id":"sh/kbe5gf21","slide":3,"bbox":[72,236,240,142]}
+{"kind":"shape","id":"sh/ja5onalg","slide":3,"bbox":[72,236,7,142]}
+{"kind":"textbox","id":"sh/i9wne5kv","slide":3,"text":"Data layer","textPreview":"Data layer","textChars":10,"textLines":1,"bbox":[94,252,206,28]}
+{"kind":"textbox","id":"sh/psr6l4jq","slide":3,"text":"products_catalog.csv\nretail_pricing_dataset.csv\n.env API keys","textPreview":"products_catalog.csv | retail_pricing_dataset.csv | .env API keys","textChars":61,"textLines":3,"bbox":[94,288,206,82]}
+{"kind":"shape","id":"sh/oripsz25","slide":3,"bbox":[360,236,260,142]}
+{"kind":"shape","id":"sh/e9432xsn","slide":3,"bbox":[360,236,7,142]}
+{"kind":"textbox","id":"sh/zad4v2ts","slide":3,"text":"ML engine","textPreview":"ML engine","textChars":9,"textLines":1,"bbox":[382,252,226,28]}
+{"kind":"textbox","id":"sh/0bml47ad","slide":3,"text":"Feature engineering\n3-model ensemble\nprice/profit search","textPreview":"Feature engineering | 3-model ensemble | price/profit search","textChars":56,"textLines":3,"bbox":[382,288,226,82]}
+{"kind":"shape","id":"sh/1cvmxcby","slide":3,"bbox":[668,236,260,142]}
+{"kind":"shape","id":"sh/q5k3yxsb","slide":3,"bbox":[668,236,7,142]}
+{"kind":"textbox","id":"sh/r6d472tw","slide":3,"text":"Agent layer","textPreview":"Agent layer","textChars":11,"textLines":1,"bbox":[690,252,226,28]}
+{"kind":"textbox","id":"sh/c7ml0nah","slide":3,"text":"Tavily search\nSeasonal search\nNews API + OpenRouter brain","textPreview":"Tavily search | Seasonal search | News API + OpenRouter brain","textChars":57,"textLines":3,"bbox":[690,288,226,82]}
+{"kind":"shape","id":"sh/d8vmtsb2","slide":3,"bbox":[976,236,232,142]}
+{"kind":"shape","id":"sh/a1onahsv","slide":3,"bbox":[976,236,7,142]}
+{"kind":"textbox","id":"sh/b2x43m90","slide":3,"text":"Experience layer","textPreview":"Experience layer","textChars":16,"textLines":1,"bbox":[998,252,198,28]}
+{"kind":"textbox","id":"sh/7apsfu5g","slide":3,"text":"Next.js dashboard\nCatalog + simulator\nReports + admin","textPreview":"Next.js dashboard | Catalog + simulator | Reports + admin","textChars":53,"textLines":3,"bbox":[998,288,198,82]}
+{"kind":"textbox","id":"sh/69grmp4v","slide":3,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[314,291,46,30]}
+{"kind":"textbox","id":"sh/tc7ahknm","slide":3,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[622,291,46,30]}
+{"kind":"textbox","id":"sh/8by9ofm1","slide":3,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[930,291,46,30]}
+{"kind":"shape","id":"sh/vypsju5c","slide":3,"bbox":[198,440,884,92]}
+{"kind":"textbox","id":"sh/uxgrqp4r","slide":3,"text":"FastAPI orchestration boundary","textPreview":"FastAPI orchestration boundary","textChars":30,"textLines":1,"bbox":[224,458,300,22]}
+{"kind":"textbox","id":"sh/h07al4ni","slide":3,"text":"/api/products   /api/predict/single/{id}   /api/predict/all   /api/seasonal-reports   /api/competitor-analysis","textPreview":"/api/products   /api/predict/single/{id}   /api/predict/all   /api/seasonal-reports   /api/competitor-analysis","textChars":110,"textLines":1,"bbox":[224,493,820,20]}
+{"kind":"textbox","id":"sh/gzytczmx","slide":3,"text":"A prediction is not a single model call: it is a pipeline that combines historical evidence, optimization, and live context.","textPreview":"A prediction is not a single model call: it is a pipeline that combines historical evidence, optimization, and live context.","textChars":124,"textLines":1,"bbox":[72,594,1080,28]}
+{"kind":"textbox","id":"sh/329snelo","slide":3,"text":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textPreview":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textChars":56,"textLines":1,"bbox":[72,681,800,16]}
+{"kind":"textbox","id":"sh/i10be943","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1168,679,40,18]}
+{"kind":"notes","id":"nt/xpc0n1","slide":3,"text":"[Sources]\nProject source: backend/main.py endpoint definitions and imports; backend/catalog_datasets.py; src/app/page.tsx."}
+{"kind":"slide","id":"sl/2s0v7j","slide":4,"title":"DATA FOUNDATION","textShapes":15}
+{"kind":"textbox","id":"sh/u9o76t4z","slide":4,"text":"DATA FOUNDATION","textPreview":"DATA FOUNDATION","textChars":15,"textLines":1,"bbox":[72,42,420,20]}
+{"kind":"textbox","id":"sh/hwzqh83a","slide":4,"text":"Two CSVs create the learning and decision context","textPreview":"Two CSVs create the learning and decision context","textChars":49,"textLines":1,"bbox":[72,74,1136,58]}
+{"kind":"textbox","id":"sh/gvqp83mp","slide":4,"text":"The catalog describes what is being priced; the historical dataset describes how demand behaved over time.","textPreview":"The catalog describes what is being priced; the historical dataset describes how demand behaved over time.","textChars":106,"textLines":1,"bbox":[72,136,1060,32]}
+{"kind":"shape","id":"sh/3yh8jylg","slide":4,"bbox":[72,180,1136,1]}
+{"kind":"shape","id":"sh/2x8rad4v","slide":4,"bbox":[72,226,520,270]}
+{"kind":"textbox","id":"sh/p0zql83m","slide":4,"text":"PRODUCT CATALOG","textPreview":"PRODUCT CATALOG","textChars":15,"textLines":1,"bbox":[102,252,260,20]}
+{"kind":"textbox","id":"sh/4zq9c3m1","slide":4,"text":"10 products","textPreview":"10 products","textChars":11,"textLines":1,"bbox":[102,286,260,42]}
+{"kind":"textbox","id":"sh/r218nilc","slide":4,"text":"One row per SKU with current price, cost, competitor price, inventory, rating, demand trend, elasticity, discount, and seasonality.","textPreview":"One row per SKU with current price, cost, competitor price, inventory, rating, demand trend, elasticity, discount, and seasonality.","textChars":131,"textLines":1,"bbox":[102,346,420,72]}
+{"kind":"shape","id":"sh/q18red47","slide":4,"bbox":[102,438,180,30]}
+{"kind":"textbox","id":"sh/kbetw3it","slide":4,"text":"products_catalog.csv","textPreview":"products_catalog.csv","textChars":20,"textLines":1,"bbox":[112,444,160,18]}
+{"kind":"shape","id":"sh/lcnap8ze","slide":4,"bbox":[632,226,576,270]}
+{"kind":"textbox","id":"sh/y9wrud0n","slide":4,"text":"HISTORICAL TRAINING DATA","textPreview":"HISTORICAL TRAINING DATA","textChars":24,"textLines":1,"bbox":[662,252,330,20]}
+{"kind":"textbox","id":"sh/ja5snyh8","slide":4,"text":"3,650 rows","textPreview":"3,650 rows","textChars":10,"textLines":1,"bbox":[662,286,280,42]}
+{"kind":"textbox","id":"sh/8fyt0ni5","slide":4,"text":"Daily observations across 10 products: price, competitor price, discounts, promotions, calendar flags, units sold, revenue, profit, and elasticity.","textPreview":"Daily observations across 10 products: price, competitor price, discounts, promotions, calendar flags, units sold, revenue, profit, and e...","textChars":147,"textLines":1,"bbox":[662,346,460,72]}
+{"kind":"shape","id":"sh/tg7atsza","slide":4,"bbox":[662,438,205,30]}
+{"kind":"textbox","id":"sh/6dwbyd0z","slide":4,"text":"retail_pricing_dataset.csv","textPreview":"retail_pricing_dataset.csv","textChars":26,"textLines":1,"bbox":[672,444,185,18]}
+{"kind":"textbox","id":"sh/7e5srihk","slide":4,"text":"Data quality contract","textPreview":"Data quality contract","textChars":21,"textLines":1,"bbox":[72,562,230,22]}
+{"kind":"textbox","id":"sh/g3yt4ni1","slide":4,"text":"Load → normalize types → select a product slice → engineer features → split chronologically (80/20).","textPreview":"Load → normalize types → select a product slice → engineer features → split chronologically (80/20).","textChars":100,"textLines":1,"bbox":[300,562,850,22]}
+{"kind":"textbox","id":"sh/h47axszm","slide":4,"text":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textPreview":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textChars":56,"textLines":1,"bbox":[72,681,800,16]}
+{"kind":"textbox","id":"sh/p03ahsrq","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1168,679,40,18]}
+{"kind":"notes","id":"nt/2s0v7j","slide":4,"text":"[Sources]\nProject source: products_catalog.csv, retail_pricing_dataset.csv, backend/catalog_datasets.py. Row counts derived from the repository files."}
+{"kind":"slide","id":"sl/7bf3z8","slide":5,"title":"FEATURE ENGINEERING","textShapes":15}
+{"kind":"textbox","id":"sh/2p0jelwr","slide":5,"text":"FEATURE ENGINEERING","textPreview":"FEATURE ENGINEERING","textChars":19,"textLines":1,"bbox":[72,42,420,20]}
+{"kind":"textbox","id":"sh/pcb2p0f2","slide":5,"text":"Raw retail history becomes a pricing signal vector","textPreview":"Raw retail history becomes a pricing signal vector","textChars":50,"textLines":1,"bbox":[72,74,1136,58]}
+{"kind":"textbox","id":"sh/4b21gveh","slide":5,"text":"The model sees both direct commercial variables and derived measures that make price relationships explicit.","textPreview":"The model sees both direct commercial variables and derived measures that make price relationships explicit.","textChars":108,"textLines":1,"bbox":[72,136,1060,32]}
+{"kind":"shape","id":"sh/fm9kjqx0","slide":5,"bbox":[72,180,1136,1]}
+{"kind":"shape","id":"sh/ul0jalwf","slide":5,"bbox":[72,238,252,168]}
+{"kind":"shape","id":"sh/hor2lgf6","slide":5,"bbox":[72,238,7,168]}
+{"kind":"textbox","id":"sh/gni1cvel","slide":5,"text":"Price & market","textPreview":"Price & market","textChars":14,"textLines":1,"bbox":[94,254,218,28]}
+{"kind":"textbox","id":"sh/7ipkf6x4","slide":5,"text":"price\ncompetitor_price\nprice_diff\nprice_ratio","textPreview":"price | competitor_price | price_diff | price_ratio","textChars":45,"textLines":4,"bbox":[94,290,218,108]}
+{"kind":"shape","id":"sh/6hgj61gj","slide":5,"bbox":[358,238,252,168]}
+{"kind":"shape","id":"sh/0fal4bat","slide":5,"bbox":[358,238,7,168]}
+{"kind":"textbox","id":"sh/1gjmxgre","slide":5,"text":"Promotion","textPreview":"Promotion","textChars":9,"textLines":1,"bbox":[380,254,218,28]}
+{"kind":"textbox","id":"sh/eds32lsn","slide":5,"text":"discount_percent\npromotion_flag\ndiscount_factor\neffective_price","textPreview":"discount_percent | promotion_flag | discount_factor | effective_price","textChars":63,"textLines":4,"bbox":[380,290,218,108]}
+{"kind":"shape","id":"sh/ze14vq98","slide":5,"bbox":[644,238,252,168]}
+{"kind":"shape","id":"sh/cral0bax","slide":5,"bbox":[644,238,7,168]}
+{"kind":"textbox","id":"sh/dcjmtgri","slide":5,"text":"Calendar","textPreview":"Calendar","textChars":8,"textLines":1,"bbox":[666,254,218,28]}
+{"kind":"textbox","id":"sh/qp83y1sr","slide":5,"text":"day_of_week\nmonth\nis_weekend\nis_holiday","textPreview":"day_of_week | month | is_weekend | is_holiday","textChars":39,"textLines":4,"bbox":[666,290,218,108]}
+{"kind":"shape","id":"sh/rq14r69c","slide":5,"bbox":[930,238,252,168]}
+{"kind":"shape","id":"sh/wnu5cfa1","slide":5,"bbox":[930,238,7,168]}
+{"kind":"textbox","id":"sh/x83m50rm","slide":5,"text":"Trend","textPreview":"Trend","textChars":5,"textLines":1,"bbox":[952,254,218,28]}
+{"kind":"textbox","id":"sh/54jmp0jq","slide":5,"text":"day_index","textPreview":"day_index","textChars":9,"textLines":1,"bbox":[952,290,218,108]}
+{"kind":"shape","id":"sh/k3qlwv25","slide":5,"bbox":[72,470,1136,94]}
+{"kind":"textbox","id":"sh/j2h4nq1k","slide":5,"text":"Why this matters","textPreview":"Why this matters","textChars":16,"textLines":1,"bbox":[100,492,160,20]}
+{"kind":"textbox","id":"sh/i183u5kz","slide":5,"text":"Derived features connect the “what is the market doing?” question to the “how sensitive is demand to price?” question.","textPreview":"Derived features connect the “what is the market doing?” question to the “how sensitive is demand to price?” question.","textChars":118,"textLines":1,"bbox":[278,489,860,40]}
+{"kind":"textbox","id":"sh/x0zml0ju","slide":5,"text":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textPreview":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textChars":56,"textLines":1,"bbox":[72,681,800,16]}
+{"kind":"textbox","id":"sh/wzqlsv29","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1168,679,40,18]}
+{"kind":"notes","id":"nt/7bf3z8","slide":5,"text":"[Sources]\nProject source: backend/ml_engine.py feature_cols and feature engineering block."}
+{"kind":"slide","id":"sl/tiu3bl","slide":6,"title":"FORECASTING ENGINE","textShapes":19}
+{"kind":"textbox","id":"sh/1sve1kni","slide":6,"text":"FORECASTING ENGINE","textPreview":"FORECASTING ENGINE","textChars":18,"textLines":1,"bbox":[72,42,420,20]}
+{"kind":"textbox","id":"sh/ep4vq54r","slide":6,"text":"Three models contribute different kinds of evidence","textPreview":"Three models contribute different kinds of evidence","textChars":51,"textLines":1,"bbox":[72,74,1136,58]}
+{"kind":"textbox","id":"sh/fqdwza5c","slide":6,"text":"The ensemble reduces dependence on one modeling assumption and turns the outputs into a weighted daily-demand estimate.","textPreview":"The ensemble reduces dependence on one modeling assumption and turns the outputs into a weighted daily-demand estimate.","textChars":119,"textLines":1,"bbox":[72,136,1060,32]}
+{"kind":"shape","id":"sh/snmdovml","slide":6,"bbox":[72,180,1136,1]}
+{"kind":"textbox","id":"sh/dovex0n6","slide":6,"text":"LightGBM","textPreview":"LightGBM","textChars":8,"textLines":1,"bbox":[100,234,120,20]}
+{"kind":"shape","id":"sh/qlkvm54v","slide":6,"bbox":[235,236,420,16]}
+{"kind":"shape","id":"sh/rmtwvq5g","slide":6,"bbox":[235,236,168,16]}
+{"kind":"textbox","id":"sh/cj6x0zm5","slide":6,"text":"40","textPreview":"40","textChars":2,"textLines":1,"bbox":[665,232,52,22]}
+{"kind":"textbox","id":"sh/xkfe943q","slide":6,"text":"Gradient-boosted trees for fast tabular prediction","textPreview":"Gradient-boosted trees for fast tabular prediction","textChars":50,"textLines":1,"bbox":[100,274,420,22]}
+{"kind":"textbox","id":"sh/5ona58v6","slide":6,"text":"XGBoost","textPreview":"XGBoost","textChars":7,"textLines":1,"bbox":[100,332,120,20]}
+{"kind":"shape","id":"sh/knutc3el","slide":6,"bbox":[235,334,420,16]}
+{"kind":"shape","id":"sh/jmls3yd0","slide":6,"bbox":[235,334,147,16]}
+{"kind":"textbox","id":"sh/ilcbatwv","slide":6,"text":"35","textPreview":"35","textChars":2,"textLines":1,"bbox":[665,330,52,22]}
+{"kind":"textbox","id":"sh/xk3a1ova","slide":6,"text":"Regularized non-linear regression for price response","textPreview":"Regularized non-linear regression for price response","textChars":52,"textLines":1,"bbox":[100,372,420,22]}
+{"kind":"textbox","id":"sh/wjut8jep","slide":6,"text":"Prophet / time-series","textPreview":"Prophet / time-series","textChars":21,"textLines":1,"bbox":[100,430,120,20]}
+{"kind":"shape","id":"sh/vilszed4","slide":6,"bbox":[235,432,420,16]}
+{"kind":"shape","id":"sh/ahcb69wj","slide":6,"bbox":[235,432,105,16]}
+{"kind":"textbox","id":"sh/hg7udsve","slide":6,"text":"25","textPreview":"25","textChars":2,"textLines":1,"bbox":[665,428,52,22]}
+{"kind":"textbox","id":"sh/gfytknet","slide":6,"text":"Seasonal/time features via Ridge implementation in code","textPreview":"Seasonal/time features via Ridge implementation in code","textChars":55,"textLines":1,"bbox":[100,470,420,22]}
+{"kind":"shape","id":"sh/0v65wv6h","slide":6,"bbox":[660,236,548,270]}
+{"kind":"textbox","id":"sh/1wfm5g7m","slide":6,"text":"ENSEMBLE","textPreview":"ENSEMBLE","textChars":8,"textLines":1,"bbox":[694,264,160,20]}
+{"kind":"textbox","id":"sh/etonul8b","slide":6,"text":"0.40 × LightGBM","textPreview":"0.40 × LightGBM","textChars":15,"textLines":1,"bbox":[694,306,420,28]}
+{"kind":"textbox","id":"sh/zux43qpw","slide":6,"text":"+ 0.35 × XGBoost","textPreview":"+ 0.35 × XGBoost","textChars":16,"textLines":1,"bbox":[694,346,420,28]}
+{"kind":"textbox","id":"sh/c76lsbq5","slide":6,"text":"+ 0.25 × time-series model","textPreview":"+ 0.25 × time-series model","textChars":26,"textLines":1,"bbox":[694,386,420,28]}
+{"kind":"shape","id":"sh/dsfm1g7q","slide":6,"bbox":[694,436,430,2]}
+{"kind":"textbox","id":"sh/q5o3q18z","slide":6,"text":"= weighted average daily demand","textPreview":"= weighted average daily demand","textChars":31,"textLines":1,"bbox":[694,454,430,24]}
+{"kind":"textbox","id":"sh/r6x4z6pk","slide":6,"text":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textPreview":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textChars":56,"textLines":1,"bbox":[72,681,800,16]}
+{"kind":"textbox","id":"sh/43mlobq9","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1168,679,40,18]}
+{"kind":"notes","id":"nt/tiu3bl","slide":6,"text":"[Sources]\nProject source: backend/ml_engine.py models_breakdown and ensemble formula. The code labels the third model “Prophet / Time-Series Ridge Seasonal Model”; this deck preserves that implementation detail."}
+{"kind":"slide","id":"sl/dy7htx","slide":7,"title":"OPTIMIZATION LOGIC","textShapes":16}
+{"kind":"textbox","id":"sh/69s7y10f","slide":7,"text":"OPTIMIZATION LOGIC","textPreview":"OPTIMIZATION LOGIC","textChars":18,"textLines":1,"bbox":[72,42,420,20]}
+{"kind":"textbox","id":"sh/tc3qtgzq","slide":7,"text":"The recommended price is the best point on a profit curve","textPreview":"The recommended price is the best point on a profit curve","textChars":57,"textLines":1,"bbox":[72,74,1136,58]}
+{"kind":"textbox","id":"sh/8bapkbil","slide":7,"text":"Instead of guessing one price, the engine evaluates a bounded grid and keeps the price with the highest projected profit.","textPreview":"Instead of guessing one price, the engine evaluates a bounded grid and keeps the price with the highest projected profit.","textChars":121,"textLines":1,"bbox":[72,136,1060,32]}
+{"kind":"shape","id":"sh/jm1on6ho","slide":7,"bbox":[72,180,1136,1]}
+{"kind":"shape","id":"sh/yls7u103","slide":7,"bbox":[72,226,490,286]}
+{"kind":"textbox","id":"sh/lojqpgzu","slide":7,"text":"Demand response","textPreview":"Demand response","textChars":15,"textLines":1,"bbox":[104,254,220,20]}
+{"kind":"textbox","id":"sh/knapwbi9","slide":7,"text":"estimated demand =","textPreview":"estimated demand =","textChars":18,"textLines":1,"bbox":[104,302,300,24]}
+{"kind":"textbox","id":"sh/3il8zqh8","slide":7,"text":"ensemble demand × (current price / candidate price) ^ elasticity","textPreview":"ensemble demand × (current price / candidate price) ^ elasticity","textChars":64,"textLines":1,"bbox":[104,340,390,62]}
+{"kind":"textbox","id":"sh/ihc7q50n","slide":7,"text":"Elasticity controls how sharply demand falls or rises when price moves.","textPreview":"Elasticity controls how sharply demand falls or rises when price moves.","textChars":71,"textLines":1,"bbox":[104,430,380,48]}
+{"kind":"shape","id":"sh/cnaxw7qd","slide":7,"bbox":[610,226,598,286]}
+{"kind":"textbox","id":"sh/dojypcry","slide":7,"text":"Candidate price grid","textPreview":"Candidate price grid","textChars":20,"textLines":1,"bbox":[644,254,260,20]}
+{"kind":"shape","id":"sh/qlsfux87","slide":7,"bbox":[672,434,470,2]}
+{"kind":"shape","id":"sh/rm1gn29s","slide":7,"bbox":[672,356,18,74]}
+{"kind":"textbox","id":"sh/4jaxsnq1","slide":7,"text":"-25%","textPreview":"-25%","textChars":4,"textLines":1,"bbox":[644,458,80,20]}
+{"kind":"shape","id":"sh/pkjylsrm","slide":7,"bbox":[850,316,18,74]}
+{"kind":"textbox","id":"sh/2hsfqx8b","slide":7,"text":"Current","textPreview":"Current","textChars":7,"textLines":1,"bbox":[822,458,80,20]}
+{"kind":"shape","id":"sh/3i1wji9w","slide":7,"bbox":[1118,358,18,74]}
+{"kind":"textbox","id":"sh/gvqxonq5","slide":7,"text":"+35%","textPreview":"+35%","textChars":4,"textLines":1,"bbox":[1090,458,80,20]}
+{"kind":"shape","id":"sh/hwzehsrq","slide":7,"bbox":[824,292,70,102]}
+{"kind":"textbox","id":"sh/x0rm5kf2","slide":7,"text":"MAX","textPreview":"MAX","textChars":3,"textLines":1,"bbox":[820,264,78,18]}
+{"kind":"textbox","id":"sh/wzylwfyx","slide":7,"text":"profit = demand × (price − cost)","textPreview":"profit = demand × (price − cost)","textChars":32,"textLines":1,"bbox":[644,468,430,22]}
+{"kind":"textbox","id":"sh/vep43axc","slide":7,"text":"Implementation detail: 16 evenly spaced candidate prices across max(cost × 1.05, current × 0.75) to current × 1.35.","textPreview":"Implementation detail: 16 evenly spaced candidate prices across max(cost × 1.05, current × 0.75) to current × 1.35.","textChars":115,"textLines":1,"bbox":[72,575,1110,26]}
+{"kind":"textbox","id":"sh/adg3u5gr","slide":7,"text":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textPreview":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textChars":56,"textLines":1,"bbox":[72,681,800,16]}
+{"kind":"textbox","id":"sh/9c7m10f6","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1168,679,40,18]}
+{"kind":"notes","id":"nt/dy7htx","slide":7,"text":"[Sources]\nProject source: backend/ml_engine.py revenue optimization curve, elasticity formula, and price-grid bounds."}
+{"kind":"slide","id":"sl/15ih1b","slide":8,"title":"MULTI-AGENT INTELLIGENCE","textShapes":18}
+{"kind":"textbox","id":"sh/2pgjep0z","slide":8,"text":"MULTI-AGENT INTELLIGENCE","textPreview":"MULTI-AGENT INTELLIGENCE","textChars":24,"textLines":1,"bbox":[72,42,420,20]}
+{"kind":"textbox","id":"sh/ps7294zq","slide":8,"text":"Live context explains why the model should act now","textPreview":"Live context explains why the model should act now","textChars":50,"textLines":1,"bbox":[72,74,1136,58]}
+{"kind":"textbox","id":"sh/ory1gzi5","slide":8,"text":"The agents do not replace the numerical engine; they enrich it with market evidence and a concise executive recommendation.","textPreview":"The agents do not replace the numerical engine; they enrich it with market evidence and a concise executive recommendation.","textChars":123,"textLines":1,"bbox":[72,136,1060,32]}
+{"kind":"shape","id":"sh/f25k3uho","slide":8,"bbox":[72,180,1136,1]}
+{"kind":"shape","id":"sh/e1wjap03","slide":8,"bbox":[72,236,252,118]}
+{"kind":"shape","id":"sh/1o725kzu","slide":8,"bbox":[72,236,7,118]}
+{"kind":"textbox","id":"sh/0ny1czi9","slide":8,"text":"Tavily search agent","textPreview":"Tavily search agent","textChars":19,"textLines":1,"bbox":[94,252,218,28]}
+{"kind":"textbox","id":"sh/ry50za1c","slide":8,"text":"Competitor / category research\nStructured price impact","textPreview":"Competitor / category research | Structured price impact","textChars":54,"textLines":2,"bbox":[94,288,218,58]}
+{"kind":"shape","id":"sh/qxwj6507","slide":8,"bbox":[356,236,252,118]}
+{"kind":"shape","id":"sh/obqpsnu9","slide":8,"bbox":[356,236,7,118]}
+{"kind":"textbox","id":"sh/9czqlsbu","slide":8,"text":"Seasonal search agent","textPreview":"Seasonal search agent","textChars":21,"textLines":1,"bbox":[378,252,218,28]}
+{"kind":"textbox","id":"sh/m987qdcj","slide":8,"text":"Demand windows\nFestival and holiday context","textPreview":"Demand windows | Festival and holiday context","textChars":43,"textLines":2,"bbox":[378,288,218,58]}
+{"kind":"shape","id":"sh/nahojit4","slide":8,"bbox":[640,236,252,118]}
+{"kind":"shape","id":"sh/076ponud","slide":8,"bbox":[640,236,7,118]}
+{"kind":"textbox","id":"sh/18f6hsby","slide":8,"text":"News API agent","textPreview":"News API agent","textChars":14,"textLines":1,"bbox":[662,252,218,28]}
+{"kind":"textbox","id":"sh/e5o7mdc7","slide":8,"text":"Real-time retail headlines\nTrend and sentiment","textPreview":"Real-time retail headlines | Trend and sentiment","textChars":46,"textLines":2,"bbox":[662,288,218,58]}
+{"kind":"shape","id":"sh/z6xofits","slide":8,"bbox":[924,236,284,118]}
+{"kind":"shape","id":"sh/k3ap07uh","slide":8,"bbox":[924,236,7,118]}
+{"kind":"textbox","id":"sh/l4jqtcb2","slide":8,"text":"OpenRouter brain","textPreview":"OpenRouter brain","textChars":16,"textLines":1,"bbox":[946,252,250,28]}
+{"kind":"textbox","id":"sh/t0f6dc36","slide":8,"text":"Synthesizes ML + market inputs\n2-sentence executive takeaway","textPreview":"Synthesizes ML + market inputs | 2-sentence executive takeaway","textChars":60,"textLines":2,"bbox":[946,288,250,58]}
+{"kind":"textbox","id":"sh/sz6pk72l","slide":8,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[320,278,36,30]}
+{"kind":"textbox","id":"sh/7yxob2lg","slide":8,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[604,278,36,30]}
+{"kind":"textbox","id":"sh/6xo7ix4v","slide":8,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[888,278,36,30]}
+{"kind":"shape","id":"sh/5wf69s3a","slide":8,"bbox":[72,430,1136,108]}
+{"kind":"textbox","id":"sh/kv6pgnmp","slide":8,"text":"Prompt context includes","textPreview":"Prompt context includes","textChars":23,"textLines":1,"bbox":[102,456,220,20]}
+{"kind":"textbox","id":"sh/judo72l4","slide":8,"text":"product • category • current/cost/competitor prices • optimal price • market trend • news trend","textPreview":"product • category • current/cost/competitor prices • optimal price • market trend • news trend","textChars":95,"textLines":1,"bbox":[102,492,1010,24]}
+{"kind":"textbox","id":"sh/it47ex4j","slide":8,"text":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textPreview":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textChars":56,"textLines":1,"bbox":[72,681,800,16]}
+{"kind":"textbox","id":"sh/xsv65s3y","slide":8,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1168,679,40,18]}
+{"kind":"notes","id":"nt/15ih1b","slide":8,"text":"[Sources]\nProject source: backend/agent_orchestrator.py execute_multi_agent_pipeline, run_tavily_search_agent, run_tavily_seasonal_search_agent, run_news_api_agent, and run_openrouter_brain_agent."}
+{"kind":"slide","id":"sl/bituyr","slide":9,"title":"DECISION OUTPUTS","textShapes":19}
+{"kind":"textbox","id":"sh/1gv2pk3u","slide":9,"text":"DECISION OUTPUTS","textPreview":"DECISION OUTPUTS","textChars":16,"textLines":1,"bbox":[72,42,420,20]}
+{"kind":"textbox","id":"sh/et43e5kj","slide":9,"text":"One prediction powers multiple planning horizons","textPreview":"One prediction powers multiple planning horizons","textChars":48,"textLines":1,"bbox":[72,74,1136,58]}
+{"kind":"textbox","id":"sh/fudknal4","slide":9,"text":"The response gives operators a price recommendation plus the time horizon, confidence, and inventory implication needed to act on it.","textPreview":"The response gives operators a price recommendation plus the time horizon, confidence, and inventory implication needed to act on it.","textChars":133,"textLines":1,"bbox":[72,136,1060,32]}
+{"kind":"shape","id":"sh/sr21cf2d","slide":9,"bbox":[72,180,1136,1]}
+{"kind":"shape","id":"sh/tsv2lk3y","slide":9,"bbox":[72,238,252,160]}
+{"kind":"shape","id":"sh/6pkja5k7","slide":9,"bbox":[72,238,252,8]}
+{"kind":"textbox","id":"sh/7qtkjals","slide":9,"text":"7 days","textPreview":"7 days","textChars":6,"textLines":1,"bbox":[92,264,210,30]}
+{"kind":"textbox","id":"sh/cn6loz2h","slide":9,"text":"Inventory planning","textPreview":"Inventory planning","textChars":18,"textLines":1,"bbox":[92,310,210,22]}
+{"kind":"textbox","id":"sh/dof2x432","slide":9,"text":"highest confidence","textPreview":"highest confidence","textChars":18,"textLines":1,"bbox":[92,348,210,22]}
+{"kind":"shape","id":"sh/5c7ahwva","slide":9,"bbox":[358,238,252,160]}
+{"kind":"shape","id":"sh/4by9orup","slide":9,"bbox":[358,238,252,8]}
+{"kind":"textbox","id":"sh/japsfmd4","slide":9,"text":"14–30 days","textPreview":"14–30 days","textChars":10,"textLines":1,"bbox":[378,264,210,30]}
+{"kind":"textbox","id":"sh/i9grmhcj","slide":9,"text":"Reordering & campaigns","textPreview":"Reordering & campaigns","textChars":22,"textLines":1,"bbox":[378,310,210,22]}
+{"kind":"textbox","id":"sh/h87adcvy","slide":9,"text":"near-term operating plan","textPreview":"near-term operating plan","textChars":24,"textLines":1,"bbox":[378,348,210,22]}
+{"kind":"shape","id":"sh/w7e9k7ut","slide":9,"bbox":[644,238,252,160]}
+{"kind":"shape","id":"sh/v65sb2d8","slide":9,"bbox":[644,238,252,8]}
+{"kind":"textbox","id":"sh/u5wrihcn","slide":9,"text":"3–6 months","textPreview":"3–6 months","textChars":10,"textLines":1,"bbox":[664,264,210,30]}
+{"kind":"textbox","id":"sh/14rapgvi","slide":9,"text":"Procurement & capacity","textPreview":"Procurement & capacity","textChars":22,"textLines":1,"bbox":[664,310,210,22]}
+{"kind":"textbox","id":"sh/g3itwbux","slide":9,"text":"budget / vendor decisions","textPreview":"budget / vendor decisions","textChars":25,"textLines":1,"bbox":[664,348,210,22]}
+{"kind":"shape","id":"sh/kjal8j65","slide":9,"bbox":[930,238,252,160]}
+{"kind":"shape","id":"sh/lkj2ho7q","slide":9,"bbox":[930,238,252,8]}
+{"kind":"textbox","id":"sh/yxs369of","slide":9,"text":"12 months","textPreview":"12 months","textChars":9,"textLines":1,"bbox":[950,264,210,30]}
+{"kind":"textbox","id":"sh/zy1kfepk","slide":9,"text":"Strategy & roadmap","textPreview":"Strategy & roadmap","textChars":18,"textLines":1,"bbox":[950,310,210,22]}
+{"kind":"textbox","id":"sh/cvql4z69","slide":9,"text":"directional scenario","textPreview":"directional scenario","textChars":20,"textLines":1,"bbox":[950,348,210,22]}
+{"kind":"shape","id":"sh/xwz2d47u","slide":9,"bbox":[72,454,1136,104]}
+{"kind":"textbox","id":"sh/at832po3","slide":9,"text":"Inventory intelligence closes the loop","textPreview":"Inventory intelligence closes the loop","textChars":38,"textLines":1,"bbox":[102,478,340,22]}
+{"kind":"textbox","id":"sh/buhkbupo","slide":9,"text":"Stock on hand ÷ burn rate → days to stockout → reorder quantity (45-day target).","textPreview":"Stock on hand ÷ burn rate → days to stockout → reorder quantity (45-day target).","textChars":80,"textLines":1,"bbox":[102,516,900,24]}
+{"kind":"textbox","id":"sh/orql0z6x","slide":9,"text":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textPreview":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textChars":56,"textLines":1,"bbox":[72,681,800,16]}
+{"kind":"textbox","id":"sh/psz2947i","slide":9,"text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[1168,679,40,18]}
+{"kind":"notes","id":"nt/bituyr","slide":9,"text":"[Sources]\nProject source: backend/ml_engine.py horizons and inventory_intelligence output."}
+{"kind":"slide","id":"sl/j4t9sj","slide":10,"title":"PRODUCT EXPERIENCE","textShapes":18}
+{"kind":"textbox","id":"sh/il4fmdkz","slide":10,"text":"PRODUCT EXPERIENCE","textPreview":"PRODUCT EXPERIENCE","textChars":18,"textLines":1,"bbox":[72,42,420,20]}
+{"kind":"textbox","id":"sh/5oveh83q","slide":10,"text":"The UI turns a complex pipeline into reviewable actions","textPreview":"The UI turns a complex pipeline into reviewable actions","textChars":55,"textLines":1,"bbox":[72,74,1136,58]}
+{"kind":"textbox","id":"sh/4nmxo325","slide":10,"text":"The Next.js app exposes the same intelligence through focused workflows for executives, analysts, and administrators.","textPreview":"The Next.js app exposes the same intelligence through focused workflows for executives, analysts, and administrators.","textChars":117,"textLines":1,"bbox":[72,136,1060,32]}
+{"kind":"shape","id":"sh/raxwji1g","slide":10,"bbox":[72,180,1136,1]}
+{"kind":"shape","id":"sh/qpofqdkb","slide":10,"bbox":[72,224,350,112]}
+{"kind":"shape","id":"sh/dcfelsjm","slide":10,"bbox":[72,224,7,112]}
+{"kind":"textbox","id":"sh/sb6xsn21","slide":10,"text":"Overview","textPreview":"Overview","textChars":8,"textLines":1,"bbox":[94,240,316,28]}
+{"kind":"textbox","id":"sh/fexwn21s","slide":10,"text":"Revenue trend, demand index, model benchmark","textPreview":"Revenue trend, demand index, model benchmark","textChars":44,"textLines":1,"bbox":[94,276,316,52]}
+{"kind":"shape","id":"sh/edofuxk7","slide":10,"bbox":[454,224,350,112]}
+{"kind":"shape","id":"sh/wrix83y1","slide":10,"bbox":[454,224,7,112]}
+{"kind":"textbox","id":"sh/hcryh8z6","slide":10,"text":"Product catalog","textPreview":"Product catalog","textChars":15,"textLines":1,"bbox":[476,240,316,28]}
+{"kind":"textbox","id":"sh/upgf6dgv","slide":10,"text":"SKU-level price and inventory context","textPreview":"SKU-level price and inventory context","textChars":37,"textLines":1,"bbox":[476,276,316,52]}
+{"kind":"shape","id":"sh/vq9gfihg","slide":10,"bbox":[836,224,350,112]}
+{"kind":"shape","id":"sh/4fixcnyx","slide":10,"bbox":[836,224,7,112]}
+{"kind":"textbox","id":"sh/5grylsfi","slide":10,"text":"Prediction modal","textPreview":"Prediction modal","textChars":16,"textLines":1,"bbox":[858,240,316,28]}
+{"kind":"textbox","id":"sh/id0fadgr","slide":10,"text":"Models, curve, horizons, agents, rationale","textPreview":"Models, curve, horizons, agents, rationale","textChars":42,"textLines":1,"bbox":[858,276,316,52]}
+{"kind":"shape","id":"sh/3e9gjihc","slide":10,"bbox":[72,366,350,112]}
+{"kind":"shape","id":"sh/sj2hgnyt","slide":10,"bbox":[72,366,7,112]}
+{"kind":"textbox","id":"sh/dkbypsfe","slide":10,"text":"Competitor analysis","textPreview":"Competitor analysis","textChars":19,"textLines":1,"bbox":[94,382,316,28]}
+{"kind":"textbox","id":"sh/107y9s7i","slide":10,"text":"Our price vs market position","textPreview":"Our price vs market position","textChars":28,"textLines":1,"bbox":[94,418,316,52]}
+{"kind":"shape","id":"sh/0zyx0nqd","slide":10,"bbox":[454,366,350,112]}
+{"kind":"shape","id":"sh/zypg7ips","slide":10,"bbox":[454,366,7,112]}
+{"kind":"textbox","id":"sh/exgfyd87","slide":10,"text":"Revenue simulator","textPreview":"Revenue simulator","textChars":17,"textLines":1,"bbox":[476,382,316,28]}
+{"kind":"textbox","id":"sh/94rydc7u","slide":10,"text":"Test price and discount scenarios","textPreview":"Test price and discount scenarios","textChars":33,"textLines":1,"bbox":[476,418,316,52]}
+{"kind":"shape","id":"sh/o3yx47q9","slide":10,"bbox":[836,366,350,112]}
+{"kind":"shape","id":"sh/n2pgb2po","slide":10,"bbox":[836,366,7,112]}
+{"kind":"textbox","id":"sh/m1gf2x83","slide":10,"text":"Seasonal reports","textPreview":"Seasonal reports","textChars":16,"textLines":1,"bbox":[858,382,316,28]}
+{"kind":"textbox","id":"sh/p8ne18rq","slide":10,"text":"Weekly/monthly patterns and alerts","textPreview":"Weekly/monthly patterns and alerts","textChars":34,"textLines":1,"bbox":[858,418,316,52]}
+{"kind":"shape","id":"sh/47exs3q5","slide":10,"bbox":[72,528,1136,48]}
+{"kind":"textbox","id":"sh/u1s3mpkr","slide":10,"text":"React / Next.js 14  ↔  FastAPI  ↔  CSV + ML + external APIs","textPreview":"React / Next.js 14  ↔  FastAPI  ↔  CSV + ML + external APIs","textChars":59,"textLines":1,"bbox":[94,542,1080,22]}
+{"kind":"textbox","id":"sh/v214fa1w","slide":10,"text":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textPreview":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textChars":56,"textLines":1,"bbox":[72,681,800,16]}
+{"kind":"textbox","id":"sh/w3alof2h","slide":10,"text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1168,679,40,18]}
+{"kind":"notes","id":"nt/j4t9sj","slide":10,"text":"[Sources]\nProject source: src/app/page.tsx and components; backend/main.py API routes; package.json dependencies."}
+{"kind":"slide","id":"sl/c8hlcd","slide":11,"title":"WALKTHROUGH","textShapes":17}
+{"kind":"textbox","id":"sh/y1cnmdwf","slide":11,"text":"WALKTHROUGH","textPreview":"WALKTHROUGH","textChars":11,"textLines":1,"bbox":[72,42,420,20]}
+{"kind":"textbox","id":"sh/l436xsv6","slide":11,"text":"A single SKU travels through the full system","textPreview":"A single SKU travels through the full system","textChars":44,"textLines":1,"bbox":[72,74,1136,58]}
+{"kind":"textbox","id":"sh/03u5onel","slide":11,"text":"Example: Wireless Noise-Canceling Headphones from catalog record to explainable price action.","textPreview":"Example: Wireless Noise-Canceling Headphones from catalog record to explainable price action.","textChars":93,"textLines":1,"bbox":[72,136,1060,32]}
+{"kind":"shape","id":"sh/7qloz2dw","slide":11,"bbox":[72,180,1136,1]}
+{"kind":"shape","id":"sh/mpcnqxwb","slide":11,"bbox":[72,246,252,220]}
+{"kind":"textbox","id":"sh/9sn61cv2","slide":11,"text":"INPUT","textPreview":"INPUT","textChars":5,"textLines":1,"bbox":[92,270,200,20]}
+{"kind":"textbox","id":"sh/8ru5s7eh","slide":11,"text":"$199.99 current price\n$110 cost\n$189.99 competitor\n420 units in stock","textPreview":"$199.99 current price | $110 cost | $189.99 competitor | 420 units in stock","textChars":69,"textLines":4,"bbox":[92,314,210,116]}
+{"kind":"textbox","id":"sh/vu5o32d8","slide":11,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[326,336,34,30]}
+{"kind":"shape","id":"sh/utw7uxwn","slide":11,"bbox":[358,246,252,220]}
+{"kind":"textbox","id":"sh/4vmt4z21","slide":11,"text":"MODEL","textPreview":"MODEL","textChars":5,"textLines":1,"bbox":[378,270,200,20]}
+{"kind":"textbox","id":"sh/5wvax436","slide":11,"text":"1,250 sales / 30d\nElasticity 1.45\n12 engineered features\n80/20 chronological split","textPreview":"1,250 sales / 30d | Elasticity 1.45 | 12 engineered features | 80/20 chronological split","textChars":82,"textLines":4,"bbox":[378,314,210,116]}
+{"kind":"textbox","id":"sh/it4r29kv","slide":11,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[612,336,34,30]}
+{"kind":"shape","id":"sh/3udsvulg","slide":11,"bbox":[644,246,252,220]}
+{"kind":"textbox","id":"sh/szmt8j2x","slide":11,"text":"SEARCH","textPreview":"SEARCH","textChars":6,"textLines":1,"bbox":[664,270,200,20]}
+{"kind":"textbox","id":"sh/d0va1o3i","slide":11,"text":"Tavily market context\nSeasonal demand windows\nNews sentiment","textPreview":"Tavily market context | Seasonal demand windows | News sentiment","textChars":60,"textLines":3,"bbox":[664,314,210,116]}
+{"kind":"textbox","id":"sh/qx4b69kr","slide":11,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[898,336,34,30]}
+{"kind":"shape","id":"sh/rydszelc","slide":11,"bbox":[930,246,252,220]}
+{"kind":"textbox","id":"sh/0n6tcj2t","slide":11,"text":"ACTION","textPreview":"ACTION","textChars":6,"textLines":1,"bbox":[950,270,200,20]}
+{"kind":"textbox","id":"sh/1ofa5o3e","slide":11,"text":"Evaluate 16 prices\nMaximize projected profit\nReturn price + rationale","textPreview":"Evaluate 16 prices | Maximize projected profit | Return price + rationale","textChars":69,"textLines":3,"bbox":[950,314,210,116]}
+{"kind":"textbox","id":"sh/9kbapovi","slide":11,"text":"The key outcome is not just a number: it is a traceable chain from observable inputs to a profit-maximizing recommendation.","textPreview":"The key outcome is not just a number: it is a traceable chain from observable inputs to a profit-maximizing recommendation.","textChars":123,"textLines":1,"bbox":[72,536,1120,32]}
+{"kind":"textbox","id":"sh/8j29wjud","slide":11,"text":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textPreview":"PRICEPILOT AI  /  DYNAMIC PRICING & REVENUE INTELLIGENCE","textChars":56,"textLines":1,"bbox":[72,681,800,16]}
+{"kind":"textbox","id":"sh/nitsneds","slide":11,"text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1168,679,40,18]}
+{"kind":"notes","id":"nt/c8hlcd","slide":11,"text":"[Sources]\nProject source: products_catalog.csv prod-1; backend/ml_engine.py; backend/agent_orchestrator.py."}
+{"kind":"slide","id":"sl/z19c5f","slide":12,"title":"FINAL TAKEAWAY","textShapes":11}
+{"kind":"textbox","id":"sh/g76pcra9","slide":12,"text":"FINAL TAKEAWAY","textPreview":"FINAL TAKEAWAY","textChars":14,"textLines":1,"bbox":[72,72,300,20]}
+{"kind":"textbox","id":"sh/f6x83mto","slide":12,"text":"PricePilot AI connects the “what” to the “why.”","textPreview":"PricePilot AI connects the “what” to the “why.”","textChars":47,"textLines":1,"bbox":[72,136,1080,72]}
+{"kind":"textbox","id":"sh/e5o7ahsj","slide":12,"text":"It combines historical demand learning, explicit elasticity economics, live market context, and a practical operator interface.","textPreview":"It combines historical demand learning, explicit elasticity economics, live market context, and a practical operator interface.","textChars":127,"textLines":1,"bbox":[76,246,850,68]}
+{"kind":"shape","id":"sh/t4fq1cby","slide":12,"bbox":[76,362,520,4]}
+{"kind":"textbox","id":"sh/sj6p87ad","slide":12,"text":"Predict","textPreview":"Predict","textChars":7,"textLines":1,"bbox":[76,432,180,30]}
+{"kind":"textbox","id":"sh/rid8zmts","slide":12,"text":"Demand from price, promotion, and seasonality","textPreview":"Demand from price, promotion, and seasonality","textChars":45,"textLines":1,"bbox":[250,432,700,30]}
+{"kind":"textbox","id":"sh/6h476hs7","slide":12,"text":"Optimize","textPreview":"Optimize","textChars":8,"textLines":1,"bbox":[76,494,180,30]}
+{"kind":"textbox","id":"sh/d0zqdgr2","slide":12,"text":"Price candidates for projected gross profit","textPreview":"Price candidates for projected gross profit","textChars":43,"textLines":1,"bbox":[250,494,700,30]}
+{"kind":"textbox","id":"sh/cfq9kbah","slide":12,"text":"Explain","textPreview":"Explain","textChars":7,"textLines":1,"bbox":[76,556,180,30]}
+{"kind":"textbox","id":"sh/2xorahgn","slide":12,"text":"Use agents to turn signals into action","textPreview":"Use agents to turn signals into action","textChars":38,"textLines":1,"bbox":[250,556,700,30]}
+{"kind":"textbox","id":"sh/3yxs3mx8","slide":12,"text":"Next evolution: persist decisions and outcomes, add experiment feedback, cache model runs, and move approvals to durable storage.","textPreview":"Next evolution: persist decisions and outcomes, add experiment feedback, cache model runs, and move approvals to durable storage.","textChars":129,"textLines":1,"bbox":[76,638,1000,24]}
+{"kind":"textbox","id":"sh/4z69cryt","slide":12,"text":"12","textPreview":"12","textChars":2,"textLines":1,"bbox":[1168,679,40,18]}
+{"kind":"notes","id":"nt/z19c5f","slide":12,"text":"[Sources]\nProject source: synthesis of repository architecture and implementation. Future evolution is a design recommendation, not an existing feature."}

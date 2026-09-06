@@ -1,0 +1,11 @@
+product_id,name,category,sku,current_price,cost_price,competitor_price,competitor_name,inventory,historical_sales_30d,rating,demand_trend,elasticity_score,discount_percentage,seasonality_factor,last_updated
+prod-1,Wireless Noise-Canceling Headphones,Audio & Electronics,AUD-WNC-001,199.99,110.0,189.99,TechGiant Store,420,1250,4.7,Increasing,1.45,5,High (Holiday & Back to School),2026-08-18
+prod-2,Smart Fitness Watch Ultra,Wearables,WEAR-SFW-002,249.5,135.0,259.99,FitLife Direct,180,980,4.6,Stable,1.2,0,Medium (New Year & Summer),2026-08-18
+prod-3,Ergonomic Mesh Office Chair,Office & Furniture,FURN-EMC-003,329.0,170.0,349.0,OfficeDepot Hub,75,410,4.8,Increasing,0.85,10,Constant,2026-08-18
+prod-4,Mechanical Gaming Keyboard RGB,Gaming & PC,GAME-MGK-004,89.99,42.0,79.99,CyberGear World,610,2100,4.5,Increasing,1.7,15,High (Q4 Holiday),2026-08-18
+prod-5,Ultra-Wide 4K Monitor 34-inch,Display & PC,ELEC-UWM-005,499.99,310.0,529.99,VisionMarket,95,310,4.9,Decreasing,1.1,0,Medium,2026-08-18
+prod-6,Portable Espresso Coffee Maker,Home Appliances,HOME-PEC-006,74.5,32.0,69.99,KitchenBoutique,340,840,4.4,Increasing,1.6,8,High (Mother's Day & Holidays),2026-08-18
+prod-7,Compact Robot Vacuum & Mop,Home Appliances,HOME-RVM-007,389.0,220.0,399.0,CleanTech Direct,115,520,4.6,Increasing,1.35,5,High (Spring & Black Friday),2026-08-18
+prod-8,Pro Studio Condenser Microphone,Audio & Electronics,AUD-PCM-008,149.0,68.0,159.0,AudioStream Pro,260,730,4.8,Stable,1.05,0,Medium,2026-08-18
+prod-9,Smart Ambient LED Desk Lamp,Office & Furniture,FURN-SAL-009,49.99,18.5,44.99,Lumino Living,510,1640,4.5,Increasing,1.8,10,High (Back to School & Winter),2026-08-18
+prod-10,Dual Wireless Fast Charging Station,Audio & Electronics,ELEC-WCS-010,39.99,14.0,42.5,PowerHub Supply,820,2450,4.6,Stable,1.5,12,High (Holiday Stocking),2026-08-18
