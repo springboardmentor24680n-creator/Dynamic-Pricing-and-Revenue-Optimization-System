@@ -1,0 +1,157 @@
+date,product_name,category,price,stock,units_sold,competitor_price,discount
+2026-01-01,Laptop,Electronics,55000,20,4,56000,5
+2026-02-01,Laptop,Electronics,55000,20,5,56000,5
+2026-03-01,Laptop,Electronics,55000,20,5,56000,5
+2026-04-01,Laptop,Electronics,55000,20,6,56000,5
+2026-05-01,Laptop,Electronics,55000,20,6,56000,5
+2026-06-01,Laptop,Electronics,55000,20,7,56000,5
+2026-07-01,Laptop,Electronics,55000,20,7,56000,5
+2026-08-01,Laptop,Electronics,55000,20,8,56000,5
+2026-09-01,Laptop,Electronics,55000,20,8,56000,5
+2026-10-01,Laptop,Electronics,55000,20,9,56000,5
+2026-11-01,Laptop,Electronics,55000,20,12,56000,5
+2026-12-01,Laptop,Electronics,55000,20,15,56000,5
+2026-01-01,Gaming Laptop,Electronics,85000,20,3,87000,5
+2026-02-01,Gaming Laptop,Electronics,85000,20,4,87000,5
+2026-03-01,Gaming Laptop,Electronics,85000,20,4,87000,5
+2026-04-01,Gaming Laptop,Electronics,85000,20,5,87000,5
+2026-05-01,Gaming Laptop,Electronics,85000,20,5,87000,5
+2026-06-01,Gaming Laptop,Electronics,85000,20,6,87000,5
+2026-07-01,Gaming Laptop,Electronics,85000,20,6,87000,5
+2026-08-01,Gaming Laptop,Electronics,85000,20,7,87000,5
+2026-09-01,Gaming Laptop,Electronics,85000,20,7,87000,5
+2026-10-01,Gaming Laptop,Electronics,85000,20,8,87000,5
+2026-11-01,Gaming Laptop,Electronics,85000,20,10,87000,5
+2026-12-01,Gaming Laptop,Electronics,85000,20,13,87000,5
+2026-01-01,Desktop Computer,Electronics,48000,20,4,49000,5
+2026-02-01,Desktop Computer,Electronics,48000,20,5,49000,5
+2026-03-01,Desktop Computer,Electronics,48000,20,5,49000,5
+2026-04-01,Desktop Computer,Electronics,48000,20,6,49000,5
+2026-05-01,Desktop Computer,Electronics,48000,20,6,49000,5
+2026-06-01,Desktop Computer,Electronics,48000,20,7,49000,5
+2026-07-01,Desktop Computer,Electronics,48000,20,8,49000,5
+2026-08-01,Desktop Computer,Electronics,48000,20,8,49000,5
+2026-09-01,Desktop Computer,Electronics,48000,20,9,49000,5
+2026-10-01,Desktop Computer,Electronics,48000,20,10,49000,5
+2026-11-01,Desktop Computer,Electronics,48000,20,12,49000,5
+2026-12-01,Desktop Computer,Electronics,48000,20,15,49000,5
+2026-01-01,Monitor,Electronics,12000,30,6,11800,8
+2026-02-01,Monitor,Electronics,12000,30,7,11800,8
+2026-03-01,Monitor,Electronics,12000,30,8,11800,8
+2026-04-01,Monitor,Electronics,12000,30,6,11800,8
+2026-05-01,Monitor,Electronics,12000,30,7,11800,8
+2026-06-01,Monitor,Electronics,12000,30,8,11800,8
+2026-07-01,Monitor,Electronics,12000,30,9,11800,8
+2026-08-01,Monitor,Electronics,12000,30,10,11800,8
+2026-09-01,Monitor,Electronics,12000,30,9,11800,8
+2026-10-01,Monitor,Electronics,12000,30,11,11800,8
+2026-11-01,Monitor,Electronics,12000,30,13,11800,8
+2026-12-01,Monitor,Electronics,12000,30,16,11800,8
+2026-01-01,Keyboard,Accessories,1200,80,12,1250,10
+2026-02-01,Keyboard,Accessories,1200,80,13,1250,10
+2026-03-01,Keyboard,Accessories,1200,80,15,1250,10
+2026-04-01,Keyboard,Accessories,1200,80,12,1250,10
+2026-05-01,Keyboard,Accessories,1200,80,14,1250,10
+2026-06-01,Keyboard,Accessories,1200,80,16,1250,10
+2026-07-01,Keyboard,Accessories,1200,80,17,1250,10
+2026-08-01,Keyboard,Accessories,1200,80,18,1250,10
+2026-09-01,Keyboard,Accessories,1200,80,16,1250,10
+2026-10-01,Keyboard,Accessories,1200,80,20,1250,10
+2026-11-01,Keyboard,Accessories,1200,80,25,1250,10
+2026-12-01,Keyboard,Accessories,1200,80,30,1250,10
+2026-01-01,Mouse,Accessories,800,100,15,820,10
+2026-02-01,Mouse,Accessories,800,100,16,820,10
+2026-03-01,Mouse,Accessories,800,100,18,820,10
+2026-04-01,Mouse,Accessories,800,100,17,820,10
+2026-05-01,Mouse,Accessories,800,100,19,820,10
+2026-06-01,Mouse,Accessories,800,100,21,820,10
+2026-07-01,Mouse,Accessories,800,100,22,820,10
+2026-08-01,Mouse,Accessories,800,100,24,820,10
+2026-09-01,Mouse,Accessories,800,100,23,820,10
+2026-10-01,Mouse,Accessories,800,100,26,820,10
+2026-11-01,Mouse,Accessories,800,100,30,820,10
+2026-12-01,Mouse,Accessories,800,100,35,820,10
+2026-01-01,Wireless Mouse,Accessories,1500,60,10,1550,10
+2026-02-01,Wireless Mouse,Accessories,1500,60,11,1550,10
+2026-03-01,Wireless Mouse,Accessories,1500,60,12,1550,10
+2026-04-01,Wireless Mouse,Accessories,1500,60,11,1550,10
+2026-05-01,Wireless Mouse,Accessories,1500,60,13,1550,10
+2026-06-01,Wireless Mouse,Accessories,1500,60,14,1550,10
+2026-07-01,Wireless Mouse,Accessories,1500,60,15,1550,10
+2026-08-01,Wireless Mouse,Accessories,1500,60,17,1550,10
+2026-09-01,Wireless Mouse,Accessories,1500,60,16,1550,10
+2026-10-01,Wireless Mouse,Accessories,1500,60,19,1550,10
+2026-11-01,Wireless Mouse,Accessories,1500,60,22,1550,10
+2026-12-01,Wireless Mouse,Accessories,1500,60,25,1550,10
+2026-01-01,Headphones,Audio,3500,50,10,3600,8
+2026-02-01,Headphones,Audio,3500,50,11,3600,8
+2026-03-01,Headphones,Audio,3500,50,12,3600,8
+2026-04-01,Headphones,Audio,3500,50,11,3600,8
+2026-05-01,Headphones,Audio,3500,50,13,3600,8
+2026-06-01,Headphones,Audio,3500,50,14,3600,8
+2026-07-01,Headphones,Audio,3500,50,15,3600,8
+2026-08-01,Headphones,Audio,3500,50,17,3600,8
+2026-09-01,Headphones,Audio,3500,50,16,3600,8
+2026-10-01,Headphones,Audio,3500,50,19,3600,8
+2026-11-01,Headphones,Audio,3500,50,23,3600,8
+2026-12-01,Headphones,Audio,3500,50,28,3600,8
+2026-01-01,Bluetooth Speaker,Audio,4500,40,8,4600,8
+2026-02-01,Bluetooth Speaker,Audio,4500,40,9,4600,8
+2026-03-01,Bluetooth Speaker,Audio,4500,40,10,4600,8
+2026-04-01,Bluetooth Speaker,Audio,4500,40,9,4600,8
+2026-05-01,Bluetooth Speaker,Audio,4500,40,11,4600,8
+2026-06-01,Bluetooth Speaker,Audio,4500,40,12,4600,8
+2026-07-01,Bluetooth Speaker,Audio,4500,40,13,4600,8
+2026-08-01,Bluetooth Speaker,Audio,4500,40,14,4600,8
+2026-09-01,Bluetooth Speaker,Audio,4500,40,13,4600,8
+2026-10-01,Bluetooth Speaker,Audio,4500,40,16,4600,8
+2026-11-01,Bluetooth Speaker,Audio,4500,40,19,4600,8
+2026-12-01,Bluetooth Speaker,Audio,4500,40,23,4600,8
+2026-01-01,Smartphone,Electronics,25000,35,7,25200,5
+2026-02-01,Smartphone,Electronics,25000,35,8,25200,5
+2026-03-01,Smartphone,Electronics,25000,35,9,25200,5
+2026-04-01,Smartphone,Electronics,25000,35,7,25200,5
+2026-05-01,Smartphone,Electronics,25000,35,8,25200,5
+2026-06-01,Smartphone,Electronics,25000,35,10,25200,5
+2026-07-01,Smartphone,Electronics,25000,35,11,25200,5
+2026-08-01,Smartphone,Electronics,25000,35,12,25200,5
+2026-09-01,Smartphone,Electronics,25000,35,10,25200,5
+2026-10-01,Smartphone,Electronics,25000,35,13,25200,5
+2026-11-01,Smartphone,Electronics,25000,35,16,25200,5
+2026-12-01,Smartphone,Electronics,25000,35,20,25200,5
+2026-01-01,Tablet,Electronics,32000,25,5,32500,5
+2026-02-01,Tablet,Electronics,32000,25,6,32500,5
+2026-03-01,Tablet,Electronics,32000,25,7,32500,5
+2026-04-01,Tablet,Electronics,32000,25,6,32500,5
+2026-05-01,Tablet,Electronics,32000,25,7,32500,5
+2026-06-01,Tablet,Electronics,32000,25,8,32500,5
+2026-07-01,Tablet,Electronics,32000,25,9,32500,5
+2026-08-01,Tablet,Electronics,32000,25,10,32500,5
+2026-09-01,Tablet,Electronics,32000,25,9,32500,5
+2026-10-01,Tablet,Electronics,32000,25,11,32500,5
+2026-11-01,Tablet,Electronics,32000,25,14,32500,5
+2026-12-01,Tablet,Electronics,32000,25,17,32500,5
+2026-01-01,Smartwatch,Wearables,8500,30,8,8700,7
+2026-02-01,Smartwatch,Wearables,8500,30,9,8700,7
+2026-03-01,Smartwatch,Wearables,8500,30,10,8700,7
+2026-04-01,Smartwatch,Wearables,8500,30,9,8700,7
+2026-05-01,Smartwatch,Wearables,8500,30,11,8700,7
+2026-06-01,Smartwatch,Wearables,8500,30,12,8700,7
+2026-07-01,Smartwatch,Wearables,8500,30,13,8700,7
+2026-08-01,Smartwatch,Wearables,8500,30,15,8700,7
+2026-09-01,Smartwatch,Wearables,8500,30,14,8700,7
+2026-10-01,Smartwatch,Wearables,8500,30,17,8700,7
+2026-11-01,Smartwatch,Wearables,8500,30,21,8700,7
+2026-12-01,Smartwatch,Wearables,8500,30,25,8700,7
+2026-01-01,Fitness Band,Wearables,3500,40,12,3600,8
+2026-02-01,Fitness Band,Wearables,3500,40,13,3600,8
+2026-03-01,Fitness Band,Wearables,3500,40,14,3600,8
+2026-04-01,Fitness Band,Wearables,3500,40,13,3600,8
+2026-05-01,Fitness Band,Wearables,3500,40,15,3600,8
+2026-06-01,Fitness Band,Wearables,3500,40,16,3600,8
+2026-07-01,Fitness Band,Wearables,3500,40,18,3600,8
+2026-08-01,Fitness Band,Wearables,3500,40,19,3600,8
+2026-09-01,Fitness Band,Wearables,3500,40,18,3600,8
+2026-10-01,Fitness Band,Wearables,3500,40,21,3600,8
+2026-11-01,Fitness Band,Wearables,3500,40,25,3600,8
+2026-12-01,Fitness Band,Wearables,3500,40,30,3600,8

@@ -1,0 +1,13 @@
+date,product_name,category,competitor_avg_price,market_demand_index,competitor_count,market_trend
+2026-01-01,Laptop,Electronics,56000,72,5,Stable
+2026-02-01,Laptop,Electronics,56100,75,5,Rising
+2026-03-01,Laptop,Electronics,55900,70,5,Stable
+2026-04-01,Laptop,Electronics,56200,68,6,Falling
+2026-05-01,Laptop,Electronics,56500,74,6,Rising
+2026-06-01,Laptop,Electronics,56800,78,6,Rising
+2026-07-01,Laptop,Electronics,57000,82,7,Rising
+2026-08-01,Laptop,Electronics,57200,85,7,Rising
+2026-09-01,Laptop,Electronics,56900,80,7,Stable
+2026-10-01,Laptop,Electronics,57500,88,8,Rising
+2026-11-01,Laptop,Electronics,58000,94,8,High
+2026-12-01,Laptop,Electronics,58500,97,8,High
